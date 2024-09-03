@@ -8,6 +8,7 @@ import profileImg from "./assets/img/avatar-7.png";
 import HeaderTabs from "./components/header/HeaderTabs";
 import { TABSDATA } from "./utils/constant";
 import Profile from "./components/header/profile";
+import Sidebar from "./components/sidebar/Sidebar";
 
 const RootApp = () => {
   return (
@@ -22,7 +23,7 @@ const RootApp = () => {
                 profile={<Profile src={profileImg} />}
               />
             }
-            navbar={<Text>Sidebar</Text>}
+            navbar={<Sidebar />}
             main={<Text>Main</Text>}
           />
         }

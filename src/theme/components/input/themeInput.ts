@@ -25,6 +25,15 @@ export const themeInput: Partial<MantineThemeComponents> = {
       },
       input: {
         fontSize: 14,
+        border: "1px solid rgba(160, 160, 160, 0.2)",
+        background:
+          "linear-gradient(95.04deg, rgba(0, 0, 0, 0.02) 1.59%, rgba(0, 0, 0, 0.01) 99.68%)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        color: "black",
+        marginTop: "5px",
+        height: "48px",
+        "--input-placeholder-color": "black",
       },
     },
   }),
