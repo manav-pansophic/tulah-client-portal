@@ -1,0 +1,11 @@
+/* .header {
+  @apply shadow-sm drop-shadow py-3 min-h-[auto];
+}
+.title {
+  font-size: var(--mantine-font-size-md);
+  font-weight: var(--mantine-heading-font-weight);
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-gray-2));
+}
+.body {
+  padding: var(--mantine-spacing-md);
+} */
