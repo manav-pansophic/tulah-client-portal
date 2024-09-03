@@ -9,6 +9,7 @@ import { TABSDATA } from "./utils/constant";
 import Profile from "./components/header/profile";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
+import Gnome from "./components/Gnome/Gnome";
 
 const RootApp = () => {
   return (
