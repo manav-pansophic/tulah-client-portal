@@ -13,6 +13,7 @@
   "dependencies": {
     "@pansophictech/base": "^2.2.0",
     "@pansophictech/dates": "^11.0.0",
+    "@pansophictech/hook-form": "^12.7.0",
     "@pansophictech/modals": "^10.0.0",
     "@remixicon/react": "^4.2.0",
     "react": "^18.3.1",

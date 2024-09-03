@@ -5,18 +5,17 @@ import "./layout.css";
 
 interface LayoutProps {
   header?: ReactNode;
-  navbar?: ReactNode;
   main: ReactNode;
 }
 
-const Layout = ({ header, navbar, main }: LayoutProps) => {
+const Layout = ({ header, main }: LayoutProps) => {
   const [opened, { toggle }] = useDisclosure();
 
   const appShellProps = {
     ...(header && { header: { height: 100 } }),
-    ...(navbar && {
-      navbar: { width: 314, breakpoint: "sm", collapsed: { mobile: !opened } },
-    }),
+    // ...(navbar && {
+    //   navbar: { width: 314, breakpoint: "sm", collapsed: { mobile: !opened } },
+    // }),
   };
 
   return (
@@ -28,11 +27,11 @@ const Layout = ({ header, navbar, main }: LayoutProps) => {
         </AppShell.Header>
       )}
 
-      {navbar && (
+      {/* {navbar && (
         <AppShell.Navbar bg={"transparent"} withBorder={false}>
           {navbar}
         </AppShell.Navbar>
-      )}
+      )} */}
 
       <AppShell.Main bg={"transparent"}>{main}</AppShell.Main>
     </AppShell>

@@ -49,6 +49,12 @@ export const themeInput: Partial<MantineThemeComponents> = {
       },
       input: {
         fontSize: 14,
+        "--input-placeholder-color": "black",
+        border: "1px solid rgba(160, 160, 160, 0.2)",
+        background:
+          "linear-gradient(95.04deg, rgba(0, 0, 0, 0.02) 1.59%, rgba(0, 0, 0, 0.01) 99.68%)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
       },
     },
   }),
@@ -97,9 +103,18 @@ export const themeInput: Partial<MantineThemeComponents> = {
       },
     },
     styles: {
-      label: {
-        marginBottom: 5,
-        fontSize: 14,
+      input: {
+        fontSize: "var(--mantine-font-size-sm)",
+        border: "1px solid rgba(160, 160, 160, 0.2)",
+        background:
+          "linear-gradient(95.04deg, rgba(0, 0, 0, 0.02) 1.59%, rgba(0, 0, 0, 0.01) 99.68%)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        height: "48px",
+        "--input-placeholder-color": "black",
+      },
+      option: {
+        fontSize: "var(--mantine-font-size-sm)",
       },
     },
     classNames: selectCss,
@@ -153,9 +168,17 @@ export const themeInput: Partial<MantineThemeComponents> = {
       label: {
         marginBottom: 5,
         fontSize: 14,
+        fontWeight: 600,
       },
       input: {
         fontSize: 14,
+        border: "1px solid rgba(160, 160, 160, 0.2)",
+        background:
+          "linear-gradient(95.04deg, rgba(0, 0, 0, 0.02) 1.59%, rgba(0, 0, 0, 0.01) 99.68%)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        height: "48px",
+        "--input-placeholder-color": "black",
       },
     },
     classNames: datePickerCss,
