@@ -2,6 +2,8 @@
   border: 1px solid var(--mantine-color-default-border);
   /* margin: 0 var(--mantine-spacing-md) var(--mantine-spacing-sm); */
   width: 130px;
+  margin: 0px 20px;
+  font-weight: 600;
 }
 
 .card {
