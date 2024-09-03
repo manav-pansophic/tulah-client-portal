@@ -1,7 +1,7 @@
 .layout-bg-color {
   border: 1px solid rgba(109, 109, 109, 0.2);
   background: linear-gradient(
-    to right,
+    to bottom,
     rgba(0, 0, 0, 0.03),
     rgba(0, 0, 0, 0.01)
   );
@@ -13,8 +13,8 @@
   backdrop-filter: blur(40px);
 }
 .navbar-layout {
-  height: calc(100vh - 80px);
-  margin: 10px 0px 10px 10px;
+  height: calc(100vh - 110px);
+  margin: 0px 0px 10px 10px;
   border-radius: 10px;
   backdrop-filter: blur(40px);
 }
@@ -27,6 +27,16 @@
 .main-layout {
   height: calc(100vh - 80px);
   border-radius: 10px;
-  margin: 10px 10px;
+  margin: 0px 10px;
   backdrop-filter: blur(40px);
+}
+
+.bgForms {
+  border: 1px solid rgba(160, 160, 160, 0.2);
+  background: linear-gradient(
+    95.04deg,
+    rgba(0, 0, 0, 0.03) 1.59%,
+    rgba(0, 0, 0, 0.01) 99.68%
+  );
+  backdrop-filter: blur(20px);
 }

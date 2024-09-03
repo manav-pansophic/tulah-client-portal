@@ -15,7 +15,7 @@ const Layout = ({ header, navbar, main }: LayoutProps) => {
   const appShellProps = {
     ...(header && { header: { height: 100 } }),
     ...(navbar && {
-      navbar: { width: 300, breakpoint: "sm", collapsed: { mobile: !opened } },
+      navbar: { width: 314, breakpoint: "sm", collapsed: { mobile: !opened } },
     }),
   };
 
