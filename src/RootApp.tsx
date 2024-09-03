@@ -24,7 +24,7 @@ const RootApp = () => {
               />
             }
             navbar={<Sidebar />}
-            main={<Outlet/>}
+            main={<Outlet />}
           />
         }
       />
