@@ -30,29 +30,4 @@ export const TABSDATA = [
     content:
       "This is the content for the Set Data tab Clients Data Clients Data.",
   },
-  {
-    value: "finalData",
-    label: "Final Data",
-    // icon: <IconSettings size={16} />,
-    content: "This is the content for the Set Final Data",
-  },
-  {
-    value: "setData",
-    label: "Set Dataaaa",
-    // icon: <IconSettings size={16} />,
-    content: "This is the content for the Set Data",
-  },
-  {
-    value: "otherData",
-    label: "OtherData Dataaaa",
-    // icon: <IconSettings size={16} />,
-    content: "This is the content for the Set Data tab Other Data",
-  },
-  {
-    value: "clientsDataaaa",
-    label: "Clients Dataaaa",
-    // icon: <IconSettings size={16} />,
-    content:
-      "This is the content for the Set Data tab Clients Dataaaaaaa Clients Data.",
-  },
 ];

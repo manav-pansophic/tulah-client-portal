@@ -7,7 +7,7 @@ const Logo: FC<{ src: any }> = ({ src }) => {
       <Image
         src={src}
         width="100%"
-        height="32px"
+        height="50px"
         style={{
           objectFit: "contain",
           maxWidth: "100%",
