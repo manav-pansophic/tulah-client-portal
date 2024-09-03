@@ -1,0 +1,32 @@
+import { FC } from "react";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { PrivateRoutes } from "./PrivateRoutes";
+import RootApp from "../RootApp";
+
+const { BASE_URL } = import.meta.env;
+
+const AppRoutes: FC = () => {
+  const user = true;
+  return (
+    <BrowserRouter basename={BASE_URL}>
+      <Routes>
+        {/* <Route path="logout" element={<Logout />} /> */}
+
+        {user ? (
+          <>
+            <Route path="/*" element={<PrivateRoutes />} />
+            <Route index element={<Navigate to="/guests" />} />
+          </>
+        ) : (
+            <>
+            <Route path="/auth/register" element={<div>Register component</div>} />
+            <Route path="/auth/login" element={<div>Login component</div>} />
+            <Route path="*" element={<Navigate to="/auth/login" />} />
+            </>
+        )}
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export { AppRoutes };
