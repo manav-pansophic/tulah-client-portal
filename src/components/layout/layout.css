@@ -23,6 +23,7 @@
 }
 .navbar-layout {
   height: calc(100vh - 110px);
+  width: 400px;
   margin: 0px 0px 10px 10px;
   border-radius: 10px;
   backdrop-filter: blur(40px);

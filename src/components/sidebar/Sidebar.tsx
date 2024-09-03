@@ -27,7 +27,7 @@ const sidebarData = [
 
 const Sidebar = () => {
   return (
-    <Box className="layout-bg-color navbar-layout" p={"sm"}>
+    <Box className="layout-bg-color navbar-layout" p={"sm"} >
       <Button
         variant="outline"
         radius={"lg"}
