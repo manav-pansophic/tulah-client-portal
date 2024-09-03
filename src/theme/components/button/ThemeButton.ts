@@ -9,6 +9,13 @@ export const themeButton: Partial<MantineThemeComponents> = {
     defaultProps: {
       size: "md",
       variant: "filled",
+      lts: "2px",
+      tt: "uppercase",
+    },
+    styles: {
+      label: {
+        padding: "32px",
+      },
     },
   }),
   ActionIcon: ActionIcon.extend({
