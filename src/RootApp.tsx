@@ -1,6 +1,5 @@
 import MainBackgroundImage from "./components/layout/MainBackgroundImage";
 import Layout from "./components/layout/Layout";
-import { Text } from "@pansophictech/base";
 import Header from "./components/header/Header";
 import Logo from "./components/header/Logo";
 import logo from "./assets/img/logo.png";
@@ -9,6 +8,7 @@ import HeaderTabs from "./components/header/HeaderTabs";
 import { TABSDATA } from "./utils/constant";
 import Profile from "./components/header/profile";
 import { Outlet } from "react-router-dom";
+import Sidebar from "./components/sidebar/Sidebar";
 
 const RootApp = () => {
   return (
@@ -23,8 +23,8 @@ const RootApp = () => {
                 profile={<Profile src={profileImg} />}
               />
             }
-            navbar={<Text>Sidebar</Text>}
-            main={<Outlet/>}
+            main={<Outlet />}
+            navbar={<Sidebar />}
           />
         }
       />
