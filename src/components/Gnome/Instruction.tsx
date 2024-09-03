@@ -12,6 +12,7 @@ const Instruction: FC<{
         backdropFilter: "blur(40px)",
       }}
       radius={"sm"}
+      p="sm"
     >
       <Text fw={600}>{instructionTitle}</Text>
       {instructionList?.map((item, index) => (

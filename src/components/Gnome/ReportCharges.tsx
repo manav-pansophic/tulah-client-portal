@@ -19,7 +19,14 @@ const ReportCharges = () => {
       <Text size={"10px"} py="sm">
         Incl. of all taxes
       </Text>
-      <Button radius={"xl"} size="sm" fullWidth mb={5} className="layout">
+      <Button
+        radius={"xl"}
+        size="sm"
+        fullWidth
+        mb={10}
+        className="layout"
+        c="black"
+      >
         ADD TO BASKET
       </Button>
       <Button radius={"xl"} size="sm">
