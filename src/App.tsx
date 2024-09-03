@@ -3,6 +3,7 @@ import { theme } from "./theme";
 import { ModalsProvider } from "@pansophictech/modals";
 import "@pansophictech/base/styles.layer.css";
 import { AppRoutes } from "./routing/AppRoutes";
+import "./components/layout/layout.css";
 
 function App() {
   return (
