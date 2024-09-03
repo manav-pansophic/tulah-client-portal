@@ -1,8 +1,8 @@
 import { MantineProvider } from "@pansophictech/base";
 import { theme } from "./theme";
 import { ModalsProvider } from "@pansophictech/modals";
-import RootApp from "./RootApp";
 import "@pansophictech/base/styles.layer.css";
+import { AppRoutes } from "./routing/AppRoutes";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       withStaticClasses
     >
       <ModalsProvider>
-        <RootApp />
+        <AppRoutes />
       </ModalsProvider>
     </MantineProvider>
   );
