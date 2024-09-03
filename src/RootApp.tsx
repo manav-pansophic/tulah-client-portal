@@ -7,9 +7,8 @@ import profileImg from "./assets/img/avatar-7.png";
 import HeaderTabs from "./components/header/HeaderTabs";
 import { TABSDATA } from "./utils/constant";
 import Profile from "./components/header/profile";
-import { Outlet } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
-import Gnome from "./components/Gnome/Gnome";
+import { Outlet } from "react-router-dom";
 
 const RootApp = () => {
   return (
@@ -24,8 +23,8 @@ const RootApp = () => {
                 profile={<Profile src={profileImg} />}
               />
             }
-            main={<Outlet />}
             navbar={<Sidebar />}
+            main={<Outlet />}
           />
         }
       />
