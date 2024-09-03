@@ -13,9 +13,9 @@ const Layout = ({ header, navbar, main }: LayoutProps) => {
   const [opened, { toggle }] = useDisclosure();
 
   const appShellProps = {
-    ...(header && { header: { height: 60 } }),
+    ...(header && { header: { height: 100 } }),
     ...(navbar && {
-      navbar: { width: 340, breakpoint: "sm", collapsed: { mobile: !opened } },
+      navbar: { width: 300, breakpoint: "sm", collapsed: { mobile: !opened } },
     }),
   };
 

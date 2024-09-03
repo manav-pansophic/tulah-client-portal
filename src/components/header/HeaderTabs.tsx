@@ -14,7 +14,7 @@ interface NavTabsProps {
 
 const HeaderTabs: FC<NavTabsProps> = ({ tabsData }) => {
   return (
-    <Flex justify={"center"} align={"center"} h="53px" gap="sm">
+    <Flex justify={"center"} align={"center"} h="80px" gap="sm">
       <Tabs variant="pills" radius="xl" classNames={timeLineCss}>
         <Tabs.List grow>
           {tabsData.map((tab) => (
