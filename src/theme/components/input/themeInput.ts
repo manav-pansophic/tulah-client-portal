@@ -1,12 +1,16 @@
 import datePickerCss from "../input/datepicker.module.css";
 import selectCss from "../input/select.module.css";
 import {
+  Checkbox,
+  CheckboxGroup,
   FileInput,
   InputBase,
   MantineThemeComponents,
   MultiSelect,
   NumberInput,
   PasswordInput,
+  Radio,
+  RadioGroup,
   Select,
   Textarea,
   TextInput,
@@ -20,8 +24,9 @@ export const themeInput: Partial<MantineThemeComponents> = {
     },
     styles: {
       label: {
-        marginBottom: 5,
+        marginBottom: 10,
         fontSize: 14,
+        fontWeight: 600,
       },
       input: {
         fontSize: 14,
@@ -44,8 +49,9 @@ export const themeInput: Partial<MantineThemeComponents> = {
     },
     styles: {
       label: {
-        marginBottom: 5,
+        marginBottom: 10,
         fontSize: 14,
+        fontWeight: 600,
       },
       input: {
         fontSize: 14,
@@ -64,10 +70,58 @@ export const themeInput: Partial<MantineThemeComponents> = {
     },
     styles: {
       label: {
+        marginBottom: 10,
+        fontSize: 14,
+      },
+      input: {
+        fontSize: 14,
+      },
+    },
+  }),
+  Checkbox: Checkbox.extend({
+    defaultProps: {
+      size: "md",
+    },
+    styles: {
+      label: {
         marginBottom: 5,
         fontSize: 14,
       },
       input: {
+        fontSize: 14,
+      },
+    },
+  }),
+  CheckboxGroup: CheckboxGroup.extend({
+    defaultProps: {
+      size: "md",
+    },
+    styles: {
+      label: {
+        marginBottom: 10,
+        fontSize: 14,
+        fontWeight: 600,
+      },
+    },
+  }),
+  RadioGroup: RadioGroup.extend({
+    defaultProps: {
+      size: "md",
+    },
+    styles: {
+      label: {
+        fontSize: 14,
+        fontWeight: 600,
+      },
+    },
+  }),
+  Radio: Radio.extend({
+    defaultProps: {
+      size: "md",
+    },
+    styles: {
+      label: {
+        marginBottom: 5,
         fontSize: 14,
       },
     },
@@ -99,9 +153,23 @@ export const themeInput: Partial<MantineThemeComponents> = {
       size: "md",
       styles: {
         input: { fontSize: "var(--mantine-font-size-sm)" },
-        option: { fontSize: "var(--mantine-font-size-sm)" },
+        option: {
+          fontSize: "var(--mantine-font-size-sm)",
+        },
+        label: {
+          fontSize: 14,
+          marginBottom: 15,
+          fontWeight: 600,
+        },
+        dropdown: {
+          border: "1px solid rgba(160, 160, 160, 0.2)",
+          background:
+            "linear-gradient(95.04deg, rgba(0, 0, 0, 0.02) 1.59%, rgba(0, 0, 0, 0.01) 99.68%)",
+          backdropFilter: "blur(50px)",
+        },
       },
     },
+
     styles: {
       input: {
         fontSize: "var(--mantine-font-size-sm)",
@@ -166,7 +234,7 @@ export const themeInput: Partial<MantineThemeComponents> = {
     },
     styles: {
       label: {
-        marginBottom: 5,
+        marginBottom: 15,
         fontSize: 14,
         fontWeight: 600,
       },
