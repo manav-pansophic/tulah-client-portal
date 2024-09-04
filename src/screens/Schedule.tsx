@@ -22,6 +22,9 @@ import ScheduleArricalCard from "../components/Schedule/ScheduleArricalCard";
 import DeliveryScheduledCard from "../components/Schedule/kitstatus/DeliveryScheduledCard";
 import DeliveredCard from "../components/Schedule/kitstatus/DeliveredCard";
 import TestStatus from "../components/Gnome/TestStatus";
+import SchedulePickup from "../components/Schedule/kitstatus/SchedulePickup";
+import PickupScheduledCard from "../components/Schedule/kitstatus/PickupScheduledCard";
+import Completed from "../components/Schedule/kitstatus/Completed";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
@@ -69,11 +72,23 @@ export const Schedule = () => {
                 </Stack>
               </Flex>
               <Divider orientation="vertical" m="lg" color="gray" />
-              <Box py="md" my="xl">
-                <DeliveredCard
+              <Box>
+                {/* <DeliveredCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
-                />
+                /> */}
+                {/* <SchedulePickup
+                  isPicked={isPicked}
+                  onSubmitClick={() => setScheduling(true)}
+                  onBack={() => setScheduling(false)}
+                /> */}
+                {/* <PickupScheduledCard
+                  isPicked={isPicked}
+                  onScheduleClick={() => setScheduling(true)}
+                  // onSubmitClick={() => setScheduling(true)}
+                  // onBack={() => setScheduling(false)}
+                /> */}
+                <Completed />
               </Box>
             </Flex>
           </Paper>
