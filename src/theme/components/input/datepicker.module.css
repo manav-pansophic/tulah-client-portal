@@ -1,15 +1,7 @@
 .wrapper {
-    .section {
-        transition: transform 0.1s ease-in-out;
-        &[data-position="right"] {
-            transform: scale(0);
-        }
+  .section {
+    &[data-position="right"] {
+      transform: scale(1);
     }
-    &:hover {
-        .section {
-            &[data-position="right"] {
-                transform: scale(1);
-            }
-        }
-    }
+  }
 }

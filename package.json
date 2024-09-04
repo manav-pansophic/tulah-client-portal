@@ -11,13 +11,18 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@mantine/tiptap": "^7.12.2",
     "@pansophictech/base": "^2.2.0",
     "@pansophictech/dates": "^11.0.0",
     "@pansophictech/hook-form": "^12.7.0",
     "@pansophictech/modals": "^10.0.0",
     "@remixicon/react": "^4.2.0",
+    "@tiptap/extension-underline": "^2.6.6",
+    "@tiptap/react": "^2.6.6",
+    "@tiptap/starter-kit": "^2.6.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
