@@ -27,16 +27,16 @@ const sidebarData = [
 
 const Sidebar = () => {
   return (
-    <Box className="layout-bg-color navbar-layout" p={"sm"} >
+    <Box className="layout-bg-color navbar-layout" p={"sm"}>
       <Button
         variant="outline"
         radius={"lg"}
         w={"100%"}
         size="sm"
         my={8}
-        leftSection={<RiAddLine size={18} />}
+        // leftSection={<RiAddLine size={18} />}
       >
-        ADD NEW LEAD
+        + ADD NEW LEAD
       </Button>
       <Divider color="gray.5" mb={15} mt={7} />
       <TextInput

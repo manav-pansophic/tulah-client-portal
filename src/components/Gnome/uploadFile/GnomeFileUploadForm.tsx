@@ -24,7 +24,7 @@ const GnomeFileUploadForm = () => {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(handleFormSubmit)}>
           <FileUploadAndPreview
-            name="aadhar_image"
+            name="gnome_type"
             accept={GNOME_TYPE.TYPE}
             allowedMessage={GNOME_TYPE.MESSAGE}
             cardHeight={10}

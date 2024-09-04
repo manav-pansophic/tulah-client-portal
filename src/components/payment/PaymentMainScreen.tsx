@@ -22,9 +22,23 @@ import {
 import { Link } from "react-router-dom";
 
 const PaymentMainScreen = () => {
+  const basket = [
+    {
+      title: "GNOME Report",
+      by: "Pedro Abott",
+      price: "15000.00",
+      icon: "",
+    },
+    {
+      title: "MicroBIOME Report - Pedro",
+      by: "Pedro Abott",
+      price: "25000.00",
+      icon: "",
+    },
+  ];
   const elements = [
     {
-      Txn_ID: 978 - 79416 - 0,
+      Txn_ID: "978 - 79416 - 0",
       Txn_Date: "31/08/2024",
       Status: "success",
       Item_name: "GNOME Report",
@@ -33,7 +47,7 @@ const PaymentMainScreen = () => {
       Action: "View Action",
     },
     {
-      Txn_ID: 978 - 20220 - 9,
+      Txn_ID: "978 - 20220 - 9",
       Txn_Date: "31/08/2024",
       Status: "inprogress",
       Item_name: "MICROBIOME Report",
@@ -42,7 +56,7 @@ const PaymentMainScreen = () => {
       Action: "",
     },
     {
-      Txn_ID: 978 - 20220 - 9,
+      Txn_ID: "978 - 20220 - 9",
       Txn_Date: "31/08/2024",
       Status: "failed",
       Item_name: "GNOME Report",
@@ -51,7 +65,7 @@ const PaymentMainScreen = () => {
       Action: "",
     },
     {
-      Txn_ID: 978 - 20220 - 9,
+      Txn_ID: "978 - 20220 - 9",
       Txn_Date: "31/08/2024",
       Status: "failed",
       Item_name: "GNOME Report",
@@ -110,7 +124,75 @@ const PaymentMainScreen = () => {
   ));
   return (
     <>
-      <Box w={"100%"} h={"100%"} ml={"10px"}>
+
+      <Box
+        w={"calc(93vh* var(--mantine-scale))%"}
+        ml={"10px"}
+        bg={"transparent"}
+        h={"calc(89vh* var(--mantine-scale))"}
+        pb={"lg"}
+        mr={"sm"}
+      >
+        <Box h={"7%"} className={classes.box} mb={"sm"} p={"lg"}>
+          <Flex justify={"space-between"} w={"100%"} h={"max-content"}>
+            <Title
+              fz={"h4"}
+              lts={"5px"}
+              tt={"uppercase"}
+              c={"var(--mantine-color-theme-6)"}
+            >
+              Your Basket
+            </Title>
+
+            <Title fz={"h4"} lts={"5px"} tt={"uppercase"} c={"var(--mantine-color-theme-10)"}>
+              Total Items: 2 items
+            </Title>
+          </Flex>
+        </Box>
+        <Box h={"93%"} className={classes.box} p={"lg"}>
+          <Flex w={"100%"} h={"max-content"} direction={"column"}>
+            <Title
+              fz={"h4"}
+              lts={"5px"}
+              tt={"uppercase"}
+              c={"var(--mantine-color-theme-6)"}
+            >
+              payment history
+            </Title>
+
+            <Table
+              mt={"lg"}
+              stripedColor="none"
+              className={classes.table}
+              highlightOnHover
+              withRowBorders
+              style={{ "--table-border-color": "none" }}
+            >
+              <Table.Thead bg={"white"}>
+                <Table.Tr>
+                  <Table.Th>Txn ID</Table.Th>
+                  <Table.Th>Txn Date</Table.Th>
+                  <Table.Th>Status</Table.Th>
+                  <Table.Th>Item Name</Table.Th>
+                  <Table.Th>Gateway</Table.Th>
+                  <Table.Th>Amount</Table.Th>
+                  <Table.Th>Action</Table.Th>
+                </Table.Tr>
+              </Table.Thead>
+              <Table.Tbody>{rows}</Table.Tbody>
+            </Table>
+          </Flex>
+        </Box>
+      </Box>
+
+      {/* <Box
+        w={"calc(93vh* var(--mantine-scale))%"}
+        ml={"10px"}
+        bg={"transparent"}
+        h={"calc(89vh* var(--mantine-scale))"}
+        pb={"lg"}
+        mr={"sm"}
+      >
         <Box h={"65%"} className={classes.box} mb={"sm"} p={"lg"}>
           <Flex justify={"space-between"} w={"100%"} h={"max-content"}>
             <Title
@@ -122,7 +204,7 @@ const PaymentMainScreen = () => {
               Your Basket
             </Title>
 
-            <Title fz={"h4"} lts={"5px"} tt={"uppercase"} c={"darkgray"}>
+            <Title fz={"h4"} lts={"5px"} tt={"uppercase"} c={"var(--mantine-color-theme-10)"}>
               Total Items: 2 items
             </Title>
           </Flex>
@@ -209,7 +291,8 @@ const PaymentMainScreen = () => {
             </Table>
           </Flex>
         </Box>
-      </Box>
+      </Box> */}
+
     </>
   );
 };

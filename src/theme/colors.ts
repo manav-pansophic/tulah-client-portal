@@ -14,5 +14,6 @@ export const themeColors: Partial<
     "#381F32",
     "#2A1726",
     "#21121D",
+    "#A9A9A9"
   ],
 };
