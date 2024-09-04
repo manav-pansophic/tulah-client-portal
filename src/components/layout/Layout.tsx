@@ -7,6 +7,7 @@ interface LayoutProps {
   header?: ReactNode;
   main: ReactNode;
   aside?: ReactNode;
+  navbar ?:ReactNode;
 }
 
 const Layout = ({ header, navbar, main, aside }: LayoutProps) => {
