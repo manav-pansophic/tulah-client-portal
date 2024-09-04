@@ -1,6 +1,7 @@
 import {
   Box,
   CopyButton,
+  Divider,
   Flex,
   PinInput,
   Text,
@@ -18,13 +19,14 @@ const AccessCode = () => {
         tt="uppercase"
         style={{ letterSpacing: "3px" }}
         c="theme"
-        pt="sm"
+        pt={20}
         fw={600}
+        fs={"sm"}
       >
         YOUr ACCESS CODE
       </Text>
       <PinInput
-        size="sm"
+        size="md"
         type="number"
         length={6}
         classNames={classes}
@@ -43,7 +45,7 @@ const AccessCode = () => {
                   color="var(--mantine-color-theme-6)"
                   size="15px"
                 />
-                <Text onClick={copy} size="sm" c={"theme"}>
+                <Text onClick={copy} size="md" c={"theme"}>
                   Click to Copy Code
                 </Text>
               </Flex>
@@ -51,6 +53,7 @@ const AccessCode = () => {
           )}
         </CopyButton>
       </Box>
+      <Divider my={20} color="gray.4" w={"90%"} />
     </Flex>
   );
 };

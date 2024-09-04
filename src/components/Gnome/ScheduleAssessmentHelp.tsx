@@ -8,19 +8,19 @@ const ScheduleAssessmentHelp: FC<{
   description?: string;
 }> = ({ title, icon, name, description }) => {
   return (
-    <Paper className="layout">
+    <Paper className="layout" py={22} radius={"md"}>
       <Center>
         <Text
           tt="uppercase"
           fw={600}
           c="theme"
           style={{ letterSpacing: "3px" }}
-          pt={3}
+          pb={20}
         >
           {title}
         </Text>
       </Center>
-      <Paper className="layout" m={8} p={5}>
+      <Paper className="layout" mx={20} p={10}>
         <Flex align={"center"} gap="sm">
           <Box>{icon}</Box>
           <Flex direction={"column"}>
