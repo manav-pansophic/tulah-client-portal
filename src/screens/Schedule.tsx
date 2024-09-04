@@ -1,26 +1,81 @@
-import { Box, Flex, Paper } from "@pansophictech/base";
+import {
+  Box,
+  Divider,
+  Flex,
+  Paper,
+  Select,
+  Stack,
+  Text,
+} from "@pansophictech/base";
 import "../components/layout/layout.css";
 import AccessCode from "../components/Gnome/AccessCode";
 import ScheduleAssessmentHelp from "../components/Gnome/ScheduleAssessmentHelp";
-import { RiCheckboxCircleFill, RiPhoneFill } from "@remixicon/react";
+import {
+  RiCheckboxCircleFill,
+  RiDragMove2Line,
+  RiPhoneFill,
+} from "@remixicon/react";
 import { useState } from "react";
 import ScheduleStatusCard from "../components/Schedule/ScheduleStatusCard";
 import ArrivalCard from "../components/Schedule/ArrivalCard";
 import ScheduleArricalCard from "../components/Schedule/ScheduleArricalCard";
+import DeliveryScheduledCard from "../components/Schedule/kitstatus/DeliveryScheduledCard";
+import DeliveredCard from "../components/Schedule/kitstatus/DeliveredCard";
+import TestStatus from "../components/Gnome/TestStatus";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
   const [isscheduled, setIsScheduled] = useState(false);
-  const [statusType, setStatusType] = useState("CONFIRMED");
-  const [isPicked, setIsPicked] = useState(false);
+  const [statusType, setStatusType] = useState("INPROGRESS");
+  const [isPicked, setIsPicked] = useState(true);
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
-          <Paper className="layout" h="calc(100vh - 561px)">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
-            quod, quasi iure impedit vel error nobis praesentium officiis unde
-            est.
+          <Paper className="layout" h="calc(100vh - 561px)" p="lg">
+            <Flex h="100%">
+              <Flex direction={"column"}>
+                <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
+                  Report Status
+                </Text>
+                <Select
+                  defaultValue={"user"}
+                  data={[{ label: "Pedroo Abort", value: "user" }]}
+                  w={"100%"}
+                  pb={13}
+                />
+                <Stack w="300px">
+                  <TestStatus
+                    testIcon={
+                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
+                    }
+                    testName="GNOME"
+                    testStatus="To be done"
+                  />
+                  <TestStatus
+                    testIcon={
+                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
+                    }
+                    testName="GNOME"
+                    testStatus="To be done"
+                  />
+                  <TestStatus
+                    testIcon={
+                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
+                    }
+                    testName="GNOME"
+                    testStatus="To be done"
+                  />
+                </Stack>
+              </Flex>
+              <Divider orientation="vertical" m="lg" color="gray" />
+              <Box py="md" my="xl">
+                <DeliveredCard
+                  isPicked={isPicked}
+                  onScheduleClick={() => setScheduling(true)}
+                />
+              </Box>
+            </Flex>
           </Paper>
           {isscheduled ? (
             <Paper className="layout" h="calc(100vh - 555px)" p="lg">
