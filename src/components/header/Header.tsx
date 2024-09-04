@@ -20,13 +20,13 @@ const Header: FC<HeaderProps> = ({ logo, tabs, profile }) => {
       return { logoWidth: "50%", profileWidth: "50%" };
     if (!profile && logo && tabs) return { logoWidth: "15%", tabsWidth: "85%" };
 
-    return { logoWidth: "15%", tabsWidth: "75%", profileWidth: "10%" };
+    return { logoWidth: "10%", tabsWidth: "85%", profileWidth: "5%" };
   };
 
   const {
-    logoWidth = "15%",
-    tabsWidth = "70%",
-    profileWidth = "15%",
+    logoWidth = "10%",
+    tabsWidth = "80%",
+    profileWidth = "10%",
   } = getWidths();
 
   return (

@@ -1,25 +1,23 @@
-import uploadIcon from "../../../assets/img/misc/upload.svg";
 import {
   ActionIcon,
   Box,
   Flex,
-  Image,
   InputLabel,
   Stack,
   Text,
-} from "@mantine/core";
-import { Controller, useFormContext } from "react-hook-form";
-import { FC, useState } from "react";
+} from "@pansophictech/base";
 import {
   Dropzone,
   DropzoneProps,
   FileRejection,
   FileWithPath,
 } from "@pansophictech/dropzone";
-import { IconX } from "@tabler/icons-react";
-import RejectedFileTypeCard from "./RejectedFileTypeCard";
-import AcceptedFileTypeCard from "./AcceptedFileTypeCard";
 import { RiUpload2Fill } from "@remixicon/react";
+import { IconX } from "@tabler/icons-react";
+import { FC, useState } from "react";
+import { Controller, useFormContext } from "@pansophictech/hook-form";
+import AcceptedFileTypeCard from "./AcceptedFileTypeCard";
+import RejectedFileTypeCard from "./RejectedFileTypeCard";
 
 export interface IFileUpload {
   name: string;
@@ -32,6 +30,7 @@ export interface IFileUpload {
   props?: Partial<DropzoneProps>;
   cardHeight?: number;
   fileDesc?: string;
+  subName?: string;
 }
 const FileUploadAndPreview: FC<IFileUpload> = ({
   name,
@@ -44,6 +43,7 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
   cardHeight = 250,
   fileSize,
   fileDesc,
+  subName,
 }) => {
   const [localFiles, setLocalFiles] = useState<
     FileWithPath[] | FileRejection[] | any
@@ -146,11 +146,7 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
                             />
                           ) : (
                             <Dropzone.Idle>
-                              <Stack
-                                mih={cardHeight + 39}
-                                p="md"
-                                align="center"
-                              >
+                              <Stack mih={cardHeight} p="md" align="center">
                                 {/* <Image
                                   w={cardHeight - 80}
                                   h={cardHeight - 80}
@@ -160,10 +156,10 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
                                 /> */}
                                 <RiUpload2Fill color="var(--mantine-color-theme-6)" />
                                 <Box>
-                                  <Text size="md" fw={600} c="theme">
-                                    Drag and Drop
+                                  <Text size="md" fw={500} c="theme">
+                                    {subName}
                                   </Text>
-                                  <Text size="sm" c="dimmed" mt={7}>
+                                  <Text size={"10px"} mt={7}>
                                     {fileDesc}
                                   </Text>
                                 </Box>
@@ -181,11 +177,7 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
                             >
                               <Dropzone.Reject>
                                 <RejectedFileTypeCard
-                                  size={
-                                    fileSize
-                                      ? fileSize
-                                      : data?.company?.image_size
-                                  }
+                                  size={fileSize ? fileSize : "2mb"}
                                   files={localFiles as FileRejection[]}
                                   cardHeight={cardHeight}
                                 />
