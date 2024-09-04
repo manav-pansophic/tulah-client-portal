@@ -5,7 +5,7 @@ import {
   Paper,
   Select,
   Stack,
-  Text
+  Text,
 } from "@pansophictech/base";
 import { RiDragMove2Line } from "@remixicon/react";
 import GnomeAccordion from "./GnomeAccordion";
@@ -63,7 +63,7 @@ const Gnome = () => {
               instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
               instructionList={instructionList}
             />
-            <GnomeFileUploadForm />
+            {/* <GnomeFileUploadForm /> */}
           </Flex>
         </>
       ),
@@ -71,85 +71,62 @@ const Gnome = () => {
   ];
 
   return (
-    <div>
-      <Flex>
-        <Box
-          className="layout-bg-color navbar-layout"
-          p={"sm"}
-          w="calc(100vw - 120px)"
-        >
-          <Stack gap={8}>
-            <Box py={3}>
-              <Select
-                defaultValue={"user"}
-                data={[{ label: "Pedroo Abort", value: "user" }]}
-                w={"100%"}
-              />
-            </Box>
-            <Divider color="gray" pb="sm" />
-            <Text c="theme" size="sm" fw={600}>
-              Choose the tests you wish to take.
-            </Text>
-            <TestStatus
-              testIcon={
-                <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-              }
-              testName="GNOME"
-              testStatus="To be done"
+    <Flex>
+      <Box className="layout-bg-color navbar-layout" p={"sm"}>
+        <Stack gap={8}>
+          <Box py={3}>
+            <Select
+              defaultValue={"user"}
+              data={[{ label: "Pedroo Abort", value: "user" }]}
+              w={"100%"}
             />
-            <TestStatus
-              testIcon={
-                <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-              }
-              testName="GNOME"
-              testStatus="To be done"
-            />
-            <TestStatus
-              testIcon={
-                <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-              }
-              testName="GNOME"
-              testStatus="To be done"
-            />
-            <TestStatus
-              testIcon={
-                <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-              }
-              testName="GNOME"
-              testStatus="To be done"
-            />
-          </Stack>
-        </Box>
-        <Box>
-          <Paper
-            className="layout-bg-color"
-            style={{
-              backdropFilter: "blur(40px)",
-            }}
-            p="sm"
-            mx="sm"
-            radius={"lg"}
-          >
-            <Text fw={600}>What is GNOME?</Text>
-            <Text size="sm" pt="sm">
-              Lorem ipsum dolor sit amet consectetur. Cum diam viverra magna
-              tellus sollicitudin magna. Amet in libero phasellus viverra at
-              elit tellus porttitor. Aliquam eu vitae sociis dui id. Accumsan
-              ultrices dui tortor mi. Tortor cum accumsan pulvinar id molestie
-              bibendum in aliquet. Non enim nulla pulvinar quis a ut egestas. Et
-              nibh dolor adipiscing quam parturient tortor facilisis. Proin
-              vitae congue arcu elit. Molestie sed cursus aliquam ut suscipit
-              tempor lectus eu at. Curabitur elit viverra vitae habitant.
-              Nascetur mauris orci a urna mollis faucibus commodo quis. Proin
-              sit ultrices enim placerat eget. Ac convallis dictum feugiat
-              phasellus at eu proin.
-            </Text>
-          </Paper>
-          <GnomeAccordion data={groceries} />
-          <GnomeAccordion data={groceries1} />
-        </Box>
-      </Flex>
-    </div>
+          </Box>
+          <Divider color="gray" pb="sm" />
+          <Text c="theme" size="sm" fw={600}>
+            Choose the tests you wish to take.
+          </Text>
+          <TestStatus
+            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
+            testName="GNOME"
+            testStatus="To be done"
+          />
+          <TestStatus
+            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
+            testName="GNOME"
+            testStatus="To be done"
+          />
+          <TestStatus
+            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
+            testName="GNOME"
+            testStatus="To be done"
+          />
+          <TestStatus
+            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
+            testName="GNOME"
+            testStatus="To be done"
+          />
+        </Stack>
+      </Box>
+      <Box h="calc(100vh - 110px)" w={"100%"}>
+        <Paper className="layout" p="sm" mx="sm" radius={"lg"}>
+          <Text fw={600}>What is GNOME?</Text>
+          <Text size="sm" pt="sm">
+            Lorem ipsum dolor sit amet consectetur. Cum diam viverra magna
+            tellus sollicitudin magna. Amet in libero phasellus viverra at elit
+            tellus porttitor. Aliquam eu vitae sociis dui id. Accumsan ultrices
+            dui tortor mi. Tortor cum accumsan pulvinar id molestie bibendum in
+            aliquet. Non enim nulla pulvinar quis a ut egestas. Et nibh dolor
+            adipiscing quam parturient tortor facilisis. Proin vitae congue arcu
+            elit. Molestie sed cursus aliquam ut suscipit tempor lectus eu at.
+            Curabitur elit viverra vitae habitant. Nascetur mauris orci a urna
+            mollis faucibus commodo quis. Proin sit ultrices enim placerat eget.
+            Ac convallis dictum feugiat phasellus at eu proin.
+          </Text>
+        </Paper>
+        <GnomeAccordion data={groceries} />
+        <GnomeAccordion data={groceries1} />
+      </Box>
+    </Flex>
   );
 };
 

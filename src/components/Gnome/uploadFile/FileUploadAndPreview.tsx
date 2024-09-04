@@ -4,7 +4,7 @@ import {
   Flex,
   InputLabel,
   Stack,
-  Text
+  Text,
 } from "@pansophictech/base";
 import {
   Dropzone,
@@ -146,11 +146,7 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
                             />
                           ) : (
                             <Dropzone.Idle>
-                              <Stack
-                                mih={cardHeight}
-                                p="md"
-                                align="center"
-                              >
+                              <Stack mih={cardHeight} p="md" align="center">
                                 {/* <Image
                                   w={cardHeight - 80}
                                   h={cardHeight - 80}
@@ -181,11 +177,7 @@ const FileUploadAndPreview: FC<IFileUpload> = ({
                             >
                               <Dropzone.Reject>
                                 <RejectedFileTypeCard
-                                  size={
-                                    fileSize
-                                      ? fileSize
-                                      : data?.company?.image_size
-                                  }
+                                  size={fileSize ? fileSize : "2mb"}
                                   files={localFiles as FileRejection[]}
                                   cardHeight={cardHeight}
                                 />
