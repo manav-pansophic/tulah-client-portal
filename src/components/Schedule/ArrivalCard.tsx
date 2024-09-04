@@ -20,7 +20,7 @@ const ArrivalCard: FC<{ isPicked: boolean; onScheduleClick: () => void }> = ({
             </Text>
             <Image src={logo} />
           </Flex>
-          {!isPicked && (
+          {isPicked && (
             <Text size="sm" pt="lg">
               Please select a date at least 15 days after sample pickup.
             </Text>
