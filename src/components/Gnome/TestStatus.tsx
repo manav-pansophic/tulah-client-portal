@@ -1,10 +1,10 @@
 import {
-    ActionIcon,
-    Badge,
-    Box,
-    Divider,
-    Flex,
-    Text,
+  ActionIcon,
+  Badge,
+  Box,
+  Divider,
+  Flex,
+  Text,
 } from "@pansophictech/base";
 import { FC } from "react";
 
@@ -15,7 +15,7 @@ const TestStatus: FC<{
 }> = ({ testName, testStatus, testIcon }) => {
   return (
     <>
-      <Box className="transparent" m="sm" p="sm">
+      <Box className="transparent" m="sm">
         <Flex align={"center"} gap="sm">
           <ActionIcon variant="light" color="#3C3C3C" size="lg">
             {testIcon}
