@@ -35,9 +35,9 @@ export const Schedule = () => {
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
-          <Paper className="layout" h="calc(100vh - 561px)" p="lg">
+          <Paper className="layout" h="calc(100vh - 561px)">
             <Flex h="100%">
-              <Flex direction={"column"}>
+              <Box p="lg">
                 <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
                   Report Status
                 </Text>
@@ -70,9 +70,14 @@ export const Schedule = () => {
                     testStatus="To be done"
                   />
                 </Stack>
-              </Flex>
-              <Divider orientation="vertical" m="lg" color="gray" />
-              <Box>
+              </Box>
+              <Divider my="xl" orientation="vertical" color="gray" />
+              <Box w="100%" p="lg">
+                {/* <Box w="100%">// added this box for shedulepickup */}
+                {/* <DeliveryScheduledCard
+                  isPicked={isPicked}
+                  onScheduleClick={() => setScheduling(true)}
+                /> */}
                 {/* <DeliveredCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
@@ -82,6 +87,7 @@ export const Schedule = () => {
                   onSubmitClick={() => setScheduling(true)}
                   onBack={() => setScheduling(false)}
                 /> */}
+
                 {/* <PickupScheduledCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}

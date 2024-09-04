@@ -43,6 +43,7 @@ const SchedulePickup: FC<{
         direction="column"
         justify="space-between"
         h="100%"
+        p="lg"
         gap="lg"
         bg="var(--mantine-color-theme-0)"
       >

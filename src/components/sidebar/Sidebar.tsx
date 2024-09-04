@@ -10,17 +10,17 @@ import { RiSearchLine, RiAddLine } from "@remixicon/react";
 
 const sidebarData = [
   {
-    name: "John Doe",
+    name: "Pedro Abbott",
     avatar:
       "https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure.webp",
-    badgeName: "New",
+    badgeName: "Guest 1",
     time: "1s",
   },
   {
-    name: "Jane Smith",
+    name: "Belinda Abbott",
     avatar:
       "https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure.webp",
-    badgeName: "Verifying",
+    badgeName: "Guest 2",
     time: "15m",
   },
 ];
@@ -39,7 +39,7 @@ const Sidebar = () => {
         + ADD NEW LEAD
       </Button>
       <Divider color="gray.5" mb={15} mt={7} />
-      <TextInput
+      {/* <TextInput
         radius={"xl"}
         style={{
           borderRadius: "10px",
@@ -48,7 +48,7 @@ const Sidebar = () => {
         }}
         placeholder="Search"
         rightSection={<RiSearchLine color="black" size={20} />}
-      />
+      /> */}
 
       <ScrollAreaAutosize mah="calc(100vh - 270px)" scrollbarSize={2}>
         {sidebarData?.map((profile, index) => (
@@ -57,7 +57,7 @@ const Sidebar = () => {
             name={profile.name}
             avatar={profile.avatar}
             badgeName={profile.badgeName}
-            time={profile.time}
+            // time={profile.time}
           />
         ))}
       </ScrollAreaAutosize>

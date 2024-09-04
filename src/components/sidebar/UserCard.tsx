@@ -33,11 +33,13 @@ const UserCard: FC<IProfileInfoCard> = ({
         direction="row"
         className={`${profileInfoCardCSS.card} items-center`}
         justify="flex-start"
+        align="center"
+        py={12}
       >
-        <Box py={7}>
+        <Box>
           <Avatar size={avatarSize ?? "lg"} radius="xl" src={avatar} />
         </Box>
-        <Flex justify="space-between" w="100%" py={7}>
+        <Flex justify="space-between" w="100%">
           <Box>
             <Title order={5} size="sm" textWrap="nowrap" fw={500}>
               {name}
