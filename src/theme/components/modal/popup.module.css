@@ -1,4 +1,4 @@
-/* .header {
+.header {
   @apply shadow-sm drop-shadow py-3 min-h-[auto];
 }
 .title {
@@ -8,4 +8,4 @@
 }
 .body {
   padding: var(--mantine-spacing-md);
-} */
+}
