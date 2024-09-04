@@ -38,18 +38,7 @@ const Layout = ({ header, navbar, main, aside }: LayoutProps) => {
 
       <AppShell.Main>{main}</AppShell.Main>
 
-      {aside && (
-        <AppShell.Aside
-          h={
-            "calc(100vh - var(--app-shell-header-offset, 0rem) - var(--app-shell-footer-offset, 0rem))"
-          }
-          bg={"transparent"}
-          pb={"xs"}
-          mr={"xs"}
-        >
-          {aside}
-        </AppShell.Aside>
-      )}
+      {aside && <AppShell.Aside bg={"transparent"} h="calc(100vh - 115px)" >{aside}</AppShell.Aside>}
     </AppShell>
   );
 };
