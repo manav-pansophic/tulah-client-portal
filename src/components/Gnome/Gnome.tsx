@@ -1,7 +1,23 @@
-import { Accordion, Paper, Stack, Text } from "@pansophictech/base";
+import { Flex, Paper, Text } from "@pansophictech/base";
 import GnomeAccordion from "./GnomeAccordion";
+import Instruction from "./Instruction";
+import ReportCharges from "./ReportCharges";
 
 const Gnome = () => {
+  const instructionList = [
+    {
+      list: "Authorize the collection of your GNOME report on your behalf from the report provider.",
+    },
+    {
+      list: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ducimus quas tenetur animi eius totam omnis in minima corrupti quasi onsectetur adipisicing elit. Sed ducimus quasonsectetur adipisicing elit. Sed ducimus quas",
+    },
+    {
+      list: "Authorize the collection of your GNOME report on your behalf from the report provider.",
+    },
+    {
+      list: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ducimus quas tenetur animi eius totam omnis in minima corrupti quasi onsectetur adipisicing elit. Sed ducimus quasonsectetur adipisicing elit. Sed ducimus quas",
+    },
+  ];
   const groceries = [
     {
       value: "Options 1",
@@ -11,31 +27,17 @@ const Gnome = () => {
         "Crisp and refreshing fruit. Apples are known for their versatility and nutritional benefits. They come in a variety of flavors and are great for snacking, baking, or adding to salads.",
       component: (
         <>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere dicta
-          in quasi ea aperiam cum consequuntur similique dolore corporis
-          nostrum.
+          <Flex gap="sm">
+            <Instruction
+              instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
+              instructionList={instructionList}
+            />
+            <ReportCharges />
+          </Flex>
         </>
       ),
     },
   ];
-  const items = groceries.map((item) => (
-    <Accordion.Item key={item.value} value={item.value}>
-      <Accordion.Control>
-        <Stack gap="sm">
-          <Text c="theme" fw={600}>
-            {item.value}
-          </Text>
-          <Text size="md" fw={600}>
-            {item.questionList}
-          </Text>
-          <Text size={"12px"} pt="sm">
-            {item.description}
-          </Text>
-        </Stack>
-      </Accordion.Control>
-      <Accordion.Panel>{item.component}</Accordion.Panel>
-    </Accordion.Item>
-  ));
 
   return (
     <div>
@@ -45,10 +47,24 @@ const Gnome = () => {
           backdropFilter: "blur(40px)",
         }}
         m="sm"
+        p="sm"
         radius={"lg"}
       >
-        <GnomeAccordion data={groceries} />
+        <Text fw={600}>What is GNOME?</Text>
+        <Text size="sm" pt="sm">
+          Lorem ipsum dolor sit amet consectetur. Cum diam viverra magna tellus
+          sollicitudin magna. Amet in libero phasellus viverra at elit tellus
+          porttitor. Aliquam eu vitae sociis dui id. Accumsan ultrices dui
+          tortor mi. Tortor cum accumsan pulvinar id molestie bibendum in
+          aliquet. Non enim nulla pulvinar quis a ut egestas. Et nibh dolor
+          adipiscing quam parturient tortor facilisis. Proin vitae congue arcu
+          elit. Molestie sed cursus aliquam ut suscipit tempor lectus eu at.
+          Curabitur elit viverra vitae habitant. Nascetur mauris orci a urna
+          mollis faucibus commodo quis. Proin sit ultrices enim placerat eget.
+          Ac convallis dictum feugiat phasellus at eu proin.
+        </Text>
       </Paper>
+      <GnomeAccordion data={groceries} />
     </div>
   );
 };
