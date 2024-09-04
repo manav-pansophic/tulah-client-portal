@@ -5,6 +5,7 @@ import "@pansophictech/base/styles.layer.css";
 import "@pansophictech/dates/styles.layer.css";
 import { AppRoutes } from "./routing/AppRoutes";
 import "./components/layout/layout.css";
+import "@pansophictech/dates/styles.layer.css";
 
 function App() {
   return (

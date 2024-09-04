@@ -4,7 +4,7 @@ import "../components/layout/layout.css";
 export const Schedule = () => {
   return (
     <>
-      <Flex gap={"sm"} p="sm">
+      <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
           <Paper className="layout" h="calc(100vh - 561px)">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto

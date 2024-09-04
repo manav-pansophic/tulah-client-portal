@@ -1,0 +1,22 @@
+.box {
+  background: linear-gradient(
+    95.04deg,
+    rgba(0, 0, 0, 0.03) 1.59%,
+    rgba(0, 0, 0, 0.01) 99.68%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  flex-grow: 1;
+}
+
+table  {
+  background: linear-gradient(
+    95.04deg,
+    rgba(0, 0, 0, 0.01) 1.59%,
+    rgba(0, 0, 0, 0.01) 99.68%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  flex-grow: 1;
+}
