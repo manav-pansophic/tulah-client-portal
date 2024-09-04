@@ -45,7 +45,7 @@ const AdditionalInformation = () => {
           <Box w="100%">
             <DateInput
               label="Date"
-              name="age"
+              name="date"
               props={{
                 placeholder: "Select",
                 rightSection: <RiCalendarLine />,
