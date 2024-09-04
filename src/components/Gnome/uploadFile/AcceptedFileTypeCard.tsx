@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Box, Flex, Image, Paper, Text } from "@pansophictech/base";
-import { FileWithPath, MIME_TYPES } from "@mantine/dropzone";
+import { FileWithPath, MIME_TYPES } from "@pansophictech/dropzone";
 import svg from "../../../assets/img/misc/files/svg.svg";
 import pdf from "../../../assets/img/misc/files/pdf.svg";
 import jpg from "../../../assets/img/misc/files/jpg.svg";
