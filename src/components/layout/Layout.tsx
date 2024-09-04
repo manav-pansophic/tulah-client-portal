@@ -6,16 +6,18 @@ import "./layout.css";
 interface LayoutProps {
   header?: ReactNode;
   main: ReactNode;
+  aside?: ReactNode;
 }
 
-const Layout = ({ header, main }: LayoutProps) => {
+const Layout = ({ header, navbar, main, aside }: LayoutProps) => {
   const [opened, { toggle }] = useDisclosure();
 
   const appShellProps = {
     ...(header && { header: { height: 100 } }),
-    // ...(navbar && {
-    //   navbar: { width: 314, breakpoint: "sm", collapsed: { mobile: !opened } },
-    // }),
+    ...(navbar && {
+      navbar: { width: 300, breakpoint: "sm", collapsed: { mobile: !opened } },
+    }),
+    ...(aside && { aside: { width: 420, breakpoint: "sm" } }),
   };
 
   return (
@@ -33,7 +35,29 @@ const Layout = ({ header, main }: LayoutProps) => {
         </AppShell.Navbar>
       )} */}
 
-      <AppShell.Main bg={"transparent"}>{main}</AppShell.Main>
+      <AppShell.Main
+        bg={"transparent"}
+        h={"calc(100vh* var(--mantine-scale))"}
+        mih={"100vh"}
+        mr={"xl"}
+        pb={"lg"}
+
+      >
+        {main}
+      </AppShell.Main>
+
+      {aside && (
+        <AppShell.Aside
+          h={
+            "calc(100vh - var(--app-shell-header-offset, 0rem) - var(--app-shell-footer-offset, 0rem))"
+          }
+          bg={"transparent"}
+          pb={"xs"}
+          mr={"xs"}
+        >
+          {aside}
+        </AppShell.Aside>
+      )}
     </AppShell>
   );
 };
