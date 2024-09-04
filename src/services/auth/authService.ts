@@ -4,10 +4,10 @@ export const authService = createApi({
   reducerPath: 'authService',
   baseQuery: fetchBaseQuery({ baseUrl: '' }),
   tagTypes: ['SignUp'],
-  endpoints: (builder) => ({
+  endpoints: (builder : any) => ({
     // Register
     register: builder.mutation({
-      query: (newUser) => ({
+      query: (newUser : any) => ({
         url: 'signup',
         method: 'POST',
         body: newUser
@@ -16,7 +16,7 @@ export const authService = createApi({
 
     // Login
     login: builder.mutation({
-      query: (credentials) => ({
+      query: (credentials : any) => ({
         url: 'signin',
         method: 'POST',
         body: credentials,
