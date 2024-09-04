@@ -15,7 +15,7 @@ import {
 import { RiUpload2Fill } from "@remixicon/react";
 import { IconX } from "@tabler/icons-react";
 import { FC, useState } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "@pansophictech/hook-form";
 import AcceptedFileTypeCard from "./AcceptedFileTypeCard";
 import RejectedFileTypeCard from "./RejectedFileTypeCard";
 
