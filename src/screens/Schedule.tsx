@@ -4,11 +4,15 @@ import AccessCode from "../components/Gnome/AccessCode";
 import ScheduleAssessmentHelp from "../components/Gnome/ScheduleAssessmentHelp";
 import { RiCheckboxCircleFill, RiPhoneFill } from "@remixicon/react";
 import { useState } from "react";
+import ScheduleStatusCard from "../components/Schedule/ScheduleStatusCard";
+import ArrivalCard from "../components/Schedule/ArrivalCard";
+import ScheduleArricalCard from "../components/Schedule/ScheduleArricalCard";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
   const [isscheduled, setIsScheduled] = useState(false);
   const [statusType, setStatusType] = useState("CONFIRMED");
+  const [isPicked, setIsPicked] = useState(false);
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
@@ -18,7 +22,7 @@ export const Schedule = () => {
             quod, quasi iure impedit vel error nobis praesentium officiis unde
             est.
           </Paper>
-          {/* {isscheduled ? (
+          {isscheduled ? (
             <Paper className="layout" h="calc(100vh - 555px)" p="lg">
               <ScheduleStatusCard statusType={statusType} />
             </Paper>
@@ -42,7 +46,7 @@ export const Schedule = () => {
                 onBack={() => setScheduling(false)}
               />
             </Paper>
-          )} */}
+          )}
           {/* <Paper className="layout" h="calc(100vh - 555px)">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
             quod, quasi iure impedit vel error nobis praesentium officiis unde

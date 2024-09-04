@@ -1,4 +1,5 @@
 import {
+  ActionIcon,
   Box,
   Button,
   Flex,
@@ -21,7 +22,11 @@ import {
   useForm,
 } from "@pansophictech/hook-form";
 
-const ScheduleArricalCard: FC<{ isPicked: any }> = ({ isPicked }) => {
+const ScheduleArricalCard: FC<{
+  isPicked: any;
+  onSubmitClick: () => void;
+  onBack: () => void;
+}> = ({ isPicked, onSubmitClick, onBack }) => {
   const methods = useForm<any>({
     mode: "onBlur",
     reValidateMode: "onBlur",
@@ -43,7 +48,9 @@ const ScheduleArricalCard: FC<{ isPicked: any }> = ({ isPicked }) => {
             <Box pos="relative" h="100%">
               <Box>
                 <Flex gap="md" pb="sm">
-                  <RiArrowLeftSLine color="var(--mantine-color-theme-6) " />
+                  <ActionIcon onClick={onBack}>
+                    <RiArrowLeftSLine color="var(--mantine-color-theme-6) " />
+                  </ActionIcon>
                   <Text c="theme" fw={600} lts={5} tt="uppercase">
                     Schedule your Arrival
                   </Text>
@@ -109,7 +116,12 @@ const ScheduleArricalCard: FC<{ isPicked: any }> = ({ isPicked }) => {
                 >
                   Reset
                 </Button>
-                <Button type="submit" size="lg" radius="xl">
+                <Button
+                  onClick={onSubmitClick}
+                  type="submit"
+                  size="lg"
+                  radius="xl"
+                >
                   Submit
                 </Button>
               </Box>
