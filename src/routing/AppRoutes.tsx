@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { PrivateRoutes } from "./PrivateRoutes";
-import RootApp from "../RootApp";
 
 const { BASE_URL } = import.meta.env;
 
