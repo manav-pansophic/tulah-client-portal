@@ -36,7 +36,7 @@ const Sidebar = () => {
         my={8}
         // leftSection={<RiAddLine size={18} />}
       >
-        + ADD NEW LEAD
+        + ADD NEW GUEST
       </Button>
       <Divider color="gray.5" mb={15} mt={7} />
       <TextInput
