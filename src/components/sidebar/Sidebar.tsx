@@ -3,10 +3,13 @@ import {
   Button,
   Divider,
   ScrollAreaAutosize,
+  Text,
   TextInput,
 } from "@pansophictech/base";
 import UserCard from "./UserCard";
-import { RiSearchLine, RiAddLine } from "@remixicon/react";
+import { RiSearchLine } from "@remixicon/react";
+import GuestPopup from "../forms/guest/GuestPopup";
+import { openModal } from "@pansophictech/modals";
 
 const sidebarData = [
   {
@@ -34,7 +37,18 @@ const Sidebar = () => {
         w={"100%"}
         size="sm"
         my={8}
-        // leftSection={<RiAddLine size={18} />}
+        onClick={() =>
+          openModal({
+            centered: true,
+            closeOnClickOutside: false,
+            overlayProps: { blur: 3 },
+            title: <Text fw={600}>Add new Guest</Text>,
+            transitionProps: { transition: "pop", duration: 200 },
+            children: <GuestPopup />,
+            scrollAreaComponent: ScrollAreaAutosize,
+            size: "md",
+          })
+        }
       >
         + ADD NEW GUEST
       </Button>
