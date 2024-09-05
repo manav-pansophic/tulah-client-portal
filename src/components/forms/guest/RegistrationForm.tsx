@@ -16,7 +16,7 @@ import {
   useForm,
 } from "@pansophictech/hook-form";
 import { openModal } from "@pansophictech/modals";
-import SchedulePopup from "../../Gnome/SchedulePopup";
+import SchedulePopup from "../../gnome/SchedulePopup";
 
 const RegistrationForm = () => {
   const methods = useForm<any>({
