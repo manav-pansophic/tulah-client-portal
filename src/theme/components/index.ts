@@ -8,6 +8,7 @@ import { themeTable } from "../../theme/components/table/themeTable";
 import { themeTooltip } from "../../theme/components/tooltip/themeTooltip";
 import { themeOverlay } from "../../theme/components/overlay/ThemeOverlay";
 import { themeSwitch } from "../../theme/components/switch/ThemeSwitch";
+import { themeStepper } from "./stepper/themeStepper";
 
 export const themeComponents: Partial<MantineThemeComponents> = {
   ...themeButton,
@@ -19,4 +20,5 @@ export const themeComponents: Partial<MantineThemeComponents> = {
   ...themeTooltip,
   ...themeOverlay,
   ...themeSwitch,
+  ...themeStepper,
 };

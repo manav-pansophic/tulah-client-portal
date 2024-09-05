@@ -1,0 +1,18 @@
+/* .root {
+  .stepIcon {
+    border-color: #999999;
+    background-color: transparent;
+  }
+  &[data-completed] {
+    border-color: var(--mantine-primary-color-filled);
+    background-color: var(--mantine-primary-color-filled);
+  }
+  .stepCompletedIcon {
+    border-radius: "30px";
+    border-color: var(--mantine-primary-color-filled);
+    background-color: var(--mantine-primary-color-filled);
+  }
+}
+.separator {
+  background-color: red;
+} */

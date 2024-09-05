@@ -1,0 +1,12 @@
+.root {
+  .input {
+    border-color: #999999;
+    background-color: transparent;
+  }
+  &[data-checked] {
+    .input {
+      border-color: var(--mantine-primary-color-filled);
+      background-color: var(--mantine-primary-color-filled);
+    }
+  }
+}

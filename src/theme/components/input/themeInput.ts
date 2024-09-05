@@ -1,5 +1,8 @@
 import datePickerCss from "../input/datepicker.module.css";
 import selectCss from "../input/select.module.css";
+import checkboxCss from "../input/checkbox.module.css";
+import radioCss from "../input/radio.module.css";
+
 import {
   Checkbox,
   CheckboxGroup,
@@ -91,6 +94,7 @@ export const themeInput: Partial<MantineThemeComponents> = {
         fontSize: 14,
       },
     },
+    classNames: checkboxCss,
   }),
   CheckboxGroup: CheckboxGroup.extend({
     defaultProps: {
@@ -103,6 +107,7 @@ export const themeInput: Partial<MantineThemeComponents> = {
         fontWeight: 600,
       },
     },
+    // classNames: checkboxCss,
   }),
   RadioGroup: RadioGroup.extend({
     defaultProps: {
@@ -125,6 +130,7 @@ export const themeInput: Partial<MantineThemeComponents> = {
         fontSize: 14,
       },
     },
+    classNames: radioCss,
   }),
   NumberInput: NumberInput.extend({
     defaultProps: {
