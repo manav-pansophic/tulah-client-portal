@@ -8,23 +8,23 @@ import {
   Text,
 } from "@pansophictech/base";
 import "../components/layout/layout.css";
-import AccessCode from "../components/Gnome/AccessCode";
-import ScheduleAssessmentHelp from "../components/Gnome/ScheduleAssessmentHelp";
+import AccessCode from "../components/gnome/AccessCode";
+import ScheduleAssessmentHelp from "../components/gnome/ScheduleAssessmentHelp";
 import {
   RiCheckboxCircleFill,
   RiDragMove2Line,
   RiPhoneFill,
 } from "@remixicon/react";
 import { useState } from "react";
-import ScheduleStatusCard from "../components/Schedule/ScheduleStatusCard";
-import ArrivalCard from "../components/Schedule/ArrivalCard";
-import ScheduleArricalCard from "../components/Schedule/ScheduleArricalCard";
-import DeliveryScheduledCard from "../components/Schedule/kitstatus/DeliveryScheduledCard";
-import DeliveredCard from "../components/Schedule/kitstatus/DeliveredCard";
-import TestStatus from "../components/Gnome/TestStatus";
-import SchedulePickup from "../components/Schedule/kitstatus/SchedulePickup";
-import PickupScheduledCard from "../components/Schedule/kitstatus/PickupScheduledCard";
-import Completed from "../components/Schedule/kitstatus/Completed";
+import ScheduleStatusCard from "../components/schedule/ScheduleStatusCard";
+import ArrivalCard from "../components/schedule/ArrivalCard";
+import ScheduleArricalCard from "../components/schedule/ScheduleArricalCard";
+import DeliveryScheduledCard from "../components/schedule/kitstatus/DeliveryScheduledCard";
+import DeliveredCard from "../components/schedule/kitstatus/DeliveredCard";
+import TestStatus from "../components/gnome/TestStatus";
+import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
+import PickupScheduledCard from "../components/schedule/kitstatus/PickupScheduledCard";
+import Completed from "../components/schedule/kitstatus/Completed";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);

@@ -3,7 +3,7 @@ import RootApp from "../RootApp";
 import { Registration } from "../screens/Registration";
 import { Schedule } from "../screens/Schedule";
 import { PafScreen } from "../screens/PafScreen";
-import Gnome from "../components/Gnome/Gnome";
+import Gnome from "../components/gnome/Gnome";
 import PaymentMainScreen from "../components/payment/PaymentMainScreen";
 
 const PrivateRoutes = () => {
