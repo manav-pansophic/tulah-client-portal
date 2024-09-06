@@ -9,10 +9,14 @@ import {
 } from "@pansophictech/base";
 import classes from "./pininput.module.css";
 import { RiFileCopyLine } from "@remixicon/react";
-import { useState } from "react";
+import { useGetAccessCodeQuery } from "../../services/schedule/scheduleServices";
 
 const AccessCode = () => {
-  const [data, setData] = useState("123456");
+  const visitorId = "2";
+  const { data } = useGetAccessCodeQuery({ visitorId });
+
+  const accessCode = data?.results?.access_code.toString()
+
   return (
     <Flex justify={"center"} direction={"column"} gap="md" align={"center"}>
       <Text
@@ -23,17 +27,17 @@ const AccessCode = () => {
         fw={600}
         fs={"sm"}
       >
-        YOUr ACCESS CODE
+        Your Access Code
       </Text>
       <PinInput
         size="md"
         type="number"
         length={6}
         classNames={classes}
-        value={data}
+        value={accessCode}
       />
       <Box pt="md">
-        <CopyButton value={data} timeout={2000}>
+        <CopyButton value={accessCode} timeout={2000}>
           {({ copied, copy }) => (
             <Tooltip
               label={copied ? "Copied" : "Copy"}
@@ -45,7 +49,12 @@ const AccessCode = () => {
                   color="var(--mantine-color-theme-6)"
                   size="15px"
                 />
-                <Text onClick={copy} size="md" c={"theme"}>
+                <Text
+                  onClick={copy}
+                  size="md"
+                  c={"theme"}
+                  style={{ cursor: "pointer" }}
+                >
                   Click to Copy Code
                 </Text>
               </Flex>
