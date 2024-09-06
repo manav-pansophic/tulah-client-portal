@@ -147,7 +147,6 @@ export const Schedule = () => {
               }
               title={"Help & Support"}
               name="+91-9876543210"
-              description="Click to Call"
             />
           </Box>
         </Flex>

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { APIService } from '../services';
+import guestUserReducer from './slices/guestUserSlice';
 
 export const store = configureStore({
   reducer: {
-    [APIService.reducerPath]: APIService.reducer
+    [APIService.reducerPath]: APIService.reducer,
+    guestUserData: guestUserReducer
   },
   middleware: (getDefaultMiddleware : any) => getDefaultMiddleware().concat(APIService.middleware)
 });

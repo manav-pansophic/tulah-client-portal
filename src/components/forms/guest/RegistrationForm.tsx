@@ -17,19 +17,31 @@ import {
 } from "@pansophictech/hook-form";
 import { openModal } from "@pansophictech/modals";
 import SchedulePopup from "../../gnome/SchedulePopup";
+import { OPTIONS } from "../../../utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { setGuestUserData } from "../../../store/slices/guestUserSlice";
+import { useEffect } from "react";
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.guestUserData);
+
   const methods = useForm<any>({
     mode: "onBlur",
     reValidateMode: "onBlur",
     // resolver: zodResolver(LoginSchema),
-    defaultValues: { diffCurrAddress: false },
   });
 
-  const isDiffAddress = methods.watch("diffCurrAddress");
+  const { watch, reset } = methods;
+
+  useEffect(() => {
+    reset(user, { keepDirtyValues: true });
+  }, [user]);
+
+  const isDiffAddress = watch("diffCurrAddress");
   console.log({ isDiffAddress });
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    dispatch(setGuestUserData(values));
   };
   return (
     <>
@@ -42,7 +54,7 @@ const RegistrationForm = () => {
             "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3))",
         }}
       >
-        <Text fw={600}> Guest 2 Registration</Text>
+        <Text fw={600}> Guest Registration</Text>
       </Box>
       <ScrollAreaAutosize mah="calc(100vh - 260px)">
         <FormProvider {...methods}>
@@ -85,7 +97,7 @@ const RegistrationForm = () => {
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="gender"
-                    data={[]}
+                    data={OPTIONS.gender}
                     label="Gender"
                     props={{
                       placeholder: "Select",
@@ -162,10 +174,10 @@ const RegistrationForm = () => {
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="country"
-                    data={[]}
+                    data={OPTIONS.country}
                     label="Country"
                     props={{
-                      placeholder: "Select",
+                      placeholder: "Select Country",
                       "data-test-id": "country",
                       labelProps: {
                         "data-test-id": "country-label",
@@ -189,13 +201,10 @@ const RegistrationForm = () => {
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="state"
-                    data={[
-                      { label: "Gujrat", value: "Gj" },
-                      { label: "Madhya Pradesh", value: "mp" },
-                    ]}
+                    data={OPTIONS.state}
                     label="State"
                     props={{
-                      placeholder: "Select",
+                      placeholder: "Select State",
                       "data-test-id": "state",
                       labelProps: {
                         "data-test-id": "state-label",
@@ -206,10 +215,10 @@ const RegistrationForm = () => {
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="city"
-                    data={[]}
+                    data={OPTIONS.city}
                     label="City"
                     props={{
-                      placeholder: "Select",
+                      placeholder: "Select City",
                       "data-test-id": "city",
                       labelProps: {
                         "data-test-id": "city-label",

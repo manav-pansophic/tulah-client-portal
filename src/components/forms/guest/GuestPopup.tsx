@@ -1,16 +1,28 @@
 import { Button, Flex, Stack, Text } from "@pansophictech/base";
 import { FormProvider, TextInput, useForm } from "@pansophictech/hook-form";
+import { useAddNewGuestMutation } from "../../../services/guests/guestServices";
+import { useEffect } from "react";
 
-const GuestPopup = () => {
+const GuestPopup = ({ closeAllModal }: any) => {
   const methods = useForm({
     mode: "onBlur",
     reValidateMode: "onBlur",
     defaultValues: {},
   });
 
+  const [addNewGuest, { isLoading, isSuccess, error }] =
+    useAddNewGuestMutation();
+
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    addNewGuest(values);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      closeAllModal();
+    }
+  }, [isSuccess]);
+
   return (
     <Stack>
       <Text size="xs">
@@ -33,7 +45,7 @@ const GuestPopup = () => {
               <Button size="sm" radius="xl" className="layout" c="black">
                 CANCEL
               </Button>
-              <Button size="sm" radius="xl">
+              <Button size="sm" radius="xl" type="submit">
                 ADD
               </Button>
             </Flex>
