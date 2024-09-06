@@ -11,8 +11,19 @@ import {
 import classes from "./payment.module.css";
 import { RiDeleteBin2Line, RiMentalHealthFill } from "@remixicon/react";
 import { Link } from "react-router-dom";
+import { useGetPaymentHistoryQuery } from "../../services/payments/paymentServices";
+import { convertUTCToDate } from "../../helper/functions";
 
 const PaymentMainScreen = () => {
+
+  const visitorId = "66d824947ce5e26ae9385d72"; 
+
+  // Fetch Paymemt history 
+  const { data } = useGetPaymentHistoryQuery( {visitorId} );
+  console.log('Data fetched',data);
+
+  const paymentHistory = data?.results
+  
   const basket = [
     {
       title: "GNOME Report",
@@ -28,63 +39,19 @@ const PaymentMainScreen = () => {
     },
   ];
 
-  const elements = [
-    {
-      Txn_ID: "978 - 79416 - 0",
-      Txn_Date: "31/08/2024",
-      Status: "success",
-      Item_name: "GNOME Report",
-      Gateway: "Razorpay",
-      Amount: "15000.00",
-      Action: "View Action",
-    },
-    {
-      Txn_ID: "978 - 20220 - 9",
-      Txn_Date: "31/08/2024",
-      Status: "inprogress",
-      Item_name: "MICROBIOME Report",
-      Gateway: "Razorpay",
-      Amount: "15000.00",
-      Action: "",
-    },
-    {
-      Txn_ID: "978 - 20220 - 9",
-      Txn_Date: "31/08/2024",
-      Status: "failed",
-      Item_name: "GNOME Report",
-      Gateway: "Razorpay",
-      Amount: "15000.00",
-      Action: "",
-    },
-    {
-      Txn_ID: "978 - 20220 - 9",
-      Txn_Date: "31/08/2024",
-      Status: "failed",
-      Item_name: "GNOME Report",
-      Gateway: "Razorpay",
-      Amount: "15000.00",
-      Action: "",
-    },
-  ];
 
-  const rows = elements.map((element) => (
+  const rows = (paymentHistory || []).map((payment) => (
     <Table.Tr
-      key={element.Txn_ID}
-      // onMouseEnter={(e) => {
-      //   e.currentTarget.style.backgroundColor = "gray";
-      // }}
-      // onMouseLeave={(e) => {
-      //   e.currentTarget.style.backgroundColor = "transparent";
-      // }}
+      key={payment.Txn_ID}
     >
-      <Table.Td>{element.Txn_ID}</Table.Td>
-      <Table.Td>{element.Txn_Date}</Table.Td>
+      <Table.Td>{payment.txn_id}</Table.Td>
+      <Table.Td>{convertUTCToDate(payment.paid_date)}</Table.Td>
       <Table.Td>
-        {element.Status == "success" ? (
+        {payment.payment_status == "Success" ? (
           <Badge c={"white"} bg={"green"} tt={"uppercase"} radius={"5px"}>
             Success
           </Badge>
-        ) : element.Status == "inprogress" ? (
+        ) : payment.payment_status == "InProgress" ? (
           <Badge
             tt={"uppercase"}
             bg={"orange"}
@@ -92,7 +59,7 @@ const PaymentMainScreen = () => {
             radius={"5px"}
             fw={600}
           >
-            in progress
+            In Progress
           </Badge>
         ) : (
           <Badge
@@ -106,11 +73,11 @@ const PaymentMainScreen = () => {
           </Badge>
         )}
       </Table.Td>
-      <Table.Td>{element.Item_name}</Table.Td>
-      <Table.Td>{element.Gateway}</Table.Td>
-      <Table.Td>₹ {element.Amount}</Table.Td>
+      <Table.Td>{payment.item_name}</Table.Td>
+      <Table.Td>{payment.gateway}</Table.Td>
+      <Table.Td>₹ {payment.amount}</Table.Td>
       <Table.Td>
-        <Link to={"#"}>{element.Action}</Link>
+        <Link to={"#"}>View Action</Link>
       </Table.Td>
     </Table.Tr>
   ));
@@ -158,7 +125,7 @@ const PaymentMainScreen = () => {
                   tt={"uppercase"}
                   c={"var(--mantine-color-theme-6)"}
                 >
-                  payment history
+                  Payment History
                 </Title>
 
                 <Table
