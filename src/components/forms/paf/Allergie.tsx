@@ -47,6 +47,7 @@ const Allergie = () => {
             data-el-val="addmore"
             size="compact-sm"
             p={0}
+            styles={{ label: { padding: 0 } }}
           >
             <RiAddLine size={15} />
             Add More

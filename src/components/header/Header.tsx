@@ -32,7 +32,11 @@ const Header: FC<HeaderProps> = ({ logo, tabs, profile }) => {
   return (
     <Flex gap="10px" mx="10px">
       {logo && (
-        <Box className="layout-bg-color header-layout" w={logoWidth}>
+        <Box
+          data-test-id="logo-box"
+          className="layout-bg-color header-layout"
+          w={logoWidth}
+        >
           {logo}
         </Box>
       )}

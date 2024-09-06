@@ -85,6 +85,7 @@ const Medical = () => {
             data-el-val="addmore"
             size="compact-sm"
             p={0}
+            styles={{ label: { padding: 0 } }}
           >
             <RiAddLine size={15} />
             Add More
@@ -145,6 +146,7 @@ const Medical = () => {
             data-el-val="addmore"
             size="compact-sm"
             p={0}
+            styles={{ label: { padding: 0 } }}
           >
             <RiAddLine size={15} />
             Add More
@@ -153,7 +155,7 @@ const Medical = () => {
         <CheckboxGroup
           name="skin_issues"
           inline={true}
-          label="Do you have any skin issues?"
+          label="Do you have any existing medical conditions or history of problems with your health?"
           options={checkoption_skinissues}
         />
         <TextInput
