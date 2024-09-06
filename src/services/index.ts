@@ -4,6 +4,6 @@ import { API_CONFIG } from '../utils/constant';
 export const APIService = createApi({
   reducerPath: 'APIService',
   baseQuery: fetchBaseQuery({ baseUrl: API_CONFIG.BASE_URL }),
-  tagTypes: ['APIService', 'GET_PAYMENT_HISTORY', 'GET_ALL_GUEST_LIST'],
+  tagTypes: ['APIService', 'GET_PAYMENT_HISTORY', 'GET_ALL_GUEST_LIST', 'GET_ASSESSMENT_DATA'],
   endpoints: () => ({})
 });

@@ -23,7 +23,7 @@ const AdditionalInformation = () => {
           props={{
             placeholder: "Leave a comment here",
           }}
-          name="condition_symptoms"
+          name="additionalInfo.condition_symptoms"
           label="Please share any additional vital information about your health and wellbeing that we should know to provide the best possible care and support"
         />
         <Flex gap="md">
@@ -33,19 +33,19 @@ const AdditionalInformation = () => {
                 placeholder: "Value",
               }}
               label="Emergency contact (name)"
-              name="age"
+              name="additionalInfo.emergency_contact.name"
             />
           </Box>
           <Box w="100%">
-            <TextInput name="phone_number" label="Phone Number" />
+            <TextInput name="additionalInfo.emergency_contact.phone" label="Phone Number" />
           </Box>
           {/* <Box w="100%">
-            <InputPhone name="phone_number" label="Phone Number" />
+            <InputPhone name="additionalInfo.phone_number" label="Phone Number" />
           </Box> */}
           <Box w="100%">
             <DateInput
               label="Date"
-              name="date"
+              name="additionalInfo.date"
               props={{
                 placeholder: "Select",
                 rightSection: <RiCalendarLine />,
@@ -60,7 +60,7 @@ const AdditionalInformation = () => {
             }}
             label="I hereby declare that the information provided above is true to the best of my knowledge. I fully understand that I am a partner in my health and wellness journey, 
 supported by the Tulah team. I am committed to working towards my health and wellbeing goals, prioritizing my time and activities to achieve them."
-            name="knowledge"
+            name="additionalInfo.knowledge"
           />
         </Box>
       </Stack>
