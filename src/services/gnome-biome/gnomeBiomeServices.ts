@@ -3,14 +3,14 @@ import { APIService } from '..';
 export const gnomeBiomeService = APIService.injectEndpoints({
   endpoints: (builder) => ({
 
-    // Create New guest
-    addNewGuest: builder.mutation({
-      query: () => `add_new_guest/create`
+    // Get All Reports List
+    getAllReports: builder.query({
+      query: () => `tulah_reports`
     }),
 
   })
 });
 
 export const {
-  useAddNewGuestMutation,
+  useGetAllReportsQuery,
 } = gnomeBiomeService;
