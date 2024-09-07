@@ -29,7 +29,7 @@ const PillowPreference = () => {
 
       <Stack gap={15}>
         <CheckboxGroup
-          name="pillow_prefer"
+          name="pillowPreference.preference"
           inline={true}
           label="What type of pillow do you prefer?"
           options={checkboxesPillow}
