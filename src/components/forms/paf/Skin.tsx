@@ -29,14 +29,14 @@ const Skin = () => {
       </Text>
       <Stack gap="lg">
         <CheckboxGroup
-          name="skin_issue"
+          name="skin.skin_issue"
           inline={true}
           label="Do you have any skin issues?"
           options={checkboxes}
         />
         <RadioGroup
           label="Do you get bruises easily?"
-          name="bruises_easily"
+          name="skin.bruises_easily"
           options={radioBruisesEasily}
         />
       </Stack>

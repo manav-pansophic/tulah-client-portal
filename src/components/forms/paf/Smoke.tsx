@@ -14,12 +14,12 @@ const Smoke = () => {
       </Text>
       <RadioGroup
         label="Do you smoke?"
-        name="you_smoke"
+        name="smoke.you_smoke"
         options={radioOptionsSmoke}
       />
       <Box pt="md">
         <TextInput
-          name="leavecomment"
+          name="smoke.leaveComment"
           props={{
             placeholder: "leave a comment",
             labelProps: {

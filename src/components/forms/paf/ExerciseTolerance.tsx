@@ -9,7 +9,7 @@ const ExerciseTolerance = () => {
   const checkboxes = [
     { value: "pain-arthritis", label: "Pain/Arthritis" },
     { value: "chest-pain", label: "Chest Pain" },
-    { value: "breathLessNess", label: "Breathlessness" },
+    { value: "breathlessness", label: "Breathlessness" },
   ];
   return (
     <Box>
@@ -19,18 +19,18 @@ const ExerciseTolerance = () => {
       <Stack gap="md">
         <RadioGroup
           label="Can you walk up to two flights of stairs?"
-          name="flightStairs"
+          name="exerciseTolerance.flightStairs"
           options={radioOptions}
         />
         <CheckboxGroup
-          name="answered_question"
+          name="exerciseTolerance.answered_question"
           inline={true}
           label="If you answered NO to the previous question, are you limited by the following?"
           options={checkboxes}
         />
         <RadioGroup
           label="Do you do any kind of physical activity or exercise?"
-          name="physicalActivity"
+          name="exerciseTolerance.physicalActivity"
           options={radioOptions}
         />
         <Textarea

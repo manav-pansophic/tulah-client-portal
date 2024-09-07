@@ -40,7 +40,7 @@ const RatingScale: FC<RatingScaleProps> = ({ label, name, data, props }) => {
                     alignItems: "center",
                     cursor: "pointer",
                     border:
-                      value === index + 1
+                      +value === index + 1
                         ? `2px solid ${
                             index >= data.length / 2 ? "white" : "black"
                           }`

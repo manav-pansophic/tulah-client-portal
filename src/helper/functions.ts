@@ -7,4 +7,12 @@ export const convertUTCToDate = (utcDate) => {
     return `${year}-${month}-${day}`;
 }
 
-  
+// Get First Name and Last Name for the Select dropdown
+export const  createGuestSelectOptions = (data) => {
+    return data
+        .filter(item => item.firstName && item.lastName)
+        .map(item => ({
+            label: `${item.firstName} ${item.lastName}`, 
+            value: item._id 
+        }));
+}

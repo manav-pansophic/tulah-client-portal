@@ -40,7 +40,7 @@ const Medical = () => {
             <Box w="100%">
               <TextInput
                 label="Procedure"
-                name="procedure"
+                name="medical.surgical_procedure"
                 props={{
                   placeholder: "Value",
                   labelProps: {
@@ -51,7 +51,7 @@ const Medical = () => {
             </Box>
             <Box w="100%">
               <Select
-                name="anesthesia_type"
+                name="medical.surgical_anesthesia_type"
                 label="Type of Anesthesia (local, general, spinal)"
                 data={[
                   { label: "Local", value: "local" },
@@ -68,7 +68,7 @@ const Medical = () => {
             </Box>
             <Box w="100%">
               <Select
-                name="anesthesia_year"
+                name="medical.surgical_year"
                 label="Year"
                 data={[
                   { label: "2021", value: "2021" },
@@ -110,7 +110,7 @@ const Medical = () => {
             <Box w="100%">
               <TextInput
                 label="Name of Medication/ Supplement"
-                name="medication-name"
+                name="medical.suppliment_name"
                 props={{
                   placeholder: "Value",
                   labelProps: {
@@ -122,7 +122,7 @@ const Medical = () => {
             <Box w="100%">
               <TextInput
                 label="Strength of Medication"
-                name="strength-medication"
+                name="medical.suppliment_strength"
                 props={{
                   placeholder: "Value",
                   labelProps: {
@@ -135,7 +135,7 @@ const Medical = () => {
               <Box w="100%">
                 <TextInput
                   label="Year"
-                  name="year"
+                  name="medical.suppliment_year"
                   props={{
                     placeholder: "Value",
                     labelProps: {
@@ -147,7 +147,7 @@ const Medical = () => {
               <Box w="100%">
                 <DateInput
                   label="Start date (duration)"
-                  name="start-date"
+                  name="medical.suppliment_start_date"
                   props={{
                     placeholder: "Select",
                     labelProps: {
@@ -176,13 +176,13 @@ const Medical = () => {
           </Button>
         </Box>
         <CheckboxGroup
-          name="skin_issues"
+          name="medical.skin_issues"
           inline={true}
           label="Do you have any existing medical conditions or history of problems with your health?"
           options={checkoption_skinissues}
         />
         <TextInput
-          name="leave_comment"
+          name="medical.leave_comment"
           props={{
             placeholder: "Leave a comment here",
             labelProps: {
@@ -197,7 +197,7 @@ const Medical = () => {
               "data-test-id": "further_details-label",
             },
           }}
-          name="further_details"
+          name="medical.further_details"
           label="Feel free to add any further details below"
         />
       </Stack>

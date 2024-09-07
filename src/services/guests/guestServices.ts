@@ -4,14 +4,31 @@ export const guestService = APIService.injectEndpoints({
   endpoints: (builder) => ({
     // Create New guest
     addNewGuest: builder.mutation({
-      query: ({ visitor_id='66d824947ce5e26ae9385d72',firstName, lastName }) => {
+      query: ({
+        visitor_id = "66d824947ce5e26ae9385d72",
+        firstName,
+        lastName,
+      }) => {
         return {
           url: `create_guest`,
-          body: { visitor_id ,firstName, lastName },
+          body: { visitor_id, firstName, lastName },
           method: "POST",
         };
       },
-      invalidatesTags: ['GET_ALL_GUEST_LIST']
+      invalidatesTags: ["GET_ALL_GUEST_LIST"],
+    }),
+
+    // Update Guest Details
+    updateGuestDetails: builder.mutation({
+      query: (data) => {
+        console.log("daata", data);
+        return {
+          url: `update_guest/${data?._id}`,
+          body: { data},
+          method: "POST",
+        };
+      },
+      invalidatesTags: ["GET_ALL_GUEST_LIST"],
     }),
 
     //Guest List
@@ -19,13 +36,16 @@ export const guestService = APIService.injectEndpoints({
       query: () => {
         return {
           url: `guest_list`,
-          method: 'GET'
+          method: "GET",
         };
       },
-      providesTags: ['GET_ALL_GUEST_LIST']
+      providesTags: ["GET_ALL_GUEST_LIST"],
     }),
   }),
 });
 
-export const { useAddNewGuestMutation, useGetAllGuestListQuery } =
-  guestService;
+export const {
+  useAddNewGuestMutation,
+  useUpdateGuestDetailsMutation,
+  useGetAllGuestListQuery,
+} = guestService;

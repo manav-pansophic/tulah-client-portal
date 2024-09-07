@@ -21,6 +21,7 @@ import { OPTIONS } from "../../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setGuestUserData } from "../../../store/slices/guestUserSlice";
 import { useEffect } from "react";
+import { useUpdateGuestDetailsMutation } from "../../../services/guests/guestServices";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -38,9 +39,10 @@ const RegistrationForm = () => {
     reset(user, { keepDirtyValues: true });
   }, [user]);
 
+  const [updateGuestDetails, { isLoading, isSuccess, error }] = useUpdateGuestDetailsMutation();
   const isDiffAddress = watch("diffCurrAddress");
-  console.log({ isDiffAddress });
   const handleFormSubmit = (values: any) => {
+    updateGuestDetails(values);
     dispatch(setGuestUserData(values));
   };
   return (
@@ -131,6 +133,7 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "email-address-label",
                       },
+                      type: "email"
                     }}
                   />
                 </Grid.Col>
@@ -144,13 +147,14 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "phone-number-label",
                       },
+                      type: "phone"
                     }}
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="nationality"
-                    data={[]}
+                    data={OPTIONS.nationality}
                     label="Nationality"
                     props={{
                       placeholder: "Select Nationality",
@@ -367,7 +371,7 @@ const RegistrationForm = () => {
               <Grid gutter={20}>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <TextInput
-                    name="firstName"
+                    name="emergencyFirstName"
                     label="First Name"
                     props={{
                       placeholder: "Enter First Name",
@@ -380,7 +384,7 @@ const RegistrationForm = () => {
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <TextInput
-                    name="lastName"
+                    name="emergencyLastName"
                     label="Last Name"
                     props={{
                       placeholder: "Enter Last Name",

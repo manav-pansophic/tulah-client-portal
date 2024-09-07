@@ -9,7 +9,7 @@ import {
 
 const BasicInformation = () => {
   const checkboxes_looking_experience = [
-    { value: "de-stress", label: "De-stress" },
+    { value: "de_stress", label: "De-stress" },
     { value: "detox", label: "Detox" },
     { value: "weight_management", label: "Weight Management" },
     { value: "improve_fitness", label: "Improve Fitness" },
@@ -37,7 +37,7 @@ const BasicInformation = () => {
         <Flex gap="md">
           <Box w={"100%"}>
             <Select
-              name="identify_gender"
+              name="basicInformation.gender"
               label="I identify my gender as"
               data={[
                 { label: "Male", value: "male" },
@@ -55,7 +55,7 @@ const BasicInformation = () => {
           <Box w={"100%"}>
             <TextInput
               label="Age"
-              name="age"
+              name="basicInformation.age"
               props={{
                 placeholder: "Value",
                 "data-test-id": "age",
@@ -67,13 +67,13 @@ const BasicInformation = () => {
           </Box>
         </Flex>
         <CheckboxGroup
-          name="looking_experience"
+          name="basicInformation.goals"
           inline={true}
           label="What are you looking to experience at tulah?"
           options={checkboxes_looking_experience}
         />
         <RadioGroup
-          name="diagnosed"
+          name="basicInformation.autoimmuneDisease.diagnosed"
           label="Have you ever been diagnosed with an autoimmune disease?"
           options={radio_options_diagnosed}
         />
@@ -85,7 +85,7 @@ const BasicInformation = () => {
               "data-test-id": "leave-comment-label",
             },
           }}
-          name="condition_symptoms"
+          name="basicInformation.autoimmuneDisease.conditionDetails"
           label="Please specify (condition and symptoms)"
         />
       </Stack>

@@ -16,14 +16,14 @@ const Allergie = () => {
       <Stack gap="lg">
         <RadioGroup
           label="Do you have any known allergies or intolerances to any medication, anesthesia, food, or other substances? (e.g. dust, milk, gluten, latex, injections, perfume, room diffusers, contrast dye etc)."
-          name="expSignificant"
+          name="allergies.expSignificant"
           options={radio_options_allergies}
         />
         <Flex gap="md">
           <Box w="100%">
             <TextInput
               label="Name of medication / substance you are allergic /have an intolerance to"
-              name="medication"
+              name="allergies.medication"
               props={{
                 placeholder: "Value",
                 labelProps: {
@@ -35,7 +35,7 @@ const Allergie = () => {
           <Box w="100%">
             <TextInput
               label="How do you react to this medication / substance (e.g. itchy, red, swelling)"
-              name="reactmedication"
+              name="allergies.reactmedication"
               props={{
                 placeholder: "Value",
                 labelProps: {
