@@ -122,7 +122,7 @@ const RegistrationForm = () => {
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-                  <DateInput
+                  <TextInput
                     name="email"
                     label="Email Address"
                     props={{
@@ -135,7 +135,7 @@ const RegistrationForm = () => {
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-                  <DateInput
+                  <TextInput
                     name="phoneNo"
                     label="Phone Number"
                     props={{
@@ -217,6 +217,7 @@ const RegistrationForm = () => {
                     name="city"
                     data={OPTIONS.city}
                     label="City"
+                    data-test-id="asasas"
                     props={{
                       placeholder: "Select City",
                       "data-test-id": "city",
@@ -406,6 +407,7 @@ const RegistrationForm = () => {
               </Grid>
               <Box pos={"fixed"} bottom={30} right={30}>
                 <Button
+                  data-test-id="registration-reset"
                   type="button"
                   variant="outline"
                   radius={"xl"}
@@ -427,7 +429,11 @@ const RegistrationForm = () => {
                 >
                   RESET
                 </Button>
-                <Button type="submit" radius={"xl"}>
+                <Button
+                  data-test-id="registration-save"
+                  type="submit"
+                  radius={"xl"}
+                >
                   SAVE
                 </Button>
               </Box>

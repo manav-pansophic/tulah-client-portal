@@ -15,15 +15,14 @@ import { useGetPaymentHistoryQuery } from "../../services/payments/paymentServic
 import { convertUTCToDate } from "../../helper/functions";
 
 const PaymentMainScreen = () => {
+  const visitorId = "66d824947ce5e26ae9385d72";
 
-  const visitorId = "66d824947ce5e26ae9385d72"; 
+  // Fetch Paymemt history
+  const { data } = useGetPaymentHistoryQuery({ visitorId });
+  console.log("Data fetched", data);
 
-  // Fetch Paymemt history 
-  const { data } = useGetPaymentHistoryQuery( {visitorId} );
-  console.log('Data fetched',data);
+  const paymentHistory = data?.results;
 
-  const paymentHistory = data?.results
-  
   const basket = [
     {
       title: "GNOME Report",
@@ -39,11 +38,8 @@ const PaymentMainScreen = () => {
     },
   ];
 
-
   const rows = (paymentHistory || []).map((payment) => (
-    <Table.Tr
-      key={payment.Txn_ID}
-    >
+    <Table.Tr key={payment.txn_id}>
       <Table.Td>{payment.txn_id}</Table.Td>
       <Table.Td>{convertUTCToDate(payment.paid_date)}</Table.Td>
       <Table.Td>
@@ -77,7 +73,9 @@ const PaymentMainScreen = () => {
       <Table.Td>{payment.gateway}</Table.Td>
       <Table.Td>₹ {payment.amount}</Table.Td>
       <Table.Td>
-        <Link to={"#"}>View Action</Link>
+        <Link data-test-id={`view-action-link-${payment.txn_id}`} to={"#"}>
+          View Action
+        </Link>
       </Table.Td>
     </Table.Tr>
   ));

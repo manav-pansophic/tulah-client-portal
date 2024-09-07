@@ -10,7 +10,7 @@ const Allergie = () => {
 
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="allergies-title" c="theme" fw={600} pb="sm">
         Allergies
       </Text>
       <Stack gap="lg">
@@ -26,6 +26,9 @@ const Allergie = () => {
               name="medication"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "medication-label",
+                },
               }}
             />
           </Box>
@@ -35,6 +38,9 @@ const Allergie = () => {
               name="reactmedication"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "reactmedication-label",
+                },
               }}
             />
           </Box>
@@ -48,6 +54,7 @@ const Allergie = () => {
             size="compact-sm"
             p={0}
             styles={{ label: { padding: 0 } }}
+            data-test-id="add-more-button"
           >
             <RiAddLine size={15} />
             Add More

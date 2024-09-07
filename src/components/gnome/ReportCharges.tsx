@@ -26,10 +26,15 @@ const ReportCharges = () => {
         mb={10}
         className="layout"
         c="black"
+        data-test-id="add-to-basket-button"
       >
         ADD TO BASKET
       </Button>
-      <Button radius={"xl"} size="sm">
+      <Button
+        radius={"xl"}
+        size="sm"
+        data-test-id="procced-to-paument  -button"
+      >
         PROCCED TO PAYMENT
       </Button>
     </Flex>

@@ -27,12 +27,12 @@ const Medical = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="medical-title" c="theme" fw={600} pb="sm">
         Medical
       </Text>
       <Stack gap="lg">
         <Box>
-          <Text pb="sm" size="sm">
+          <Text data-test-id="procedure-q" pb="sm" size="sm">
             Have you ever undergone any surgical procedure(s). This may include
             minor (e.g. cataract, major (joint replacement) and or cosmetic?
           </Text>
@@ -43,6 +43,9 @@ const Medical = () => {
                 name="procedure"
                 props={{
                   placeholder: "Value",
+                  labelProps: {
+                    "data-test-id": "procedure-label",
+                  },
                 }}
               />
             </Box>
@@ -57,12 +60,15 @@ const Medical = () => {
                 ]}
                 props={{
                   placeholder: "Select",
+                  labelProps: {
+                    "data-test-id": "anesthesia-type-label",
+                  },
                 }}
               />
             </Box>
             <Box w="100%">
               <Select
-                name="year"
+                name="anesthesia_year"
                 label="Year"
                 data={[
                   { label: "2021", value: "2021" },
@@ -71,6 +77,9 @@ const Medical = () => {
                 ]}
                 props={{
                   placeholder: "Select",
+                  labelProps: {
+                    "data-test-id": "anesthesia-year-label",
+                  },
                 }}
               />
             </Box>
@@ -84,6 +93,7 @@ const Medical = () => {
             data-el="button_addmore"
             data-el-val="addmore"
             size="compact-sm"
+            data-test-id="add-more-button"
             p={0}
             styles={{ label: { padding: 0 } }}
           >
@@ -92,7 +102,7 @@ const Medical = () => {
           </Button>
         </Box>
         <Box>
-          <Text pb="sm" size="sm">
+          <Text data-test-id="medication-q" pb="sm" size="sm">
             Do you take any prescription medications, vitamins/minerals or
             herbal supplements specify below
           </Text>
@@ -103,6 +113,9 @@ const Medical = () => {
                 name="medication-name"
                 props={{
                   placeholder: "Value",
+                  labelProps: {
+                    "data-test-id": "medication-name-label",
+                  },
                 }}
               />
             </Box>
@@ -112,6 +125,9 @@ const Medical = () => {
                 name="strength-medication"
                 props={{
                   placeholder: "Value",
+                  labelProps: {
+                    "data-test-id": "strength-label",
+                  },
                 }}
               />
             </Box>
@@ -122,6 +138,9 @@ const Medical = () => {
                   name="year"
                   props={{
                     placeholder: "Value",
+                    labelProps: {
+                      "data-test-id": "year-label",
+                    },
                   }}
                 />
               </Box>
@@ -131,6 +150,9 @@ const Medical = () => {
                   name="start-date"
                   props={{
                     placeholder: "Select",
+                    labelProps: {
+                      "data-test-id": "start-date-label",
+                    },
                     rightSection: <RiCalendarEventLine />,
                   }}
                 />
@@ -147,6 +169,7 @@ const Medical = () => {
             size="compact-sm"
             p={0}
             styles={{ label: { padding: 0 } }}
+            data-test-id="add-more-button2"
           >
             <RiAddLine size={15} />
             Add More
@@ -162,11 +185,17 @@ const Medical = () => {
           name="leave_comment"
           props={{
             placeholder: "Leave a comment here",
+            labelProps: {
+              "data-test-id": "leave-comment-label",
+            },
           }}
         />
         <Textarea
           props={{
             placeholder: "Leave a comment here",
+            labelProps: {
+              "data-test-id": "further_details-label",
+            },
           }}
           name="further_details"
           label="Feel free to add any further details below"

@@ -18,7 +18,7 @@ const RatingScale: FC<RatingScaleProps> = ({ label, name, data, props }) => {
 
   return (
     <>
-      <Text fw={600} size="sm">
+      <Text data-test-id={`${name}`} fw={600} size="sm">
         {label}
       </Text>
       <Flex direction="row">
@@ -30,6 +30,7 @@ const RatingScale: FC<RatingScaleProps> = ({ label, name, data, props }) => {
               {data?.map((color: ScaleData, index: number) => (
                 <Box
                   key={index}
+                  data-test-id={`ratingscale-${color.label}-${index}`}
                   style={{
                     backgroundColor: color.color,
                     width: "60px",
@@ -49,6 +50,7 @@ const RatingScale: FC<RatingScaleProps> = ({ label, name, data, props }) => {
                   {...props}
                 >
                   <Text
+                    data-test-id={`lable-${color.label}-${index}`}
                     style={{
                       color: index < data.length / 2 ? "black" : "white",
                     }}

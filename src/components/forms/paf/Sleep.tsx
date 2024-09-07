@@ -32,7 +32,7 @@ const Sleep = () => {
 
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="sleep-title" c="theme" fw={600} pb="sm">
         Sleep
       </Text>
       <Stack gap="lg">

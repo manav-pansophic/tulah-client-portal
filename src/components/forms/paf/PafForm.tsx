@@ -192,6 +192,7 @@ const PafForm = () => {
                         data-el="button_back"
                         data-el-val="back"
                         size="lg"
+                        data-test-id="paf-back-button"
                         // leftSection={<IconChevronLeft stroke={1.5} size={16} />}
                       >
                         Back
@@ -203,6 +204,7 @@ const PafForm = () => {
                         type="button"
                         onClick={nextStep}
                         size="lg"
+                        data-test-id="paf-next-button"
                       >
                         Next
                       </Button>
@@ -212,6 +214,7 @@ const PafForm = () => {
                         type="submit"
                         variant="filled"
                         size="lg"
+                        data-test-id="paf-submit-button"
                       >
                         Submit For Approval
                       </Button>

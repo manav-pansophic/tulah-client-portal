@@ -23,7 +23,7 @@ const PillowPreference = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="pillow-title" c="theme" fw={600} pb="sm">
         Pillow Preference
       </Text>
 

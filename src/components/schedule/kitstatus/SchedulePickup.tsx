@@ -57,7 +57,13 @@ const SchedulePickup: FC<{
                   <ActionIcon onClick={onBack}>
                     <RiArrowLeftSLine color="var(--mantine-color-theme-6) " />
                   </ActionIcon>
-                  <Text c="theme" fw={600} lts={5} tt="uppercase">
+                  <Text
+                    data-test-id="schedule-title"
+                    c="theme"
+                    fw={600}
+                    lts={5}
+                    tt="uppercase"
+                  >
                     Schedule pickup
                   </Text>
                 </Flex>
@@ -68,6 +74,10 @@ const SchedulePickup: FC<{
                     placeholder: "dd/mm/yyyy",
                     rightSection: <RiCalendarEventLine />,
                     w: "100%",
+                    "data-test-id": "pickupdate",
+                    labelProps: {
+                      "data-test-id": "pickupdate-label",
+                    },
                   }}
                 />
 
@@ -80,6 +90,7 @@ const SchedulePickup: FC<{
                   variant="outline"
                   radius={"xl"}
                   mr={10}
+                  data-test-id="reset-button"
                 >
                   Reset
                 </Button>
@@ -88,6 +99,7 @@ const SchedulePickup: FC<{
                   type="submit"
                   size="lg"
                   radius="xl"
+                  data-test-id="submit-button"
                 >
                   Submit
                 </Button>

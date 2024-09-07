@@ -30,7 +30,7 @@ const BasicInformation = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm" data-test-id="basic_information_label">
+      <Text data-test-id="basic-info-form-title" c="theme" fw={600} pb="sm">
         Basic Information
       </Text>
       <Stack gap="lg">
@@ -45,6 +45,10 @@ const BasicInformation = () => {
               ]}
               props={{
                 placeholder: "--Select--",
+                // "data-test-id": "identify-gender",
+                labelProps: {
+                  "data-test-id": "identify-gender-label",
+                },
               }}
             />
           </Box>
@@ -54,6 +58,10 @@ const BasicInformation = () => {
               name="age"
               props={{
                 placeholder: "Value",
+                "data-test-id": "age",
+                labelProps: {
+                  "data-test-id": "age-label",
+                },
               }}
             />
           </Box>
@@ -72,6 +80,10 @@ const BasicInformation = () => {
         <Textarea
           props={{
             placeholder: "Leave a comment here",
+            "data-test-id": "leave-comment",
+            labelProps: {
+              "data-test-id": "leave-comment-label",
+            },
           }}
           name="condition_symptoms"
           label="Please specify (condition and symptoms)"

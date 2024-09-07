@@ -39,7 +39,7 @@ const Nutrition = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="nutrition-label" c="theme" fw={600} pb="sm">
         Nutrition
       </Text>
       <Stack gap="lg">
@@ -55,6 +55,9 @@ const Nutrition = () => {
               name="height"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "height-label",
+                },
               }}
             />
           </Box>
@@ -64,6 +67,9 @@ const Nutrition = () => {
               name="weight"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "weight-label",
+                },
               }}
             />
           </Box>

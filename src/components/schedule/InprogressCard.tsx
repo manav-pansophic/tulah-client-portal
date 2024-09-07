@@ -77,6 +77,7 @@ const InprogressCard: FC<{
                   variant="outline"
                   radius={"xl"}
                   mr={10}
+                  data-test-id="cancel-button"
                 >
                   Cancel
                 </Button>
@@ -85,6 +86,7 @@ const InprogressCard: FC<{
                   type="submit"
                   size="lg"
                   radius="xl"
+                  data-test-id="reschedule-button"
                 >
                   Reschedule
                 </Button>

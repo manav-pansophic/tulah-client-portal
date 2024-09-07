@@ -51,7 +51,13 @@ const ScheduleArricalCard: FC<{
                   <ActionIcon onClick={onBack}>
                     <RiArrowLeftSLine color="var(--mantine-color-theme-6) " />
                   </ActionIcon>
-                  <Text c="theme" fw={600} lts={5} tt="uppercase">
+                  <Text
+                    data-test-id="schedule-arrival-title"
+                    c="theme"
+                    fw={600}
+                    lts={5}
+                    tt="uppercase"
+                  >
                     Schedule your Arrival
                   </Text>
                 </Flex>
@@ -63,6 +69,9 @@ const ScheduleArricalCard: FC<{
                       props={{
                         placeholder: "dd/mm/yyyy",
                         rightSection: <RiCalendarEventLine />,
+                        labelProps: {
+                          "data-test-id": "checkin-date-label",
+                        },
                       }}
                     />
                   </Grid.Col>
@@ -73,6 +82,9 @@ const ScheduleArricalCard: FC<{
                       props={{
                         placeholder: "dd/mm/yyyy",
                         rightSection: <RiCalendarEventLine />,
+                        labelProps: {
+                          "data-test-id": "checkout-date-label",
+                        },
                       }}
                     />
                   </Grid.Col>
@@ -87,6 +99,12 @@ const ScheduleArricalCard: FC<{
                         { value: "4", label: "4" },
                         { value: "5", label: "5" },
                       ]}
+                      props={{
+                        "data-test-id": "guests",
+                        labelProps: {
+                          "data-test-id": "guests-label",
+                        },
+                      }}
                     />
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 12, lg: 6 }}>
@@ -100,6 +118,12 @@ const ScheduleArricalCard: FC<{
                         { value: "4", label: "4" },
                         { value: "5", label: "5" },
                       ]}
+                      props={{
+                        "data-test-id": "rooms",
+                        labelProps: {
+                          "data-test-id": "rooms-label",
+                        },
+                      }}
                     />
                   </Grid.Col>
                 </Grid>
@@ -113,6 +137,7 @@ const ScheduleArricalCard: FC<{
                   variant="outline"
                   radius={"xl"}
                   mr={10}
+                  data-test-id="reset-button"
                 >
                   Reset
                 </Button>
@@ -121,6 +146,7 @@ const ScheduleArricalCard: FC<{
                   type="submit"
                   size="lg"
                   radius="xl"
+                  data-test-id="submit-button"
                 >
                   Submit
                 </Button>
