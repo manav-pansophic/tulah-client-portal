@@ -23,6 +23,7 @@ import TestStatus from "../components/gnome/TestStatus";
 import Completed from "../components/schedule/kitstatus/Completed";
 import { createGuestSelectOptions } from "../helper/functions";
 import { useGetAllGuestListQuery } from "../services/guests/guestServices";
+import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
