@@ -44,6 +44,7 @@ const SchedulePickup: FC<{
         justify="space-between"
         h="100%"
         gap="lg"
+        p={"lg"}
         bg="var(--mantine-color-theme-0)"
       >
         <FormProvider {...methods}>

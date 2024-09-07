@@ -23,6 +23,7 @@ import TestStatus from "../components/gnome/TestStatus";
 import Completed from "../components/schedule/kitstatus/Completed";
 import { createGuestSelectOptions } from "../helper/functions";
 import { useGetAllGuestListQuery } from "../services/guests/guestServices";
+import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
@@ -32,15 +33,17 @@ export const Schedule = () => {
 
   const { data } = useGetAllGuestListQuery();
   const guestList = data?.results;
-  const guestListOption = guestList?.length ? createGuestSelectOptions(guestList) : []
+  const guestListOption = guestList?.length
+    ? createGuestSelectOptions(guestList)
+    : [];
 
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
-          <Paper className="layout" h="calc(100vh - 561px)" p="lg">
+          <Paper className="layout" h="calc(100vh - 561px)">
             <Flex h="100%">
-              <Flex direction={"column"}>
+              <Flex direction={"column"} p={"lg"}>
                 <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
                   Report Status
                 </Text>
@@ -76,8 +79,8 @@ export const Schedule = () => {
                   />
                 </Stack>
               </Flex>
-              <Divider orientation="vertical" m="lg" color="gray" />
-              <Box>
+              <Divider orientation="vertical" color="gray" />
+              <Box w={"100%"}>
                 {/* <DeliveredCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
