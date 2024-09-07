@@ -55,9 +55,9 @@ const AdditionalInformation = () => {
         </Flex>
         <Box mt="md">
           <Checkbox
-            props={{
-              defaultChecked: true,
-            }}
+          props={{
+            defaultChecked: false,
+          }}
             label="I hereby declare that the information provided above is true to the best of my knowledge. I fully understand that I am a partner in my health and wellness journey, 
 supported by the Tulah team. I am committed to working towards my health and wellbeing goals, prioritizing my time and activities to achieve them."
             name="additionalInfo.knowledge"

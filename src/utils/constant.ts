@@ -72,6 +72,9 @@ export const OPTIONS = {
     { label: 'Pune', value: 'pune' },
     { label: 'Surat', value: 'surat' },
     { label: 'Jaipur', value: 'jaipur' }
+  ],
+  nationality: [
+    {label: 'Indian', value: 'indian'}
   ]
 };
 

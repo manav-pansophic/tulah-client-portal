@@ -21,6 +21,7 @@ import { OPTIONS } from "../../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setGuestUserData } from "../../../store/slices/guestUserSlice";
 import { useEffect } from "react";
+import { useUpdateGuestDetailsMutation } from "../../../services/guests/guestServices";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -38,9 +39,10 @@ const RegistrationForm = () => {
     reset(user, { keepDirtyValues: true });
   }, [user])
 
+  const [updateGuestDetails, { isLoading, isSuccess, error }] = useUpdateGuestDetailsMutation();
   const isDiffAddress = watch("diffCurrAddress");
-  console.log({ isDiffAddress });
   const handleFormSubmit = (values: any) => {
+    updateGuestDetails(values);
     dispatch(setGuestUserData(values));
   };
   return (
@@ -94,23 +96,23 @@ const RegistrationForm = () => {
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-                  <DateInput
+                  <TextInput
                     name="email"
                     label="Email Address"
-                    props={{ placeholder: "Enter Email Address" }}
+                    props={{ placeholder: "Enter Email Address", type: "email" }}
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-                  <DateInput
+                  <TextInput
                     name="phoneNo"
                     label="Phone Number"
-                    props={{ placeholder: "Enter Phone Number" }}
+                    props={{ placeholder: "Enter Phone Number", type: "phone"}}
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <Select
                     name="nationality"
-                    data={[]}
+                    data={OPTIONS.nationality}
                     label="Nationality"
                     props={{ placeholder: "Select Nationality" }}
                   />
@@ -240,20 +242,20 @@ const RegistrationForm = () => {
               <Grid gutter={20}>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <TextInput
-                    name="firstName"
+                    name="emergencyFirstName"
                     label="First Name"
                     props={{ placeholder: "Enter First Name" }}
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                   <TextInput
-                    name="lastName"
+                    name="emergencyLastName"
                     label="Last Name"
                     props={{ placeholder: "Enter Last Name" }}
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-                  <TextInput name="phone" label="Phone Number" />
+                  <TextInput name="emergencyPhoneNumber" label="Phone Number" />
                   {/* <InputPhone name="phone" label="Phone Number" /> */}
                 </Grid.Col>
               </Grid>

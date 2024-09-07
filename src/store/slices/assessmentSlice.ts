@@ -1,99 +1,67 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  guestId: "12345",
+  guestId: "",
   assessment: {
     basicInformation: {
-      gender: "male",
-      age: "30",
-      goals: [
-        "de_stress",
-        "detox",
-        "weight_management",
-        "improve_fitness",
-        "wellbeing_goal",
-      ],
+      gender: "",
+      age: "",
+      goals: [],
       autoimmuneDisease: {
-        diagnosed: "yes",
-        conditionDetails:
-          "Rheumatoid Arthritis, experiencing joint pain and fatigue",
-      },
+        diagnosed: "",
+        conditionDetails: ''},
     },
     nutrition: {
-      expSignificant: "yes-weight-gain",
-      height: "5'10'",
-      weight: "55",
-      dominateSide: "left",
-      bowelFunction: "constipated",
-      preference: [
-        "vegetarian",
-        "gluten-free",
-        "lactose-free",
-        "any-other?",
-      ],
+      expSignificant: "",
+      height: "",
+      weight: "",
+      dominateSide: "",
+      bowelFunction: "",
+      preference: [],
     },
     allergies: {
-      "expSignificant": 'yes',
-      "medication": 'medication',
-      "reactmedication": 'red'
+      "expSignificant": '',
+      "medication": '',
+      "reactmedication": ''
     },
     skin: {
-      "skin_issue": [
-        "psoriasis",
-        "eczema",
-        "acne",
-        "skin_issue",
-      ],
-      "bruises_easily": "yes"
+      "skin_issue": [],
+      "bruises_easily": ""
     },
     medical: {
-      "surgical_procedure": 'Good',
-      "surgical_anesthesia_type": 'local',
-      "surgical_year": '2022',
-      "suppliment_name": 'Name',
-      "suppliment_strength": 'Good',
-      "suppliment_year": '2021',
+      "surgical_procedure": '',
+      "surgical_anesthesia_type": '',
+      "surgical_year": '',
+      "suppliment_name": '',
+      "suppliment_strength": '',
+      "suppliment_year": '',
       "suppliment_start_date": '',
-      "skin_issues": [
-        "asthma",
-        "cancer",
-        "diabetes",
-        "dementia",
-        "disturbances",
-        "seizures",
-        "others",
-      ],
-      "leave_comment": 'Testing 1',
-      "further_details": 'Testing 2',
+      "skin_issues": [],
+      "leave_comment": '',
+      "further_details": '',
     },
     exerciseTolerance: {
-      "flightStairs": "yes",
-      "answered_question": ["chest-pain", "breathlessness"],
-      "physicalActivity": "no",
-      "extrtionLevel": "Comment",
+      "flightStairs": "",
+      "answered_question": [],
+      "physicalActivity": "",
+      "extrtionLevel": "",
     },
     sleep: {
-      "sleep": "3",
-      "sleep_hours": "2",
+      "sleep": "",
+      "sleep_hours": "",
     },
     smoke: {
-      "you_smoke": 'no-quit',
-      "leaveComment": 'Comment',
+      "you_smoke": '',
+      "leaveComment": '',
     },
     pillowPreference: {
-      "preference": [
-        "contour",
-        "boudoir",
-        "feather",
-        "cottonSoft",
-        "cottonMedium",
-      ]
+      "preference": []
     },
     additionalInfo: {
-      condition_symptoms: "Symptoms",
+      condition_symptoms: "",
       emergency_contact: {
-        name: "Name",
-        phone: "9731231",
+        name: "",
+        phone: "",
       },
       date: "",
     },

@@ -19,18 +19,21 @@ import { useState } from "react";
 import ScheduleStatusCard from "../components/schedule/ScheduleStatusCard";
 import ArrivalCard from "../components/schedule/ArrivalCard";
 import ScheduleArricalCard from "../components/schedule/ScheduleArricalCard";
-import DeliveryScheduledCard from "../components/schedule/kitstatus/DeliveryScheduledCard";
-import DeliveredCard from "../components/schedule/kitstatus/DeliveredCard";
 import TestStatus from "../components/gnome/TestStatus";
-import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
-import PickupScheduledCard from "../components/schedule/kitstatus/PickupScheduledCard";
 import Completed from "../components/schedule/kitstatus/Completed";
+import { createGuestSelectOptions } from "../helper/functions";
+import { useGetAllGuestListQuery } from "../services/guests/guestServices";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
   const [isscheduled, setIsScheduled] = useState(false);
   const [statusType, setStatusType] = useState("INPROGRESS");
   const [isPicked, setIsPicked] = useState(true);
+
+  const { data } = useGetAllGuestListQuery();
+  const guestList = data?.results;
+  const guestListOption = guestList?.length ? createGuestSelectOptions(guestList) : []
+
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
@@ -43,9 +46,10 @@ export const Schedule = () => {
                 </Text>
                 <Select
                   defaultValue={"user"}
-                  data={[{ label: "Pedroo Abort", value: "user" }]}
+                  data={guestListOption || []}
                   w={"100%"}
                   pb={13}
+                  placeholder="Select Guest"
                 />
                 <Stack w="300px">
                   <TestStatus
