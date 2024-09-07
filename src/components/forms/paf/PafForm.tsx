@@ -11,7 +11,7 @@ import {
 import classes from "../../../app.module.css";
 import { RiArrowLeftSLine, RiCircleFill } from "@remixicon/react";
 import { useState } from "react";
-import { FormProvider, Select, useForm } from "@pansophictech/hook-form";
+import { FormProvider, useForm } from "@pansophictech/hook-form";
 import BasicInformation from "./BasicInformation";
 import Nutrition from "./Nutrition";
 import Skin from "./Skin";
@@ -24,6 +24,7 @@ import Allergie from "./Allergie";
 import Medical from "./Medical";
 import PafStatusCard from "../../../screens/components/PafStatusCard";
 import UserDropdown from "../../../screens/components/UserDropdown";
+import { initialPafSchema } from "./paf.schema";
 
 const steps = [
   {
@@ -50,33 +51,17 @@ const PafForm = () => {
     setActive((current) => (current < steps.length ? current + 1 : current));
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
-  const methods = useForm({
+
+  const methods = useForm<any>({
     mode: "onBlur",
     reValidateMode: "onBlur",
-    defaultValues: {},
+    defaultValues: initialPafSchema,
   });
 
   const handleFormSubmit = async (values: any) => {
     console.log(values);
   };
-  const pafUserData = [
-    {
-      name: "Pedro Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Pedro Abbott",
-        label: "Pedro Abbott",
-      },
-    },
-    {
-      name: "Belinda Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Belinda Abbott",
-        label: "Belinda Abbott",
-      },
-    },
-  ];
+
   return (
     <Box>
       <Box
