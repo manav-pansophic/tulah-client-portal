@@ -17,6 +17,7 @@ import GnomeFileUploadForm from "./uploadFile/GnomeFileUploadForm";
 import { useGetAllGuestListQuery } from "../../services/guests/guestServices";
 import { createGuestSelectOptions } from "../../helper/functions";
 import { useGetAllReportsQuery } from "../../services/gnome-biome/gnomeBiomeServices";
+import UserCard from "../sidebar/UserCard";
 
 const Gnome = () => {
   const instructionList = [
@@ -88,7 +89,7 @@ const Gnome = () => {
               instructionList={instructionList}
             />
             <Flex align="end">
-            <Button
+              <Button
                 radius={"xl"}
                 size="sm"
                 data-test-id="procced-to-paument  -button"
@@ -116,7 +117,7 @@ const Gnome = () => {
               instructionList={instructionList}
             />
             <Flex align="end">
-            <Button
+              <Button
                 radius={"xl"}
                 size="sm"
                 data-test-id="procced-to-paument  -button"
@@ -138,6 +139,10 @@ const Gnome = () => {
 
   const { currentData } = useGetAllReportsQuery();
   const reportsList = currentData?.results;
+
+  const handleReportClick = (reportName) => {
+    console.log('Report Name', reportName)
+  };
   return (
     <Flex>
       <Box className="layout-bg-color navbar-layout" p={"sm"}>
@@ -155,13 +160,19 @@ const Gnome = () => {
             Choose the tests you wish to take.
           </Text>
           {reportsList?.map((report, index) => (
-            <TestStatus
-              key={index}
-              testIcon={
-                <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-              }
-              testName={report.name.toUpperCase()}
-              testStatus={report.status}
+            // <TestStatus
+            //   key={index}
+            //   testIcon={
+            //     <RiDragMove2Line color="var(--mantine-color-theme-6)" />
+            //   }
+            //   testName={report.name.toUpperCase()}
+            //   testStatus={report.status}
+            // />
+            <UserCard
+              name={report.name.toUpperCase()}
+              avatar={report.image}
+              badgeName={report.status}
+              onClick={() => handleReportClick(report.name)}
             />
           ))}
         </Stack>

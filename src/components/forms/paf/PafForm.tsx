@@ -59,24 +59,6 @@ const PafForm = () => {
   const handleFormSubmit = async (values: any) => {
     console.log(values);
   };
-  const pafUserData = [
-    {
-      name: "Pedro Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Pedro Abbott",
-        label: "Pedro Abbott",
-      },
-    },
-    {
-      name: "Belinda Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Belinda Abbott",
-        label: "Belinda Abbott",
-      },
-    },
-  ];
   return (
     <Box>
       <Box
