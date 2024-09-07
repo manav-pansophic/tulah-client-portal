@@ -50,6 +50,7 @@ export const Schedule = () => {
                   w={"100%"}
                   pb={13}
                   placeholder="Select Guest"
+                  data-test-id="user-list-select"
                 />
                 <Stack w="300px">
                   <TestStatus
@@ -81,18 +82,18 @@ export const Schedule = () => {
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
                 /> */}
-                {/* <SchedulePickup
+                <SchedulePickup
                   isPicked={isPicked}
                   onSubmitClick={() => setScheduling(true)}
                   onBack={() => setScheduling(false)}
-                /> */}
+                />
                 {/* <PickupScheduledCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
                   // onSubmitClick={() => setScheduling(true)}
                   // onBack={() => setScheduling(false)}
                 /> */}
-                <Completed />
+                {/* <Completed /> */}
               </Box>
             </Flex>
           </Paper>

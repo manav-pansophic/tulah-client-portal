@@ -15,7 +15,7 @@ const AccessCode = () => {
   const visitorId = "2";
   const { data } = useGetAccessCodeQuery({ visitorId });
 
-  const accessCode = data?.results?.access_code.toString()
+  const accessCode = data?.results?.access_code.toString();
 
   return (
     <Flex justify={"center"} direction={"column"} gap="md" align={"center"}>
@@ -30,6 +30,7 @@ const AccessCode = () => {
         Your Access Code
       </Text>
       <PinInput
+        data-test-id="pininput"
         size="md"
         type="number"
         length={6}
@@ -37,7 +38,11 @@ const AccessCode = () => {
         value={accessCode}
       />
       <Box pt="md">
-        <CopyButton value={accessCode} timeout={2000}>
+        <CopyButton
+          data-test-id="click-copy-button"
+          value={accessCode}
+          timeout={2000}
+        >
           {({ copied, copy }) => (
             <Tooltip
               label={copied ? "Copied" : "Copy"}

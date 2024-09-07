@@ -13,7 +13,7 @@ const ExerciseTolerance = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="exercise-title" c="theme" fw={600} pb="sm">
         Exercise Tolerance
       </Text>
       <Stack gap="md">
@@ -36,7 +36,12 @@ const ExerciseTolerance = () => {
         <Textarea
           label="What type, extrtion level and duration"
           placeholder="leave a comment here"
-          name="exerciseTolerance.extrtionLevel"
+          name="extrtionLevel"
+          props={{
+            labelProps: {
+              "data-test-id": "extrtionLevel-label",
+            },
+          }}
         />
       </Stack>
     </Box>

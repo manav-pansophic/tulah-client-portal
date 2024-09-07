@@ -65,7 +65,7 @@ const Gnome = () => {
               instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
               instructionList={instructionList}
             />
-            <GnomeFileUploadForm />
+            {/* <GnomeFileUploadForm /> */}
           </Flex>
         </>
       ),

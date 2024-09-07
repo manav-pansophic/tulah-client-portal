@@ -15,15 +15,14 @@ import { useDispatch } from "react-redux";
 import { setGuestUserData } from "../../store/slices/guestUserSlice";
 
 const Sidebar = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const { data } = useGetAllGuestListQuery();
   const guestList = data?.results;
 
   const handleUserCardClick = (guestData) => {
-    dispatch(setGuestUserData(guestData))
-  }
+    dispatch(setGuestUserData(guestData));
+  };
 
   return (
     <Box className="layout-bg-color navbar-layout" p={"sm"}>
@@ -33,6 +32,7 @@ const Sidebar = () => {
         w={"100%"}
         size="sm"
         my={8}
+        data-test-id="add-new-guest-button"
         onClick={() =>
           openModal({
             centered: true,
@@ -57,11 +57,12 @@ const Sidebar = () => {
           marginBottom: 10,
         }}
         placeholder="Search"
+        data-test-id="search-input"
         rightSection={<RiSearchLine color="black" size={20} />}
       />
 
       <ScrollAreaAutosize mah="calc(100vh - 270px)" scrollbarSize={2}>
-        {guestList?.map((guest, index) => {        
+        {guestList?.map((guest, index) => {
           return (
             <UserCard
               key={index}

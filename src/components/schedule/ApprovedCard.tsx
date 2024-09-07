@@ -76,6 +76,7 @@ const ApprovedCard: FC<{
                   type="submit"
                   size="lg"
                   radius="xl"
+                  data-test-id="proceed-to-payment-button"
                 >
                   Proceed to Payment
                 </Button>

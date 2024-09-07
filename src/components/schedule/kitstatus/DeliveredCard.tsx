@@ -30,6 +30,7 @@ const DeliveredCard: FC<{
             size="lg"
             tt="uppercase"
             onClick={onScheduleClick}
+            data-test-id="schedule-pickup-button"
           >
             Schedule Pickup
           </Button>

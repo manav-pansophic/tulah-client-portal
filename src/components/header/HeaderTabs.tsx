@@ -14,13 +14,19 @@ interface NavTabsProps {
 }
 
 const HeaderTabs: FC<NavTabsProps> = ({ tabsData }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Flex justify={"center"} align={"center"} h="80px" gap="sm">
       <Tabs variant="pills" radius="xl" classNames={timeLineCss}>
         <Tabs.List grow>
           {tabsData.map((tab) => (
-            <Tabs.Tab  onClick={() => navigate(`/${tab.value}`)} key={tab.value} value={tab.value} leftSection={tab.icon}>
+            <Tabs.Tab
+              data-test-id={`tab-${tab.value}`}
+              onClick={() => navigate(`/${tab.value}`)}
+              key={tab.value}
+              value={tab.value}
+              leftSection={tab.icon}
+            >
               {tab.label}
             </Tabs.Tab>
           ))}

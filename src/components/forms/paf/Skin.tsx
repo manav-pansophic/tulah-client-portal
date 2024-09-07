@@ -24,7 +24,7 @@ const Skin = () => {
 
   return (
     <Box w="100%">
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="skin-title" c="theme" fw={600} pb="sm">
         Skin
       </Text>
       <Stack gap="lg">

@@ -90,6 +90,7 @@ const ConfirmedCard: FC<{
                   variant="outline"
                   radius={"xl"}
                   mr={10}
+                  data-test-id="upload-flight-details-button"
                 >
                   Upload Flight Details
                 </Button>
@@ -99,10 +100,14 @@ const ConfirmedCard: FC<{
                   variant="outline"
                   radius={"xl"}
                   mr={10}
+                  data-test-id="upload-visa-button"
                 >
                   Upload VISA
                 </Button>
-                <ActionIcon c={"var(--mantine-color-theme-6)"}>
+                <ActionIcon
+                  data-test-id="download-action-button"
+                  c={"var(--mantine-color-theme-6)"}
+                >
                   <RiDownloadLine size="15" />
                   <Text ml="xs">
                     Click here to download your VISA approval letter.

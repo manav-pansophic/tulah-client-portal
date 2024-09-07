@@ -43,7 +43,7 @@ const PaymentMainScreen = () => {
   ];
 
   const rows = (paymentHistory || []).map((payment) => (
-    <Table.Tr key={payment.Txn_ID}>
+    <Table.Tr key={payment.txn_id}>
       <Table.Td>{payment.txn_id}</Table.Td>
       <Table.Td>{convertUTCToDate(payment.paid_date)}</Table.Td>
       <Table.Td>
@@ -77,7 +77,9 @@ const PaymentMainScreen = () => {
       <Table.Td>{payment.gateway}</Table.Td>
       <Table.Td>₹ {payment.amount}</Table.Td>
       <Table.Td>
-        <Link to={"#"}>View Action</Link>
+        <Link data-test-id={`view-action-link-${payment.txn_id}`} to={"#"}>
+          View Action
+        </Link>
       </Table.Td>
     </Table.Tr>
   ));

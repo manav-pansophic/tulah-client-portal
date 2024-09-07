@@ -35,17 +35,40 @@ const GuestPopup = ({ closeAllModal }: any) => {
           <Stack gap="xs">
             <TextInput
               name="firstName"
-              props={{ placeholder: "Enter First Name" }}
+              props={{
+                placeholder: "Enter First Name",
+                "data-test-id": "firstname-guest",
+                labelProps: {
+                  "data-test-id": "firstname-guest-label",
+                },
+              }}
             />
             <TextInput
               name="lastName"
-              props={{ placeholder: "Enter Last Name" }}
+              props={{
+                placeholder: "Enter Last Name",
+                "data-test-id": "lastname-guest",
+                labelProps: {
+                  "data-test-id": "lastname-guest-label",
+                },
+              }}
             />
             <Flex justify={"flex-end"} gap="sm" pt="sm">
-              <Button size="sm" radius="xl" className="layout" c="black">
+              <Button
+                data-test-id="guest-cancel-button"
+                size="sm"
+                radius="xl"
+                className="layout"
+                c="black"
+              >
                 CANCEL
               </Button>
-              <Button size="sm" radius="xl" type="submit">
+              <Button
+                data-test-id="guest-add-button"
+                size="sm"
+                radius="xl"
+                type="submit"
+              >
                 ADD
               </Button>
             </Flex>
