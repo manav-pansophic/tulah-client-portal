@@ -7,7 +7,7 @@ export const gnomeBiomeService = APIService.injectEndpoints({
     getAllReports: builder.query({
       query: () => `tulah_reports`
     }),
-
+  
   })
 });
 
