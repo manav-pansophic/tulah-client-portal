@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { APIService } from "..";
 
 export const guestService = APIService.injectEndpoints({
@@ -16,6 +17,16 @@ export const guestService = APIService.injectEndpoints({
         };
       },
       invalidatesTags: ["GET_ALL_GUEST_LIST"],
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+
+        const {data} = await queryFulfilled
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
     }),
 
     // Update Guest Details
@@ -29,6 +40,16 @@ export const guestService = APIService.injectEndpoints({
         };
       },
       invalidatesTags: ["GET_ALL_GUEST_LIST"],
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+
+        const {data} = await queryFulfilled
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
     }),
 
     //Guest List
@@ -40,6 +61,16 @@ export const guestService = APIService.injectEndpoints({
         };
       },
       providesTags: ["GET_ALL_GUEST_LIST"],
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+
+        const {data} = await queryFulfilled
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
     }),
   }),
 });

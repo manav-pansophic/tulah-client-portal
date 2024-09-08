@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { APIService } from "..";
 
 export const assessmentService = APIService.injectEndpoints({
@@ -11,7 +12,17 @@ export const assessmentService = APIService.injectEndpoints({
           method: "POST",
         };
       },
-      invalidatesTags: ['GET_ASSESSMENT_DATA']
+      invalidatesTags: ['GET_ASSESSMENT_DATA'],
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+
+        const {data} = await queryFulfilled
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
     }),
 
     // Get Paf Form
@@ -22,7 +33,17 @@ export const assessmentService = APIService.injectEndpoints({
           method: 'GET'
         };
       },
-      providesTags: ['GET_ASSESSMENT_DATA']
+      providesTags: ['GET_ASSESSMENT_DATA'],
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+
+        const {data} = await queryFulfilled
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
     }),
   }),
 });

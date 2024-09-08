@@ -25,6 +25,7 @@ import { useSelector } from "react-redux";
 import { useSaveAssessmentMutation } from "../services/assessment/assessmentServices";
 import { useGetAllGuestListQuery } from "../services/guests/guestServices";
 import { createGuestSelectOptions } from "../helper/functions";
+import { toast } from "react-toastify";
 
 const steps = [
   {
@@ -79,6 +80,7 @@ export const PafScreen = () => {
 
   const { data } = useGetAllGuestListQuery();
   const guestList = data?.results;
+  toast.success('Guest List Fetched')
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
     : [];
