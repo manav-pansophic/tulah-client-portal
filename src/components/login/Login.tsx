@@ -1,4 +1,3 @@
-import React from 'react';
 import LoginForm from '../forms/login/LoginForm';
 
 const Login = () => {

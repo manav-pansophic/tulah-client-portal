@@ -11,7 +11,7 @@ import {
 import classes from "../../../app.module.css";
 import { RiArrowLeftSLine, RiCircleFill } from "@remixicon/react";
 import { useState } from "react";
-import { FormProvider, Select, useForm } from "@pansophictech/hook-form";
+import { FormProvider, useForm } from "@pansophictech/hook-form";
 import BasicInformation from "./BasicInformation";
 import Nutrition from "./Nutrition";
 import Skin from "./Skin";
@@ -59,24 +59,6 @@ const PafForm = () => {
   const handleFormSubmit = async (values: any) => {
     console.log(values);
   };
-  const pafUserData = [
-    {
-      name: "Pedro Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Pedro Abbott",
-        label: "Pedro Abbott",
-      },
-    },
-    {
-      name: "Belinda Abbott",
-      avatar: "",
-      dropVal: {
-        value: "Belinda Abbott",
-        label: "Belinda Abbott",
-      },
-    },
-  ];
   return (
     <Box>
       <Box
@@ -231,30 +213,3 @@ const PafForm = () => {
 };
 
 export default PafForm;
-
-{
-  /* <Box w={"100%"}>
-<Select
-  name="identify_gender"
-  data={[
-    { label: "Male", value: "male" },
-    { label: "Female", value: "female" },
-  ]}
-  props={{
-    placeholder: "--Select--",
-    leftSection: <Avatar
-// src={user?.image}
-tt="capitalize"
-color="teal"
-size={45}
-radius="xl"
-styles={{ root: { cursor: "pointer" } }}
->
-sd
-{/* {user?.first_name ? `${user?.first_name?.charAt(0)}` : `${loggedInUser?.first_name?.charAt(0)}`} */
-}
-// </Avatar>
-//   }}
-
-// />
-// </Box> */}
