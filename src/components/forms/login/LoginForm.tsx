@@ -10,15 +10,26 @@ import { FormProvider, TextInput, useForm } from "@pansophictech/hook-form";
 import TulahLogo from "../../../assets/img/TulahLogo.png";
 import { useLoginMutation } from "../../../services/auth/authService";
 import BGImage from "../../../assets/img/bg.png";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
   const [loginUser, { isLoading, isSuccess, isError, error }] =
     useLoginMutation();
   // Handle Login Functions
   const handleLogin = (credentials: any) => {
-    loginUser(credentials);
-    console.log("credentials", credentials);
+    // loginUser(credentials);
+    // console.log("credentials", credentials);
+    navigate(`/auth/verify`);
   };
+
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     navigate(`/auth/verify`);
+  //   }
+  // }, [isSuccess]);
 
   const methods = useForm<any>({
     mode: "onBlur",
