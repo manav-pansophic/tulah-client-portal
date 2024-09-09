@@ -25,7 +25,7 @@ const Header: FC<HeaderProps> = ({ logo, tabs, profile }) => {
 
   const {
     logoWidth = "10%",
-    tabsWidth = "80%",
+    tabsWidth = "100%",
     profileWidth = "10%",
   } = getWidths();
 
@@ -41,8 +41,8 @@ const Header: FC<HeaderProps> = ({ logo, tabs, profile }) => {
         </Box>
       )}
       {tabs && (
-        <Box className="layout-bg-color header-layout" w={tabsWidth}>
-          <Box>{tabs}</Box>
+        <Box className="layout-bg-color header-layout" w={tabsWidth} >
+          <Box w={"100%"}>{tabs}</Box>
         </Box>
       )}
       {profile && (

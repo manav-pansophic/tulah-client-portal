@@ -54,7 +54,7 @@ const Nutrition = () => {
               label="What is your height? (cm)"
               name="nutrition.height"
               props={{
-                placeholder: "Value",
+                placeholder: "Enter Height",
                 labelProps: {
                   "data-test-id": "height-label",
                 },
@@ -66,7 +66,7 @@ const Nutrition = () => {
               label="What is your weight? (kg)"
               name="nutrition.weight"
               props={{
-                placeholder: "Value",
+                placeholder: "Enter Weight",
                 labelProps: {
                   "data-test-id": "weight-label",
                 },

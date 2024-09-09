@@ -197,7 +197,7 @@ const PaymentMainScreen = () => {
                 w={"calc(93vh* var(--mantine-scale))%"}
                 ml={"10px"}
                 bg={"transparent"}
-                h={"calc(89vh* var(--mantine-scale))"}
+                h={"calc(100vh - 100px)"}
                 pb={"lg"}
                 mr={"sm"}
               >
@@ -227,7 +227,7 @@ const PaymentMainScreen = () => {
                       <Card key={index} mt={"md"} className={classes.box}>
                         <Flex justify={"space-between"}>
                           <Flex align={"center"} gap="20">
-                            <Avatar size={"lg"} radius="xl" src={item.report.image} />
+                            <Avatar size={"lg"} radius="xl" src={item.report.image} className={classes.tulahAvatarimage}/>
                             <Flex direction={"column"} gap={1}>
                               <Text>{item.report.name}</Text>
                               <Text size="sm">Pedro Abott</Text>{/* --------- need to make it dynamic--------- */}
@@ -287,7 +287,7 @@ const PaymentMainScreen = () => {
                 className={classes.box}
                 p={"lg"}
                 pos={"relative"}
-                h={"calc(90vh - var(--app-shell-header-height) )"}
+                h={"calc(100vh - 110px )"}
                 bg={"transparent"}
                 pb={"xs"}
                 mr={"xs"}
@@ -312,7 +312,7 @@ const PaymentMainScreen = () => {
                     </Box>
                     <Divider
                       color="var(--mantine-color-theme-10)"
-                      w={"30%"}
+                      w={"50%"}
                     ></Divider>
                     <Text>₹ {item.report.guest_price}</Text>
                   </Flex>
@@ -335,7 +335,7 @@ const PaymentMainScreen = () => {
                     <Title fz={"h5"}>Subtotal ({basketList?.length} items)</Title>
                     <Divider
                       color="var(--mantine-color-theme-10)"
-                      w={"35%"}
+                      w={"55%"}
                     ></Divider>
                     <Text>₹ {totalAmount}</Text>
                   </Flex>
@@ -343,7 +343,7 @@ const PaymentMainScreen = () => {
                     <Title fz={"h5"}>Convenience Fee</Title>
                     <Divider
                       color="var(--mantine-color-theme-10)"
-                      w={"40%"}
+                      w={"60%"}
                     ></Divider>
                     <Text>₹ {convinienceFee}</Text>
                   </Flex>
@@ -351,7 +351,7 @@ const PaymentMainScreen = () => {
                     <Title fz={"h5"}>GST on Convenience Fee</Title>
                     <Divider
                       color="var(--mantine-color-theme-10)"
-                      w={"25%"}
+                      w={"50%"}
                     ></Divider>
                     <Text>₹ {GST}</Text>
                   </Flex>
@@ -370,7 +370,7 @@ const PaymentMainScreen = () => {
                     </Title>
                     <Divider
                       color="var(--mantine-color-theme-10)"
-                      w={"30%"}
+                      w={"50%"}
                     ></Divider>
                     <Title c={"var(--mantine-color-theme-6)"} fz={"h3"}>
                       ₹ {grandTotal}
