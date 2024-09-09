@@ -25,7 +25,7 @@ const Allergie = () => {
               label="Name of medication / substance you are allergic /have an intolerance to"
               name="allergies.medication"
               props={{
-                placeholder: "Value",
+                placeholder: "Enter Name of Medication",
                 labelProps: {
                   "data-test-id": "medication-label",
                 },
@@ -37,7 +37,7 @@ const Allergie = () => {
               label="How do you react to this medication / substance (e.g. itchy, red, swelling)"
               name="allergies.reactmedication"
               props={{
-                placeholder: "Value",
+                placeholder: "Enter How do you react to this medication",
                 labelProps: {
                   "data-test-id": "reactmedication-label",
                 },

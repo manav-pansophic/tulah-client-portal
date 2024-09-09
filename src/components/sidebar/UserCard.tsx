@@ -37,7 +37,11 @@ const UserCard: FC<IProfileInfoCard> = ({
         justify="flex-start"
       >
         <Box py={7}>
-          <Avatar size={avatarSize ?? "lg"} radius="xl" src={avatar} />
+          <Avatar
+            size={avatarSize ?? "lg"}
+            src={avatar}
+            className={profileInfoCardCSS.tulahAvatarimage}
+          />
         </Box>
         <Flex justify="space-between" w="100%" py={7}>
           <Box>

@@ -3,6 +3,7 @@ import {
   Divider,
   Flex,
   Paper,
+  ScrollArea,
   Select,
   Stack,
   Text,
@@ -65,15 +66,17 @@ export const Schedule = () => {
                   data-test-id="user-list-select"
                 />
                 <Stack w="300px">
-                  {reportsList?.map((report, index) => (
-                    <UserCard
-                      key={index}
-                      name={report.name.toUpperCase()}
-                      avatar={report.image}
-                      badgeName={report.status}
-                      onClick={() => handleReportClick(report.name)}
-                    />
-                  ))}
+                  <ScrollArea>
+                    {reportsList?.map((report, index) => (
+                      <UserCard
+                        key={index}
+                        name={report.name.toUpperCase()}
+                        avatar={report.image}
+                        badgeName={report.status}
+                        onClick={() => handleReportClick(report.name)}
+                      />
+                    ))}
+                  </ScrollArea>
                 </Stack>
               </Flex>
               <Divider orientation="vertical" color="gray" />

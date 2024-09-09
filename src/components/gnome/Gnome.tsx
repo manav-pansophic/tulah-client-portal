@@ -4,6 +4,7 @@ import {
   Divider,
   Flex,
   Paper,
+  ScrollArea,
   Select,
   Stack,
   Text,
@@ -141,7 +142,7 @@ const Gnome = () => {
   const reportsList = currentData?.results;
 
   const handleReportClick = (reportName) => {
-    console.log('Report Name', reportName)
+    console.log("Report Name", reportName);
   };
   return (
     <Flex>
@@ -173,6 +174,7 @@ const Gnome = () => {
               avatar={report.image}
               badgeName={report.status}
               onClick={() => handleReportClick(report.name)}
+              
             />
           ))}
         </Stack>
@@ -193,10 +195,12 @@ const Gnome = () => {
             Ac convallis dictum feugiat phasellus at eu proin.
           </Text>
         </Paper>
-        <GnomeAccordion data={option1} />
-        <GnomeAccordion data={option2} />
-        <GnomeAccordion data={option3} />
-        <GnomeAccordion data={option4} />
+        <ScrollArea h="calc(100vh - 240px)">
+          <GnomeAccordion data={option1} />
+          <GnomeAccordion data={option2} />
+          <GnomeAccordion data={option3} />
+          <GnomeAccordion data={option4} />
+        </ScrollArea>
       </Box>
     </Flex>
   );
