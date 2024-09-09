@@ -1,8 +1,8 @@
-import LoginForm from '../forms/login/LoginForm';
+import LoginForm from "../forms/login/LoginForm";
 
 const Login = () => {
   return (
-    <div style={{backdropFilter: 'blur(10px)'}}>
+    <div style={{ backdropFilter: "blur(10px)" }}>
       <LoginForm />
     </div>
   );
