@@ -6,13 +6,13 @@ export const guestService = APIService.injectEndpoints({
     // Create New guest
     addNewGuest: builder.mutation({
       query: ({
-        visitor_id = "66d824947ce5e26ae9385d72",
+        visitorId = "66d824947ce5e26ae9385d72",
         firstName,
         lastName,
       }) => {
         return {
           url: `create_guest`,
-          body: { visitor_id, firstName, lastName },
+          body: { visitorId, firstName, lastName },
           method: "POST",
         };
       },

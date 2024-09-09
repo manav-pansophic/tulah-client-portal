@@ -16,3 +16,10 @@ export const  createGuestSelectOptions = (data) => {
             value: item._id 
         }));
 }
+
+// GST Calculator
+export const  calculateGST = (amount : any) => {
+    const gstRate = 0.18; // GST rate of 18%
+    const gstAmount = amount * gstRate;
+    return gstAmount;
+}

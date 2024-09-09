@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  guestId: "",
+  guest_id: "",
   assessment: {
     basicInformation: {
       gender: "",

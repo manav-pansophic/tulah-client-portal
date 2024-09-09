@@ -140,7 +140,7 @@ const PafForm = () => {
                       />
                     ))}
                   </Stepper>
-                  <PafStatusCard isApproved={true} />
+                  <PafStatusCard isApproved={false} />
                 </ScrollAreaAutosize>
               </Grid.Col>
               <Grid.Col
