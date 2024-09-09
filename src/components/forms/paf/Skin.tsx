@@ -24,19 +24,19 @@ const Skin = () => {
 
   return (
     <Box w="100%">
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="skin-title" c="theme" fw={600} pb="sm">
         Skin
       </Text>
       <Stack gap="lg">
         <CheckboxGroup
-          name="skin_issue"
+          name="skin.skin_issue"
           inline={true}
           label="Do you have any skin issues?"
           options={checkboxes}
         />
         <RadioGroup
           label="Do you get bruises easily?"
-          name="bruises_easily"
+          name="skin.bruises_easily"
           options={radioBruisesEasily}
         />
       </Stack>

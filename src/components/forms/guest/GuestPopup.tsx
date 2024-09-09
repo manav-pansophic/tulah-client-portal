@@ -1,16 +1,28 @@
 import { Button, Flex, Stack, Text } from "@pansophictech/base";
 import { FormProvider, TextInput, useForm } from "@pansophictech/hook-form";
+import { useAddNewGuestMutation } from "../../../services/guests/guestServices";
+import { useEffect } from "react";
 
-const GuestPopup = () => {
+const GuestPopup = ({ closeAllModal }: any) => {
   const methods = useForm({
     mode: "onBlur",
     reValidateMode: "onBlur",
     defaultValues: {},
   });
 
+  const [addNewGuest, { isLoading, isSuccess, error }] =
+    useAddNewGuestMutation();
+
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    addNewGuest(values);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      closeAllModal();
+    }
+  }, [isSuccess]);
+
   return (
     <Stack>
       <Text size="xs">
@@ -23,17 +35,40 @@ const GuestPopup = () => {
           <Stack gap="xs">
             <TextInput
               name="firstName"
-              props={{ placeholder: "Enter First Name" }}
+              props={{
+                placeholder: "Enter First Name",
+                "data-test-id": "firstname-guest",
+                labelProps: {
+                  "data-test-id": "firstname-guest-label",
+                },
+              }}
             />
             <TextInput
               name="lastName"
-              props={{ placeholder: "Enter Last Name" }}
+              props={{
+                placeholder: "Enter Last Name",
+                "data-test-id": "lastname-guest",
+                labelProps: {
+                  "data-test-id": "lastname-guest-label",
+                },
+              }}
             />
             <Flex justify={"flex-end"} gap="sm" pt="sm">
-              <Button size="sm" radius="xl" className="layout" c="black">
+              <Button
+                data-test-id="guest-cancel-button"
+                size="sm"
+                radius="xl"
+                className="layout"
+                c="black"
+              >
                 CANCEL
               </Button>
-              <Button size="sm" radius="xl">
+              <Button
+                data-test-id="guest-add-button"
+                size="sm"
+                radius="xl"
+                type="submit"
+              >
                 ADD
               </Button>
             </Flex>

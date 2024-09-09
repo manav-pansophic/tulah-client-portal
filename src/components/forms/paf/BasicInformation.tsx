@@ -9,7 +9,7 @@ import {
 
 const BasicInformation = () => {
   const checkboxes_looking_experience = [
-    { value: "de-stress", label: "De-stress" },
+    { value: "de_stress", label: "De-stress" },
     { value: "detox", label: "Detox" },
     { value: "weight_management", label: "Weight Management" },
     { value: "improve_fitness", label: "Improve Fitness" },
@@ -30,14 +30,14 @@ const BasicInformation = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm" data-test-id="basic_information_label">
+      <Text data-test-id="basic-info-form-title" c="theme" fw={600} pb="sm">
         Basic Information
       </Text>
       <Stack gap="lg">
         <Flex gap="md">
           <Box w={"100%"}>
             <Select
-              name="identify_gender"
+              name="basicInformation.gender"
               label="I identify my gender as"
               data={[
                 { label: "Male", value: "male" },
@@ -45,35 +45,47 @@ const BasicInformation = () => {
               ]}
               props={{
                 placeholder: "--Select--",
+                // "data-test-id": "identify-gender",
+                labelProps: {
+                  "data-test-id": "identify-gender-label",
+                },
               }}
             />
           </Box>
           <Box w={"100%"}>
             <TextInput
               label="Age"
-              name="age"
+              name="basicInformation.age"
               props={{
                 placeholder: "Value",
+                "data-test-id": "age",
+                labelProps: {
+                  "data-test-id": "age-label",
+                },
               }}
             />
           </Box>
         </Flex>
         <CheckboxGroup
-          name="looking_experience"
+          name="basicInformation.goals"
           inline={true}
           label="What are you looking to experience at tulah?"
           options={checkboxes_looking_experience}
         />
         <RadioGroup
-          name="diagnosed"
+          name="basicInformation.autoimmuneDisease.diagnosed"
           label="Have you ever been diagnosed with an autoimmune disease?"
           options={radio_options_diagnosed}
         />
         <Textarea
           props={{
             placeholder: "Leave a comment here",
+            "data-test-id": "leave-comment",
+            labelProps: {
+              "data-test-id": "leave-comment-label",
+            },
           }}
-          name="condition_symptoms"
+          name="basicInformation.autoimmuneDisease.conditionDetails"
           label="Please specify (condition and symptoms)"
         />
       </Stack>

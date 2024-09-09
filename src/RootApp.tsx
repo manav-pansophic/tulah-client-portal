@@ -7,12 +7,9 @@ import profileImg from "./assets/img/avatar-7.png";
 import HeaderTabs from "./components/header/HeaderTabs";
 import { TABSDATA } from "./utils/constant";
 import Profile from "./components/header/profile";
-// import Sidebar from "./components/sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
-import PaymentSideBar from "./components/payment/PaymentSideBar";
 
 const RootApp = () => {
-  const currentPath = window.location.pathname;
   return (
     <>
       <MainBackgroundImage
@@ -25,9 +22,7 @@ const RootApp = () => {
                 profile={<Profile src={profileImg} />}
               />
             }
-            // navbar={currentPath === "/payments" ? null : <Text>Sidebar</Text>}
             main={<Outlet/>}
-            aside={currentPath === "/payments" && <PaymentSideBar />}
           />
         }
       />

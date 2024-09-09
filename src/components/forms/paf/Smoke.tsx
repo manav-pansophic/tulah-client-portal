@@ -9,19 +9,22 @@ const Smoke = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="smoke-label" c="theme" fw={600} pb="sm">
         Smoke
       </Text>
       <RadioGroup
         label="Do you smoke?"
-        name="you_smoke"
+        name="smoke.you_smoke"
         options={radioOptionsSmoke}
       />
       <Box pt="md">
         <TextInput
-          name="leaveComment"
+          name="smoke.leaveComment"
           props={{
             placeholder: "leave a comment",
+            labelProps: {
+              "data-test-id": "leavecomment-label",
+            },
           }}
         />
       </Box>

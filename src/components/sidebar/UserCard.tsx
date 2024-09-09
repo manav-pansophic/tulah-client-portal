@@ -16,6 +16,7 @@ interface IProfileInfoCard {
   avatarSize?: string;
   badgeName?: string;
   time?: string;
+  onClick: any;
 }
 
 const UserCard: FC<IProfileInfoCard> = ({
@@ -24,9 +25,10 @@ const UserCard: FC<IProfileInfoCard> = ({
   avatarSize,
   badgeName,
   time,
+  onClick,
 }) => {
   return (
-    <Box>
+    <Box data-test-id={`usercard-${name}`} onClick={onClick}>
       <Flex
         mih={50}
         gap="md"

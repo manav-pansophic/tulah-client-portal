@@ -25,6 +25,7 @@ const DeliveryScheduledCard: FC<{
         </Box>
         <Box>
           <Button
+            data-test-id="kit-received-button"
             variant="filled"
             radius="xl"
             size="lg"

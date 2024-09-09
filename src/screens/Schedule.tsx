@@ -19,33 +19,41 @@ import { useState } from "react";
 import ScheduleStatusCard from "../components/schedule/ScheduleStatusCard";
 import ArrivalCard from "../components/schedule/ArrivalCard";
 import ScheduleArricalCard from "../components/schedule/ScheduleArricalCard";
-import DeliveryScheduledCard from "../components/schedule/kitstatus/DeliveryScheduledCard";
-import DeliveredCard from "../components/schedule/kitstatus/DeliveredCard";
 import TestStatus from "../components/gnome/TestStatus";
-import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
-import PickupScheduledCard from "../components/schedule/kitstatus/PickupScheduledCard";
 import Completed from "../components/schedule/kitstatus/Completed";
+import { createGuestSelectOptions } from "../helper/functions";
+import { useGetAllGuestListQuery } from "../services/guests/guestServices";
+import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
   const [isscheduled, setIsScheduled] = useState(false);
   const [statusType, setStatusType] = useState("INPROGRESS");
   const [isPicked, setIsPicked] = useState(true);
+
+  const { data } = useGetAllGuestListQuery();
+  const guestList = data?.results;
+  const guestListOption = guestList?.length
+    ? createGuestSelectOptions(guestList)
+    : [];
+
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
-          <Paper className="layout" h="calc(100vh - 561px)" p="lg">
+          <Paper className="layout" h="calc(100vh - 561px)">
             <Flex h="100%">
-              <Flex direction={"column"}>
+              <Flex direction={"column"} p={"lg"}>
                 <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
                   Report Status
                 </Text>
                 <Select
                   defaultValue={"user"}
-                  data={[{ label: "Pedroo Abort", value: "user" }]}
+                  data={guestListOption || []}
                   w={"100%"}
                   pb={13}
+                  placeholder="Select Guest"
+                  data-test-id="user-list-select"
                 />
                 <Stack w="300px">
                   <TestStatus
@@ -71,24 +79,24 @@ export const Schedule = () => {
                   />
                 </Stack>
               </Flex>
-              <Divider orientation="vertical" m="lg" color="gray" />
-              <Box>
+              <Divider orientation="vertical" color="gray" />
+              <Box w={"100%"}>
                 {/* <DeliveredCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
                 /> */}
-                {/* <SchedulePickup
+                <SchedulePickup
                   isPicked={isPicked}
                   onSubmitClick={() => setScheduling(true)}
                   onBack={() => setScheduling(false)}
-                /> */}
+                />
                 {/* <PickupScheduledCard
                   isPicked={isPicked}
                   onScheduleClick={() => setScheduling(true)}
                   // onSubmitClick={() => setScheduling(true)}
                   // onBack={() => setScheduling(false)}
                 /> */}
-                <Completed />
+                {/* <Completed /> */}
               </Box>
             </Flex>
           </Paper>
@@ -147,7 +155,6 @@ export const Schedule = () => {
               }
               title={"Help & Support"}
               name="+91-9876543210"
-              description="Click to Call"
             />
           </Box>
         </Flex>

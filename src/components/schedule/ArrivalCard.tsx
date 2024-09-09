@@ -42,6 +42,7 @@ const ArrivalCard: FC<{ isPicked: boolean; onScheduleClick: () => void }> = ({
                 size="lg"
                 tt="uppercase"
                 onClick={onScheduleClick}
+                data-test-id="schedule-arrival-button"
               >
                 Schedule Arrival
               </Button>

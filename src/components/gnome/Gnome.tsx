@@ -13,6 +13,8 @@ import Instruction from "./Instruction";
 import ReportCharges from "./ReportCharges";
 import TestStatus from "./TestStatus";
 import GnomeFileUploadForm from "./uploadFile/GnomeFileUploadForm";
+import { useGetAllGuestListQuery } from "../../services/guests/guestServices";
+import { createGuestSelectOptions } from "../../helper/functions";
 
 const Gnome = () => {
   const instructionList = [
@@ -30,7 +32,7 @@ const Gnome = () => {
     },
   ];
 
-  const groceries = [
+  const option1 = [
     {
       value: "Options 1",
       questionList:
@@ -50,7 +52,7 @@ const Gnome = () => {
       ),
     },
   ];
-  const groceries1 = [
+  const option2 = [
     {
       value: "Options 2",
       questionList: "Already have a report? Upload it here.",
@@ -63,12 +65,16 @@ const Gnome = () => {
               instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
               instructionList={instructionList}
             />
-            <GnomeFileUploadForm />
+            {/* <GnomeFileUploadForm /> */}
           </Flex>
         </>
       ),
     },
   ];
+
+  const { data } = useGetAllGuestListQuery();
+  const guestList = data?.results;
+  const guestListOption = guestList?.length ? createGuestSelectOptions(guestList) : []
 
   return (
     <Flex>
@@ -77,8 +83,9 @@ const Gnome = () => {
           <Box py={3}>
             <Select
               defaultValue={"user"}
-              data={[{ label: "Pedroo Abort", value: "user" }]}
+              data={guestListOption||[]}
               w={"100%"}
+              placeholder="Select Guest"
             />
           </Box>
           <Divider color="gray" pb="sm" />
@@ -123,8 +130,8 @@ const Gnome = () => {
             Ac convallis dictum feugiat phasellus at eu proin.
           </Text>
         </Paper>
-        <GnomeAccordion data={groceries} />
-        <GnomeAccordion data={groceries1} />
+        <GnomeAccordion data={option1} />
+        <GnomeAccordion data={option2} />
       </Box>
     </Flex>
   );

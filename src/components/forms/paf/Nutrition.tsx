@@ -39,47 +39,53 @@ const Nutrition = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="nutrition-label" c="theme" fw={600} pb="sm">
         Nutrition
       </Text>
       <Stack gap="lg">
         <RadioGroup
           label="Have you experienced a significant change in weight over the prevoius 3-6 months?"
-          name="expSignificant"
+          name="nutrition.expSignificant"
           options={exp_significant_option}
         />
         <Flex gap="md">
           <Box w="100%">
             <TextInput
               label="What is your height? (cm)"
-              name="height"
+              name="nutrition.height"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "height-label",
+                },
               }}
             />
           </Box>
           <Box w="100%">
             <TextInput
               label="What is your weight? (kg)"
-              name="weight"
+              name="nutrition.weight"
               props={{
                 placeholder: "Value",
+                labelProps: {
+                  "data-test-id": "weight-label",
+                },
               }}
             />
           </Box>
         </Flex>
         <RadioGroup
           label="Your dominate side?"
-          name="dominateSide"
+          name="nutrition.dominateSide"
           options={radioOptionsDominate}
         />
         <RadioGroup
           label="How good is your bowel function?"
-          name="bowelFunction"
+          name="nutrition.bowelFunction"
           options={radioOptionsBowelFunction}
         />
         <CheckboxGroup
-          name="preference"
+          name="nutrition.preference"
           inline={true}
           label="Please specify your diet preference?"
           options={checkboxes_preference_option}

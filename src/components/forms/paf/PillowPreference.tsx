@@ -23,13 +23,13 @@ const PillowPreference = () => {
   ];
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="pillow-title" c="theme" fw={600} pb="sm">
         Pillow Preference
       </Text>
 
       <Stack gap={15}>
         <CheckboxGroup
-          name="pillow_prefer"
+          name="pillowPreference.preference"
           inline={true}
           label="What type of pillow do you prefer?"
           options={checkboxesPillow}

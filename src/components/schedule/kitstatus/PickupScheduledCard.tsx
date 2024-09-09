@@ -30,6 +30,7 @@ const PickupScheduledCard: FC<{
             variant="outline"
             radius={"xl"}
             mr={10}
+            data-test-id="pickupscheduled-cancel-button"
           >
             Cancel
           </Button>
@@ -38,6 +39,7 @@ const PickupScheduledCard: FC<{
             radius="xl"
             size="lg"
             tt="uppercase"
+            data-test-id="reschedule-button"
             onClick={onScheduleClick}
           >
             Reschedule

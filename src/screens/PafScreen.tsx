@@ -8,7 +8,7 @@ import {
   Stepper,
 } from "@pansophictech/base";
 import { FormProvider, useForm } from "@pansophictech/hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BasicInformation from "../components/forms/paf/BasicInformation";
 import Nutrition from "../components/forms/paf/Nutrition";
 import Allergie from "../components/forms/paf/Allergie";
@@ -21,6 +21,11 @@ import AdditionalInformation from "../components/forms/paf/AdditionalInformation
 import { RiCircleFill } from "@remixicon/react";
 import Sleep from "../components/forms/paf/Sleep";
 import PafStatusCard from "./components/PafStatusCard";
+import { useSelector } from "react-redux";
+import { useSaveAssessmentMutation } from "../services/assessment/assessmentServices";
+import { useGetAllGuestListQuery } from "../services/guests/guestServices";
+import { createGuestSelectOptions } from "../helper/functions";
+import { toast } from "react-toastify";
 
 const steps = [
   {
@@ -43,6 +48,8 @@ const steps = [
 
 export const PafScreen = () => {
   const [active, setActive] = useState(0);
+  const { guestId, assessment } = useSelector((state) => state.assessmentData);
+
   const nextStep = () =>
     setActive((current) => (current < steps.length ? current + 1 : current));
   const prevStep = () =>
@@ -54,9 +61,30 @@ export const PafScreen = () => {
     defaultValues: {},
   });
 
+  const { reset, getValues } = methods;
+
+  const [saveAssessment, { isLoading, isSuccess, error }] =
+    useSaveAssessmentMutation();
+
+  useEffect(() => {
+    reset(assessment, { keepDirtyValues: true });
+  }, [assessment]);
+
   const handleFormSubmit = async (values: any) => {
     console.log(values);
+    saveAssessment({
+      guestId: "",
+      ...values,
+    });
   };
+
+  const { data } = useGetAllGuestListQuery();
+  const guestList = data?.results;
+  toast.success('Guest List Fetched')
+  const guestListOption = guestList?.length
+    ? createGuestSelectOptions(guestList)
+    : [];
+
   return (
     <FormProvider {...methods}>
       <form
@@ -70,9 +98,10 @@ export const PafScreen = () => {
               <Box py={3}>
                 <Select
                   defaultValue={"user"}
-                  data={[{ label: "Pedroo Abort", value: "user" }]}
+                  data={guestListOption || []}
                   w={"100%"}
                   pb={13}
+                  placeholder="Select Guest"
                 />
               </Box>
               <Stepper
@@ -158,7 +187,7 @@ export const PafScreen = () => {
                     BACK
                   </Button>
                 )}
-                {active < steps.length - 1 ? (
+                {active < steps.length - 1 && (
                   <Button
                     radius="xl"
                     type="button"
@@ -167,7 +196,8 @@ export const PafScreen = () => {
                   >
                     NEXT
                   </Button>
-                ) : (
+                )}
+                {active + 1 === steps.length && (
                   <Button radius="xl" type="submit" variant="filled" size="md">
                     Submit For Approval
                   </Button>

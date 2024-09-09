@@ -21,6 +21,7 @@
     "@mantine/tiptap": "^7.12.2",
     "@pansophictech/base": "^2.2.0",
     "@pansophictech/dates": "^11.0.0",
+    "@pansophictech/dropzone": "^10.0.0",
     "@pansophictech/hook-form": "^12.7.0",
     "@pansophictech/modals": "^10.0.0",
     "@reduxjs/toolkit": "^2.2.7",
@@ -31,9 +32,11 @@
     "@tiptap/starter-kit": "^2.6.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-dropzone-esm": "^15.0.1",
     "react-phone-input-2": "^2.15.1",
     "react-redux": "^9.1.2",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

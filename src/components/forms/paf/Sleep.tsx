@@ -32,18 +32,18 @@ const Sleep = () => {
 
   return (
     <Box>
-      <Text c="theme" fw={600} pb="sm">
+      <Text data-test-id="sleep-title" c="theme" fw={600} pb="sm">
         Sleep
       </Text>
       <Stack gap="lg">
         <RatingScale
-          name="sleep"
+          name="sleep.sleep"
           label="On a scale of 1 to 10, with 1 being poor and 10 being excellent, how
         would you rate your quality of sleep?"
           data={colorsData}
         />
         <RatingScale
-          name="sleep-hours"
+          name="sleep.sleep_hours"
           label="On average how many hours would you sleep per day?"
           data={sleepHours}
           props={{ w: "100px" }}

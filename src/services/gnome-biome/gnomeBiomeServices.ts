@@ -7,7 +7,7 @@ export const gnomeBiomeService = APIService.injectEndpoints({
     addNewGuest: builder.mutation({
       query: () => `add_new_guest/create`
     }),
-
+  
   })
 });
 
