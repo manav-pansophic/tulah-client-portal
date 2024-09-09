@@ -4,7 +4,7 @@ import classes from "../../app.module.css";
 const PafStatusCard = (isApproved: any) => {
   return (
     <Box className={classes.bgForms} p="sm" style={{ borderRadius: "10px" }}>
-      {!isApproved ? (
+      {isApproved ? (
         <>
           <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
             Submitted
@@ -26,7 +26,7 @@ const PafStatusCard = (isApproved: any) => {
             Congratulations! 🎉
           </Text>
           <Text size="24px" fw="bold" pb="sm">
-            Its approved. 
+            Its approved.
           </Text>
           <Text
             style={{
