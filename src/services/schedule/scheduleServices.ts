@@ -20,7 +20,28 @@ export const scheduleService = APIService.injectEndpoints({
         }
       },
     }),
+
+    // Create Schedule for Guest
+    schedulePickup: builder.mutation({
+      query: (values) => {
+        return {
+          url: `create_guest_arrival_schedule`,
+          body: values,
+          method: "POST",
+        };
+      },
+      onQueryStarted: async (arg, { queryFulfilled }) => {
+        const { data } = await queryFulfilled;
+        try {
+          await queryFulfilled;
+          toast.success(data?.message);
+        } catch (error) {
+          toast.error(error?.data?.message);
+        }
+      },
+    }),
+    
   }),
 });
 
-export const { useGetAccessCodeQuery } = scheduleService;
+export const { useGetAccessCodeQuery, useSchedulePickupMutation } = scheduleService;

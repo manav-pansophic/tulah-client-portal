@@ -17,12 +17,18 @@ importers:
       '@pansophictech/dates':
         specifier: ^11.0.0
         version: 11.0.0(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(dayjs@1.11.13)(react-dom@18.3.1(react@18.3.1))
+      '@pansophictech/dropzone':
+        specifier: ^10.0.0
+        version: 10.0.0(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))
       '@pansophictech/hook-form':
         specifier: ^12.7.0
         version: 12.7.0(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(@pansophictech/dates@11.0.0(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(dayjs@1.11.13)(react-dom@18.3.1(react@18.3.1)))(@pansophictech/dropzone@10.0.0(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1)))
       '@pansophictech/modals':
         specifier: ^10.0.0
         version: 10.0.0(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(@pansophictech/base@2.2.0(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))
+      '@pansophictech/toast':
+        specifier: ^1.0.0
+        version: 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@reduxjs/toolkit':
         specifier: ^2.2.7
         version: 2.2.7(react-redux@9.1.2(@types/react@18.3.5)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
@@ -47,6 +53,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-dropzone-esm:
+        specifier: ^15.0.1
+        version: 15.0.1(react@18.3.1)
       react-phone-input-2:
         specifier: ^2.15.1
         version: 2.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -56,6 +65,9 @@ importers:
       react-router-dom:
         specifier: ^6.26.1
         version: 6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-toastify:
+        specifier: ^10.0.5
+        version: 10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.9.0
@@ -391,6 +403,9 @@ packages:
     resolution: {integrity: sha512-sS5Sc4Yz9Jm9TFK70RWDRzRJm+hb18DH2BWUI7N0lVcZNuyCfF0fIJXdshkxmGBmfbM12cwOQjrNO4WCPkcxCQ==}
     peerDependencies:
       '@pansophictech/base': '*'
+
+  '@pansophictech/toast@1.0.0':
+    resolution: {integrity: sha512-h10h2Lg1Fz+5SICfHr7hVIesJAoRUWF0SwrNhS0OmwSSZD96f/Bq21s4HBK1+tr1QG0ynKckqb5jsql2oK+HBQ==}
 
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
@@ -1666,6 +1681,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
+  react-toastify@10.0.5:
+    resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
@@ -1752,6 +1773,12 @@ packages:
   socks@2.8.3:
     resolution: {integrity: sha512-l5x7VUUWbjVFbafGLxPWkYsHIhEvmF85tbIeFZWc8ZPtoMyybuEhL7Jye/ooC4/d48FgOjSJXgsF/AJPYCW8Zw==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
+
+  sonner@1.5.0:
+    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -2284,6 +2311,13 @@ snapshots:
     transitivePeerDependencies:
       - '@mantine/core'
       - '@mantine/hooks'
+      - react-dom
+
+  '@pansophictech/toast@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      sonner: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - react
       - react-dom
 
   '@popperjs/core@2.11.8': {}
@@ -3629,6 +3663,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
+  react-toastify@10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
@@ -3724,6 +3764,11 @@ snapshots:
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
+
+  sonner@1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   source-map-js@1.2.0: {}
 

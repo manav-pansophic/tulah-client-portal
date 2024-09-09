@@ -82,3 +82,5 @@ export const OPTIONS = {
 export const API_CONFIG = {
   BASE_URL: 'https://tulahm.pansophictech.com/'
 }
+
+export const VISITOR_ID = '66d824947ce5e26ae9385d72'

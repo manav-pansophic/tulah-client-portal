@@ -17,6 +17,7 @@
     "@pansophictech/dropzone": "^10.0.0",
     "@pansophictech/hook-form": "^12.7.0",
     "@pansophictech/modals": "^10.0.0",
+    "@pansophictech/toast": "^1.0.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@remixicon/react": "^4.2.0",
     "@tabler/icons-react": "^3.14.0",

@@ -21,6 +21,7 @@ import {
   Select,
   useForm,
 } from "@pansophictech/hook-form";
+import { useSchedulePickupMutation } from "../../services/schedule/scheduleServices";
 
 const ScheduleArricalCard: FC<{
   isPicked: any;
@@ -34,8 +35,11 @@ const ScheduleArricalCard: FC<{
     defaultValues: {},
   });
 
+  const [schedulePickup,{isLoading, isSuccess, isError}] = useSchedulePickupMutation()
+
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    console.log('Form Values schdule', values)
+    schedulePickup(values);
   };
   return (
     <>
