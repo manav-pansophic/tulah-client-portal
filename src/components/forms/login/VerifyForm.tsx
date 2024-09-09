@@ -3,8 +3,10 @@ import {
   Box,
   Button,
   Card,
+  Center,
   Container,
   Flex,
+  Text,
 } from "@pansophictech/base";
 import BGImage from "../../../assets/img/bg.png";
 import TulahLogo from "../../../assets/img/TulahLogo.png";
@@ -68,7 +70,19 @@ const VerifyForm = () => {
                       }}
                     />
                   </div>
-                  <Flex justify="center" mt={30}>
+                  <Center mt="md">
+                    <Text size="md">
+                      Didn’t Receive OTP?{" "}
+                      <b
+                        style={{
+                          background: "theme",
+                        }}
+                      >
+                        Resend OTP
+                      </b>
+                    </Text>
+                  </Center>
+                  <Flex justify="center" mt={10}>
                     <Button type="submit" radius={"xl"}>
                       VERIFY
                     </Button>
