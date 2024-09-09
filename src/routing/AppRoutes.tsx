@@ -6,7 +6,7 @@ import Login from "../components/login/Login";
 const { BASE_URL } = import.meta.env;
 
 const AppRoutes: FC = () => {
-  const user = false;
+  const user = true;
   return (
     <BrowserRouter basename={BASE_URL}>
       <Routes>

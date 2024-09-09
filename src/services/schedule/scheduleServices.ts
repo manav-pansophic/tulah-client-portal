@@ -5,14 +5,13 @@ export const scheduleService = APIService.injectEndpoints({
   endpoints: (builder) => ({
     // Get Access Code
     getAccessCode: builder.query({
-      query: ({visitorId}) => {
+      query: ({ visitorId }) => {
         return {
           url: `get_code/${visitorId}`,
         };
       },
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);
