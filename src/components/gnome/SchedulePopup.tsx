@@ -10,7 +10,14 @@ const SchedulePopup = () => {
       </Text>
 
       <Flex gap="sm" mt="md">
-        <Button size="sm" radius="xl" className="layout" c="black" fullWidth>
+        <Button
+          data-test-id="just-one-button"
+          size="sm"
+          radius="xl"
+          className="layout"
+          c="black"
+          fullWidth
+        >
           <Text
             tt="uppercase"
             style={{ letterSpacing: "2px" }}
@@ -20,7 +27,7 @@ const SchedulePopup = () => {
             NO, JUST THIS ONE
           </Text>
         </Button>
-        <Button size="sm" radius="xl" fullWidth>
+        <Button data-test-id="apply-all-button" size="sm" radius="xl" fullWidth>
           <Text
             tt="uppercase"
             style={{ letterSpacing: "2px" }}

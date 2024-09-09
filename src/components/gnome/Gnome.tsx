@@ -32,6 +32,33 @@ const Gnome = () => {
     },
   ];
 
+  const gnomeList = [
+    {
+      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
+      testName: "GNOME",
+      testStatus: "To be done",
+    },
+    {
+      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
+      testName: "GNOME",
+      testStatus: "To be done",
+    },
+    {
+      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
+      testName: "GNOME",
+      testStatus: "To be done",
+    },
+    {
+      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
+      testName: "GNOME",
+      testStatus: "To be done",
+    },
+    {
+      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
+      testName: "GNOME",
+      testStatus: "To be done",
+    },
+  ];
   const option1 = [
     {
       value: "Options 1",
@@ -74,7 +101,9 @@ const Gnome = () => {
 
   const { data } = useGetAllGuestListQuery();
   const guestList = data?.results;
-  const guestListOption = guestList?.length ? createGuestSelectOptions(guestList) : []
+  const guestListOption = guestList?.length
+    ? createGuestSelectOptions(guestList)
+    : [];
 
   return (
     <Flex>
@@ -82,17 +111,26 @@ const Gnome = () => {
         <Stack gap={8}>
           <Box py={3}>
             <Select
+              data-test-id="guest-gnome-select"
               defaultValue={"user"}
-              data={guestListOption||[]}
+              data={guestListOption || []}
               w={"100%"}
               placeholder="Select Guest"
             />
           </Box>
           <Divider color="gray" pb="sm" />
-          <Text c="theme" size="sm" fw={600}>
+          <Text data-test-id="gnome-list-title" c="theme" size="sm" fw={600}>
             Choose the tests you wish to take.
           </Text>
-          <TestStatus
+          {gnomeList.map((item: any, index: any) => (
+            <TestStatus
+              testIcon={item.testIcon}
+              testName={item.testName}
+              testStatus={item.testStatus}
+              index={index}
+            />
+          ))}
+          {/* <TestStatus
             testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
             testName="GNOME"
             testStatus="To be done"
@@ -106,12 +144,7 @@ const Gnome = () => {
             testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
             testName="GNOME"
             testStatus="To be done"
-          />
-          <TestStatus
-            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
-            testName="GNOME"
-            testStatus="To be done"
-          />
+          /> */}
         </Stack>
       </Box>
       <Box h="calc(100vh - 110px)" w={"100%"}>

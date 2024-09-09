@@ -39,7 +39,8 @@ const RegistrationForm = () => {
     reset(user, { keepDirtyValues: true });
   }, [user]);
 
-  const [updateGuestDetails, { isLoading, isSuccess, error }] = useUpdateGuestDetailsMutation();
+  const [updateGuestDetails, { isLoading, isSuccess, error }] =
+    useUpdateGuestDetailsMutation();
   const isDiffAddress = watch("diffCurrAddress");
   const handleFormSubmit = (values: any) => {
     updateGuestDetails(values);
@@ -133,7 +134,7 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "email-address-label",
                       },
-                      type: "email"
+                      type: "email",
                     }}
                   />
                 </Grid.Col>
@@ -147,7 +148,7 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "phone-number-label",
                       },
-                      type: "phone"
+                      type: "phone",
                     }}
                   />
                 </Grid.Col>
@@ -422,7 +423,9 @@ const RegistrationForm = () => {
                       closeOnClickOutside: false,
                       overlayProps: { blur: 3 },
                       title: (
-                        <Text fw={600}>Apply Changes to All Reports?</Text>
+                        <Text data-test-id="reset-popup-title" fw={600}>
+                          Apply Changes to All Reports?
+                        </Text>
                       ),
                       transitionProps: { transition: "pop", duration: 200 },
                       children: <SchedulePopup />,
