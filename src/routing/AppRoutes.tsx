@@ -6,7 +6,7 @@ import Login from "../components/login/Login";
 const { BASE_URL } = import.meta.env;
 
 const AppRoutes: FC = () => {
-  const user = false;
+  const user = true;
   return (
     <BrowserRouter basename={BASE_URL}>
       <Routes>
@@ -18,11 +18,14 @@ const AppRoutes: FC = () => {
             <Route index element={<Navigate to="/guests" />} />
           </>
         ) : (
-            <>
-            <Route path="/auth/register" element={<div>Register component</div>} />
+          <>
+            <Route
+              path="/auth/register"
+              element={<div>Register component</div>}
+            />
             <Route path="/auth/login" element={<Login />} />
             <Route path="*" element={<Navigate to="/auth/login" />} />
-            </>
+          </>
         )}
       </Routes>
     </BrowserRouter>
