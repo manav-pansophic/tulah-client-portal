@@ -77,8 +77,8 @@ export const PafScreen = () => {
       ...values,
     });
   };
-
-  const { data } = useGetAllGuestListQuery();
+  const v_id = sessionStorage.getItem("visitors_id");
+  const { data } = useGetAllGuestListQuery({ visitor_id: v_id });
   const guestList = data?.results;
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)

@@ -12,10 +12,9 @@ export const assessmentService = APIService.injectEndpoints({
           method: "POST",
         };
       },
-      invalidatesTags: ['GET_ASSESSMENT_DATA'],
+      invalidatesTags: ["GET_ASSESSMENT_DATA"],
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);
@@ -30,13 +29,12 @@ export const assessmentService = APIService.injectEndpoints({
       query: (id) => {
         return {
           url: `pre_assessment_form/${id}`,
-          method: 'GET'
+          method: "GET",
         };
       },
-      providesTags: ['GET_ASSESSMENT_DATA'],
+      providesTags: ["GET_ASSESSMENT_DATA"],
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);

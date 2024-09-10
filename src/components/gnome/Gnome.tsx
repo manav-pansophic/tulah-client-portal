@@ -9,16 +9,14 @@ import {
   Stack,
   Text,
 } from "@pansophictech/base";
-import { RiDragMove2Line } from "@remixicon/react";
+import { createGuestSelectOptions } from "../../helper/functions";
+import { useGetAllReportsQuery } from "../../services/gnome-biome/gnomeBiomeServices";
+import { useGetAllGuestListQuery } from "../../services/guests/guestServices";
+import UserCard from "../sidebar/UserCard";
 import GnomeAccordion from "./GnomeAccordion";
 import Instruction from "./Instruction";
 import ReportCharges from "./ReportCharges";
-import TestStatus from "./TestStatus";
 import GnomeFileUploadForm from "./uploadFile/GnomeFileUploadForm";
-import { useGetAllGuestListQuery } from "../../services/guests/guestServices";
-import { createGuestSelectOptions } from "../../helper/functions";
-import { useGetAllReportsQuery } from "../../services/gnome-biome/gnomeBiomeServices";
-import UserCard from "../sidebar/UserCard";
 
 const Gnome = () => {
   const instructionList = [
@@ -131,17 +129,17 @@ const Gnome = () => {
       ),
     },
   ];
-
-  const { data } = useGetAllGuestListQuery();
+  const v_id = sessionStorage.getItem("visitors_id");
+  const { data } = useGetAllGuestListQuery({ visitor_id: v_id });
   const guestList = data?.results;
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
     : [];
 
-  const { currentData } = useGetAllReportsQuery();
+  const { currentData } = useGetAllReportsQuery({});
   const reportsList = currentData?.results;
 
-  const handleReportClick = (reportName) => {
+  const handleReportClick = (reportName: any) => {
     console.log("Report Name", reportName);
   };
   return (
@@ -160,7 +158,7 @@ const Gnome = () => {
           <Text c="theme" size="sm" fw={600}>
             Choose the tests you wish to take.
           </Text>
-          {reportsList?.map((report, index) => (
+          {reportsList?.map((report: any, index: any) => (
             // <TestStatus
             //   key={index}
             //   testIcon={
@@ -174,7 +172,6 @@ const Gnome = () => {
               avatar={report.image}
               badgeName={report.status}
               onClick={() => handleReportClick(report.name)}
-              
             />
           ))}
         </Stack>

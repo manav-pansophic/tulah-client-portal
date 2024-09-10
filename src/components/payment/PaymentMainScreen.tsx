@@ -37,13 +37,13 @@ const PaymentMainScreen = () => {
 
   const totalAmount = basketList.reduce((total, item) => {
     return total + item.report.guest_price;
-}, 0);
+  }, 0);
 
-  const convinienceFee = 200 ; 
+  const convinienceFee = 200;
 
-  const GST = calculateGST(totalAmount)
+  const GST = calculateGST(totalAmount);
 
-  const grandTotal = totalAmount + convinienceFee + GST ;
+  const grandTotal = totalAmount + convinienceFee + GST;
 
   const rows = (paymentHistory || []).map((payment) => (
     <Table.Tr key={payment.txn_id}>
@@ -218,7 +218,8 @@ const PaymentMainScreen = () => {
                       tt={"uppercase"}
                       c={"var(--mantine-color-theme-10)"}
                     >
-                      Total Items: {basketList ? basketList?.length : null} items
+                      Total Items: {basketList ? basketList?.length : null}{" "}
+                      items
                     </Title>
                   </Flex>
 
@@ -227,10 +228,16 @@ const PaymentMainScreen = () => {
                       <Card key={index} mt={"md"} className={classes.box}>
                         <Flex justify={"space-between"}>
                           <Flex align={"center"} gap="20">
-                            <Avatar size={"lg"} radius="xl" src={item.report.image} className={classes.tulahAvatarimage}/>
+                            <Avatar
+                              size={"lg"}
+                              radius="xl"
+                              src={item.report.image}
+                              className={classes.tulahAvatarimage}
+                            />
                             <Flex direction={"column"} gap={1}>
                               <Text>{item.report.name}</Text>
-                              <Text size="sm">Pedro Abott</Text>{/* --------- need to make it dynamic--------- */}
+                              <Text size="sm">Pedro Abott</Text>
+                              {/* --------- need to make it dynamic--------- */}
                             </Flex>
                           </Flex>
                           <Flex direction="column" align="flex-end">
@@ -304,20 +311,19 @@ const PaymentMainScreen = () => {
 
                   {basketList.map((item) => (
                     <Flex justify={"space-between"} mt={"lg"} align={"center"}>
-                    <Box>
-                      <Title fz={"h6"} lts={"2px"} tt={"uppercase"}>
-                        {item.report.name}
-                      </Title>
-                      <Text>Pedro Abott</Text>
-                    </Box>
-                    <Divider
-                      color="var(--mantine-color-theme-10)"
-                      w={"50%"}
-                    ></Divider>
-                    <Text>₹ {item.report.guest_price}</Text>
-                  </Flex>
+                      <Box>
+                        <Title fz={"h6"} lts={"2px"} tt={"uppercase"}>
+                          {item.report.name}
+                        </Title>
+                        <Text>Pedro Abott</Text>
+                      </Box>
+                      <Divider
+                        color="var(--mantine-color-theme-10)"
+                        w={"50%"}
+                      ></Divider>
+                      <Text>₹ {item.report.guest_price}</Text>
+                    </Flex>
                   ))}
-                  
                 </Flex>
                 <Flex
                   pos={"absolute"}
@@ -332,7 +338,9 @@ const PaymentMainScreen = () => {
                     w={"100%"}
                   ></Divider>
                   <Flex justify={"space-between"} mt={"md"} align={"center"}>
-                    <Title fz={"h5"}>Subtotal ({basketList?.length} items)</Title>
+                    <Title fz={"h5"}>
+                      Subtotal ({basketList?.length} items)
+                    </Title>
                     <Divider
                       color="var(--mantine-color-theme-10)"
                       w={"55%"}

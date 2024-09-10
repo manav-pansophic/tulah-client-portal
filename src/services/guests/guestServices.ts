@@ -5,14 +5,14 @@ export const guestService = APIService.injectEndpoints({
   endpoints: (builder) => ({
     // Create New guest
     addNewGuest: builder.mutation({
-      query: ({
-        visitorId = "66d824947ce5e26ae9385d72",
-        firstName,
-        lastName,
-      }) => {
+      query: ({ visitorId, firstName, lastName }) => {
         return {
           url: `create_guest`,
-          body: { visitorId, firstName, lastName },
+          body: {
+            firstName: firstName,
+            lastName: lastName,
+            visitor_id: visitorId,
+          },
           method: "POST",
         };
       },
@@ -52,9 +52,9 @@ export const guestService = APIService.injectEndpoints({
 
     //Guest List
     getAllGuestList: builder.query({
-      query: () => {
+      query: ({ visitor_id }) => {
         return {
-          url: `guest_list`,
+          url: `get_guest_by_visitor_id/${visitor_id}`,
           method: "GET",
         };
       },

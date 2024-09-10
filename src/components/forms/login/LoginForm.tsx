@@ -1,42 +1,20 @@
 import {
   BackgroundImage,
   Box,
-  Button,
   Card,
   Container,
   Flex,
+  Tabs,
+  Text,
 } from "@pansophictech/base";
-import { FormProvider, TextInput, useForm } from "@pansophictech/hook-form";
-import TulahLogo from "../../../assets/img/TulahLogo.png";
-import { useLoginMutation } from "../../../services/auth/authService";
 import BGImage from "../../../assets/img/bg.png";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import TulahLogo from "../../../assets/img/TulahLogo.png";
+import "../../layout/layout.css";
+import LoginPhoneForm from "./LoginPhoneForm";
+import LoginViaPassword from "./LoginViaPassword";
 
-const LoginForm = () => {
-  const navigate = useNavigate();
-
-  const [loginUser, { isLoading, isSuccess, isError, error }] =
-    useLoginMutation();
-  // Handle Login Functions
-  const handleLogin = (credentials: any) => {
-    // loginUser(credentials);
-    // console.log("credentials", credentials);
-    navigate(`/auth/verify`);
-  };
-
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     navigate(`/auth/verify`);
-  //   }
-  // }, [isSuccess]);
-
-  const methods = useForm<any>({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-    // resolver: zodResolver(LoginSchema),
-    defaultValues: {},
-  });
+const LoginForm = (props: any) => {
+  const { setIsLoggedIn } = props;
 
   return (
     <>
@@ -48,31 +26,39 @@ const LoginForm = () => {
           <Container>
             <Flex h="100vh" align="center" justify="center">
               <Card p={50} w="70%" shadow="lg">
-                <Flex align="center" justify="center">
+                <Flex align="center" justify="center" direction={"column"}>
                   <img
                     src={TulahLogo}
                     alt="TulahLogo"
                     style={{ background: "transparent" }}
                   />
+                  <Text mt="xl" fw={600}>
+                    Sign in to access your personalized insights.
+                  </Text>
+
+                  <Tabs variant="pills" defaultValue="login_via_otp" mt="xl">
+                    <Box
+                      className="layout"
+                      p={"5px"}
+                      style={{ borderRadius: "10px" }}
+                    >
+                      <Tabs.List>
+                        <Tabs.Tab value="login_via_otp">Login via OTP</Tabs.Tab>
+                        <Tabs.Tab value="login_via_password">
+                          Login via Password
+                        </Tabs.Tab>
+                      </Tabs.List>
+                    </Box>
+
+                    <Tabs.Panel value="login_via_otp">
+                      <LoginPhoneForm />
+                    </Tabs.Panel>
+
+                    <Tabs.Panel value="login_via_password" mt="sm">
+                      <LoginViaPassword setIsLoggedIn={setIsLoggedIn} />
+                    </Tabs.Panel>
+                  </Tabs>
                 </Flex>
-                <FormProvider {...methods}>
-                  <form onSubmit={methods.handleSubmit(handleLogin)}>
-                    <div style={{ marginTop: "20px" }}>
-                      <TextInput
-                        name="phone"
-                        label="Phone Number"
-                        props={{
-                          placeholder: "Enter Phone Number",
-                        }}
-                      />
-                    </div>
-                    <Flex justify="center" mt={30}>
-                      <Button type="submit" radius={"xl"}>
-                        Get OTP
-                      </Button>
-                    </Flex>
-                  </form>
-                </FormProvider>
               </Card>
             </Flex>
           </Container>

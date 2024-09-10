@@ -33,17 +33,17 @@ export const Schedule = () => {
   const [isscheduled, setIsScheduled] = useState(false);
   const [statusType, setStatusType] = useState("INPROGRESS");
   const [isPicked, setIsPicked] = useState(true);
-
-  const { data } = useGetAllGuestListQuery();
+  const v_id = sessionStorage.getItem("visitors_id");
+  const { data } = useGetAllGuestListQuery({ visitor_id: v_id });
   const guestList = data?.results;
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
     : [];
 
-  const { currentData } = useGetAllReportsQuery();
+  const { currentData } = useGetAllReportsQuery({});
   const reportsList = currentData?.results;
 
-  const handleReportClick = (reportName) => {
+  const handleReportClick = (reportName: any) => {
     console.log("Report Name", reportName);
   };
 

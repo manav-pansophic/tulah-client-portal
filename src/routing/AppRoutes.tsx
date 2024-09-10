@@ -1,15 +1,15 @@
 import { FC, useState } from "react";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import { PrivateRoutes } from "./PrivateRoutes";
-import Login from "../components/login/Login";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import VerifyForm from "../components/forms/login/VerifyForm";
+import { PrivateRoutes } from "./PrivateRoutes";
+import LoginForm from "../components/forms/login/LoginForm";
+import Register from "../components/forms/register/Register";
 
 const { BASE_URL } = import.meta.env;
 
 const AppRoutes: FC = () => {
   const user = sessionStorage.getItem("isLoggedIn") ? true : false;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isOtpSent, setIsOtpSent] = useState(false);
   return (
     <BrowserRouter basename={BASE_URL}>
       <Routes>
@@ -22,19 +22,22 @@ const AppRoutes: FC = () => {
           </>
         ) : (
           <>
-            <Route
-              path="/auth/register"
-              element={<div>Register component</div>}
-            />
-            {/* <Route path="/auth/login" element={<Login />} /> */}
+            <Route path="/auth/register" element={<Register />} />
             <Route
               path="/auth/login"
+              element={
+                <LoginForm
+                  isLoggedIn={isLoggedIn}
+                  setIsLoggedIn={setIsLoggedIn}
+                />
+              }
+            />
+            <Route
+              path="/auth/verify"
               element={
                 <VerifyForm
                   isLoggedIn={isLoggedIn}
                   setIsLoggedIn={setIsLoggedIn}
-                  isOtpSent={isOtpSent}
-                  setIsOtpSent={setIsOtpSent}
                 />
               }
             />

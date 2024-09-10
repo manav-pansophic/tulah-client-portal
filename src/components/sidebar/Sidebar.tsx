@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   ScrollAreaAutosize,
   Text,
   TextInput,
@@ -16,9 +17,11 @@ import { setGuestUserData } from "../../store/slices/guestUserSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const v_id = sessionStorage.getItem("visitors_id");
 
-  const { data } = useGetAllGuestListQuery();
+  const { data } = useGetAllGuestListQuery({ visitor_id: v_id });
   const guestList = data?.results;
+  console.log("guestList", guestList);
 
   const handleUserCardClick = (guestData) => {
     dispatch(setGuestUserData(guestData));
@@ -62,17 +65,25 @@ const Sidebar = () => {
       />
 
       <ScrollAreaAutosize mah="calc(100vh - 270px)" scrollbarSize={2}>
-        {guestList?.map((guest, index) => {
-          return (
-            <UserCard
-              key={index}
-              name={`${guest.firstName} ${guest.lastName}`}
-              // avatar={profile.avatar}
-              badgeName={`Guest ${index + 1}`}
-              onClick={() => handleUserCardClick(guest)}
-            />
-          );
-        })}
+        {guestList?.length > 0 ? (
+          guestList?.map((guest: any, index: number) => {
+            return (
+              <UserCard
+                key={index}
+                name={`${guest.firstName} ${guest.lastName}`}
+                // avatar={profile.avatar}
+                badgeName={`Guest ${index + 1}`}
+                onClick={() => handleUserCardClick(guest)}
+              />
+            );
+          })
+        ) : (
+          <>
+            <Flex h="calc(100vh - 270px)" justify={"center"} align={"center"}>
+              No Guest List
+            </Flex>
+          </>
+        )}
       </ScrollAreaAutosize>
     </Box>
   );

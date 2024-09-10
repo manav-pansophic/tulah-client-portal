@@ -10,6 +10,7 @@ export const APIService = createApi({
     "GET_ALL_GUEST_LIST",
     "GET_ASSESSMENT_DATA",
     "GET_BASKET_INFO",
+    "GET_VISITORS"
   ],
   endpoints: () => ({}),
 });

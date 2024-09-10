@@ -1,7 +1,7 @@
 import { Button, Flex, Stack, Text } from "@pansophictech/base";
 import { FormProvider, TextInput, useForm } from "@pansophictech/hook-form";
-import { useAddNewGuestMutation } from "../../../services/guests/guestServices";
 import { useEffect } from "react";
+import { useAddNewGuestMutation } from "../../../services/guests/guestServices";
 
 const GuestPopup = ({ closeAllModal }: any) => {
   const methods = useForm({
@@ -9,12 +9,16 @@ const GuestPopup = ({ closeAllModal }: any) => {
     reValidateMode: "onBlur",
     defaultValues: {},
   });
+  const v_id = sessionStorage.getItem("visitors_id");
 
-  const [addNewGuest, { isLoading, isSuccess, error }] =
-    useAddNewGuestMutation();
+  const [addNewGuest, { isSuccess }] = useAddNewGuestMutation();
 
   const handleFormSubmit = (values: any) => {
-    addNewGuest(values);
+    addNewGuest({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      visitorId: v_id,
+    });
   };
 
   useEffect(() => {
