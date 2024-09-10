@@ -5,13 +5,13 @@ import { Schedule } from "../screens/Schedule";
 import { PafScreen } from "../screens/PafScreen";
 import Gnome from "../components/gnome/Gnome";
 import PaymentMainScreen from "../components/payment/PaymentMainScreen";
-import { Calendar } from "../screens/Calender";
+import CalendarPage from "../screens/Calender";
 
 const PrivateRoutes = () => {
   return (
     <Routes>
       <Route element={<RootApp />}>
-        <Route path="guests" element={<Calendar />} />
+        <Route path="guests" element={<CalendarPage />} />
         <Route path="assesment" element={<PafScreen />} />
         <Route path="gnome" element={<Gnome />} />
         <Route path="schedule" element={<Schedule />} />

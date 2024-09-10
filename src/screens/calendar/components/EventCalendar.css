@@ -1,0 +1,52 @@
+[data-mantine-color-scheme='dark'] .fc-theme-standard .fc-scrollgrid {
+  border-color: var(--mantine-color-dark-4);
+  border-radius: var(--mantine-radius-default);
+}
+
+[data-mantine-color-scheme='dark'] .fc-scrollgrid-section th,
+[data-mantine-color-scheme='dark'] .fc-scrollgrid-section td {
+  border-color: var(--mantine-color-dark-4);
+}
+
+.fc .fc-toolbar-title {
+  @apply text-lg md:text-xl;
+}
+
+.fc-day {
+  @apply text-xs cursor-pointer md:text-sm;
+}
+
+.fc .fc-toolbar-chunk .fc-button-primary {
+  background-color: var(--mantine-color-anchor);
+  border-color: transparent;
+  @apply text-sm;
+}
+
+.fc .fc-toolbar-chunk .fc-button-primary:focus {
+  box-shadow: none;
+}
+
+.fc .fc-toolbar-chunk .fc-button-primary:focus {
+  box-shadow: none;
+}
+
+.fc-button-primary.fc-prev-button {
+  border-right: 1px solid white;
+}
+
+.fc .fc-button-primary::hover {
+  background-color: var(--mantine-color-anchor-1);
+  border-color: transparent;
+}
+
+.fc-event-main {
+  @apply text-center md:text-xs;
+}
+
+.fc-h-event .fc-event-title-container {
+  @apply capitalize;
+}
+
+.fc.fc-media-screen {
+  @apply h-full;
+}
