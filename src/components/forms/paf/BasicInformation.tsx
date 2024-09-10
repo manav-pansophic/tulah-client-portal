@@ -44,7 +44,7 @@ const BasicInformation = () => {
                 { label: "Female", value: "female" },
               ]}
               props={{
-                placeholder: "--Select--",
+                placeholder: "--Select Gender--",
                 // "data-test-id": "identify-gender",
                 labelProps: {
                   "data-test-id": "identify-gender-label",
@@ -57,7 +57,7 @@ const BasicInformation = () => {
               label="Age"
               name="basicInformation.age"
               props={{
-                placeholder: "Value",
+                placeholder: "Enter Age",
                 "data-test-id": "age",
                 labelProps: {
                   "data-test-id": "age-label",

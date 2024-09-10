@@ -21,3 +21,13 @@
 .mantine-Badge-label {
   text-decoration-color: green;
 }
+
+.tulahAvatarimage {
+  display: flex;
+  align-items: center;
+}
+
+.tulahAvatarimage img{
+  object-fit: contain;
+  height: 80%;
+}

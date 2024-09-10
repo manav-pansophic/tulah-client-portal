@@ -42,7 +42,7 @@ const Medical = () => {
                 label="Procedure"
                 name="medical.surgical_procedure"
                 props={{
-                  placeholder: "Value",
+                  placeholder: "Enter Procedure",
                   labelProps: {
                     "data-test-id": "procedure-label",
                   },
@@ -59,7 +59,7 @@ const Medical = () => {
                   { label: "Spinal", value: "spinal" },
                 ]}
                 props={{
-                  placeholder: "Select",
+                  placeholder: "--Select Type of Anesthesia--",
                   labelProps: {
                     "data-test-id": "anesthesia-type-label",
                   },
@@ -76,7 +76,7 @@ const Medical = () => {
                   { label: "2023", value: "2023" },
                 ]}
                 props={{
-                  placeholder: "Select",
+                  placeholder: "--Select Year--",
                   labelProps: {
                     "data-test-id": "anesthesia-year-label",
                   },
@@ -112,7 +112,7 @@ const Medical = () => {
                 label="Name of Medication/ Supplement"
                 name="medical.suppliment_name"
                 props={{
-                  placeholder: "Value",
+                  placeholder: "Enter Name of Medication",
                   labelProps: {
                     "data-test-id": "medication-name-label",
                   },
@@ -124,7 +124,7 @@ const Medical = () => {
                 label="Strength of Medication"
                 name="medical.suppliment_strength"
                 props={{
-                  placeholder: "Value",
+                  placeholder: "Enter Strength of Medication",
                   labelProps: {
                     "data-test-id": "strength-label",
                   },
@@ -137,7 +137,7 @@ const Medical = () => {
                   label="Year"
                   name="medical.suppliment_year"
                   props={{
-                    placeholder: "Value",
+                    placeholder: "Enter Year",
                     labelProps: {
                       "data-test-id": "year-label",
                     },
@@ -149,7 +149,7 @@ const Medical = () => {
                   label="Start date (duration)"
                   name="medical.suppliment_start_date"
                   props={{
-                    placeholder: "Select",
+                    placeholder: "--Select Start Date--",
                     labelProps: {
                       "data-test-id": "start-date-label",
                     },

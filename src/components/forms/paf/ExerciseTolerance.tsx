@@ -35,7 +35,7 @@ const ExerciseTolerance = () => {
         />
         <Textarea
           label="What type, extrtion level and duration"
-          placeholder="leave a comment here"
+          placeholder="Leave a comment here"
           name="extrtionLevel"
           props={{
             labelProps: {

@@ -16,8 +16,8 @@ interface NavTabsProps {
 const HeaderTabs: FC<NavTabsProps> = ({ tabsData }) => {
   const navigate = useNavigate();
   return (
-    <Flex justify={"center"} align={"center"} h="80px" gap="sm">
-      <Tabs variant="pills" radius="xl" classNames={timeLineCss}>
+    <Flex justify={"space-around"} align={"center"} h="80px" w={"100%"}>
+      <Tabs variant="pills" radius="xl" classNames={timeLineCss} w={"85%"}>
         <Tabs.List grow>
           {tabsData.map((tab) => (
             <Tabs.Tab
@@ -26,6 +26,7 @@ const HeaderTabs: FC<NavTabsProps> = ({ tabsData }) => {
               key={tab.value}
               value={tab.value}
               leftSection={tab.icon}
+              
             >
               {tab.label}
             </Tabs.Tab>
