@@ -13,7 +13,7 @@ import {
   RiCalendarEventLine,
   RiLock2Fill,
 } from "@remixicon/react";
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   DateInput,
   DatePickerInput,
@@ -24,9 +24,11 @@ import {
 
 const SchedulePickup: FC<{
   isPicked: any;
-  onSubmitClick: () => void;
   onBack: () => void;
-}> = ({ isPicked, onSubmitClick, onBack }) => {
+  onScheduleClick : () => void;
+  setScheduleDate: any;
+  scheduleDate:any;
+}> = ({ isPicked, onBack, setScheduleDate,onScheduleClick,scheduleDate }) => {
   const methods = useForm<any>({
     mode: "onBlur",
     reValidateMode: "onBlur",
@@ -34,8 +36,29 @@ const SchedulePickup: FC<{
     defaultValues: {},
   });
 
+  const getFormattedDate = (date: Date) => {
+    const day = date.getDate();
+    const month = date.toLocaleString("en-US", { month: "short" });
+
+    let daySuffix;
+    if (day === 1 || day === 21 || day === 31) {
+      daySuffix = "st";
+    } else if (day === 2 || day === 22) {
+      daySuffix = "nd";
+    } else if (day === 3 || day === 23) {
+      daySuffix = "rd";
+    } else {
+      daySuffix = "th";
+    }
+
+    return `${month} ${day}${daySuffix}`;
+  };
+
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    const selectedDate = values.pickupdate;
+    const formattedDate = getFormattedDate(new Date(selectedDate));
+    setScheduleDate(formattedDate);
+    onScheduleClick();
   };
   return (
     <>
@@ -79,6 +102,7 @@ const SchedulePickup: FC<{
                     labelProps: {
                       "data-test-id": "pickupdate-label",
                     },
+                    
                   }}
                 />
 
@@ -96,7 +120,7 @@ const SchedulePickup: FC<{
                   Reset
                 </Button>
                 <Button
-                  onClick={onSubmitClick}
+                  onClick={() => methods.handleSubmit(handleFormSubmit)()}
                   type="submit"
                   size="lg"
                   radius="xl"

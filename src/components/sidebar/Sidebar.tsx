@@ -41,7 +41,11 @@ const Sidebar = () => {
             centered: true,
             closeOnClickOutside: true,
             overlayProps: { blur: 3 },
-            title: <Text fw={600}>Add New Guest</Text>,
+            title: (
+              <Text data-test-id="add-new-guest-popup-title" fw={600}>
+                Add New Guest
+              </Text>
+            ),
             transitionProps: { transition: "pop", duration: 200 },
             children: <GuestPopup closeAllModal={closeAllModals} />,
             scrollAreaComponent: ScrollAreaAutosize,

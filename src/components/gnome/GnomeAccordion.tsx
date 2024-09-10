@@ -4,7 +4,10 @@ import { FC } from "react";
 const GnomeAccordion: FC<{ data: any }> = ({ data }) => {
   const items = data.map((item: any) => (
     <Accordion.Item key={item.value} value={item.value}>
-      <Accordion.Control>
+      <Accordion.Control
+        data-test-id={`accordion-data.${item.value}`}
+        style={{ borderRadius: "15px" }}
+      >
         <Stack gap="sm">
           <Text c="theme" fw={600}>
             {item.value}

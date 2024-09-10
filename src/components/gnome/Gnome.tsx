@@ -148,6 +148,7 @@ const Gnome = () => {
         <Stack gap={8}>
           <Box py={3}>
             <Select
+              data-test-id="guest-gnome-select"
               defaultValue={"user"}
               data={guestListOption || []}
               w={"100%"}
@@ -155,7 +156,7 @@ const Gnome = () => {
             />
           </Box>
           <Divider color="gray" pb="sm" />
-          <Text c="theme" size="sm" fw={600}>
+          <Text data-test-id="gnome-list-title" c="theme" size="sm" fw={600}>
             Choose the tests you wish to take.
           </Text>
           {reportsList?.map((report: any, index: any) => (

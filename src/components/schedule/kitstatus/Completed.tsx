@@ -5,7 +5,7 @@ import { FC } from "react";
 const Completed: FC<{}> = () => {
   return (
     <>
-      <Flex direction="column" justify="space-between" gap="lg" py="md" my="xl">
+      <Flex direction="column" justify="space-between"  py="md" my="xl" p={"lg"} h={"90%"}> 
         <Box>
           <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
             Completed
@@ -18,9 +18,11 @@ const Completed: FC<{}> = () => {
         </Box>
         <Box>
           <Text size="sm">
-            You can schedule your arrival once your sample is picked.
+            Your report will be ready with in 15 days.
+            In the meantime, you can schedule your arrival using the card below
           </Text>
         </Box>
+       
       </Flex>
     </>
   );

@@ -4,18 +4,19 @@ import { FC } from "react";
 
 const PickupScheduledCard: FC<{
   isPicked: boolean;
-  onScheduleClick: () => void;
-}> = ({ isPicked, onScheduleClick }) => {
+  onBack: () => void;
+  scheduleDate:any
+}> = ({ isPicked, onBack, scheduleDate}) => {
   return (
     <>
-      <Flex direction="column" justify="space-between" gap="lg" py="md" my="xl">
+      <Flex direction="column" justify="space-between"  py="md" my="xl" p={"lg"} h={"90%"}> 
         <Box>
           <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
             Pickup Scheduled
           </Text>
           <Flex align="flex-end" gap="xs">
             <Text size="24px " c={"rgba(60, 60, 60, 1)"} fw="bold">
-              Pickup on 26th Aug, between 7 AM to 10 PM
+              Pickup on {scheduleDate}, between 7 AM to 10 PM
             </Text>
           </Flex>
           <Text size="sm" pt="lg">
@@ -31,6 +32,7 @@ const PickupScheduledCard: FC<{
             radius={"xl"}
             mr={10}
             data-test-id="pickupscheduled-cancel-button"
+            onClick={()=>alert("Pickup has been Cancelled")}
           >
             Cancel
           </Button>
@@ -40,7 +42,7 @@ const PickupScheduledCard: FC<{
             size="lg"
             tt="uppercase"
             data-test-id="reschedule-button"
-            onClick={onScheduleClick}
+            onClick={onBack}
           >
             Reschedule
           </Button>

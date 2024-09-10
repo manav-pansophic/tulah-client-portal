@@ -7,7 +7,7 @@ export const Registration = () => {
   return (
     <Flex>
       <Sidebar />
-      <Box className="layout-bg-color main-layout" h="calc(100vh - 110px)">
+      <Box className="layout-bg-color main-layout" h="calc(100vh - 110px)" style={{flexGrow:1}}>
         <RegistrationForm />
       </Box>
     </Flex>

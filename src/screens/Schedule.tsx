@@ -27,14 +27,17 @@ import { useGetAllGuestListQuery } from "../services/guests/guestServices";
 import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
 import { useGetAllReportsQuery } from "../services/gnome-biome/gnomeBiomeServices";
 import UserCard from "../components/sidebar/UserCard";
+import DeliveryScheduledCard from "../components/schedule/kitstatus/DeliveryScheduledCard";
+import DeliveredCard from "../components/schedule/kitstatus/DeliveredCard";
+import PickupScheduledCard from "../components/schedule/kitstatus/PickupScheduledCard";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
   const [isscheduled, setIsScheduled] = useState(false);
   const [statusType, setStatusType] = useState("INPROGRESS");
-  const [isPicked, setIsPicked] = useState(true);
   const v_id = sessionStorage.getItem("visitors_id");
   const { data } = useGetAllGuestListQuery({ visitor_id: v_id });
+  const [isPicked, setIsPicked] = useState(false);
   const guestList = data?.results;
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
@@ -47,11 +50,29 @@ export const Schedule = () => {
     console.log("Report Name", reportName);
   };
 
+  const [scheduleStage, setScheduleStage] = useState(0);
+  const [scheduleArrivied, setScheduleArrivied] = useState(0);
+  const [scheduleDate, setScheduleDate] = useState(null);
+  const handleScheduleStageClick = () => {
+    setIsPicked(true);
+    setScheduleStage(scheduleStage + 1);
+  };
+  const handleReschedule = () => {
+    setIsPicked(true);
+    setScheduleStage(scheduleStage - 1);
+  };
+
+  const handleScheduleArriviedClicked = () => {
+    setIsPicked(true);
+    setScheduleArrivied(scheduleArrivied + 1);
+  };
+
+  console.log({ scheduleArrivied, scheduleStage });
   return (
     <>
       <Flex gap={"sm"} p={"sm"} w={"100%"}>
         <Flex direction={"column"} gap="sm" w="75%">
-          <Paper className="layout" h="calc(100vh - 561px)">
+          <Paper className="layout" h="50%" radius={"md"}>
             <Flex h="100%">
               <Flex direction={"column"} p={"lg"}>
                 <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
@@ -81,61 +102,65 @@ export const Schedule = () => {
               </Flex>
               <Divider orientation="vertical" color="gray" />
               <Box w={"100%"}>
-                {/* <DeliveredCard
-                  isPicked={isPicked}
-                  onScheduleClick={() => setScheduling(true)}
-                /> */}
-                <SchedulePickup
-                  isPicked={isPicked}
-                  onSubmitClick={() => setScheduling(true)}
-                  onBack={() => setScheduling(false)}
-                />
-                {/* <PickupScheduledCard
-                  isPicked={isPicked}
-                  onScheduleClick={() => setScheduling(true)}
-                  // onSubmitClick={() => setScheduling(true)}
-                  // onBack={() => setScheduling(false)}
-                /> */}
-                {/* <Completed /> */}
+                {scheduleStage == 0 ? (
+                  <DeliveryScheduledCard
+                    isPicked={isPicked}
+                    onScheduleClick={handleScheduleStageClick}
+                  />
+                ) : scheduleStage == 1 ? (
+                  <DeliveredCard
+                    isPicked={isPicked}
+                    onScheduleClick={handleScheduleStageClick}
+                  />
+                ) : scheduleStage == 2 ? (
+                  <SchedulePickup
+                    isPicked={isPicked}
+                    onBack={handleReschedule}
+                    setScheduleDate={setScheduleDate}
+                    scheduleDate={scheduleDate}
+                    onScheduleClick={handleScheduleStageClick}
+                  />
+                ) : scheduleStage == 3 ? (
+                  <PickupScheduledCard
+                    isPicked={isPicked}
+                    onBack={handleReschedule}
+                    scheduleDate={scheduleDate}
+                    // setScheduleStage = {setScheduleStage}
+                    // onSubmitClick={() => setScheduling(true)}
+                    // onBack={() => setScheduling(false)}
+                  />
+                ) : (
+                  scheduleStage == 4 && <Completed />
+                )}
               </Box>
             </Flex>
           </Paper>
-          {isscheduled ? (
-            <Paper className="layout" h="calc(100vh - 555px)" p="lg">
-              <ScheduleStatusCard statusType={statusType} />
-            </Paper>
-          ) : !scheduling ? (
-            <Paper className="layout" h="calc(100vh - 555px)" p="lg">
+          <Paper className="layout" h="calc(100vh - 580px)" p="lg">
+            {scheduleArrivied == 0 ? (
               <ArrivalCard
                 isPicked={isPicked}
-                onScheduleClick={() => setScheduling(true)}
+                onScheduleClick={handleScheduleArriviedClicked}
               />
-            </Paper>
-          ) : (
-            <Paper
-              bg="var(--mantine-color-theme-0)"
-              h="calc(100vh - 555px)"
-              p="lg"
-            >
+            ) : scheduleArrivied == 1 ? (
+              <ArrivalCard
+                isPicked={isPicked}
+                onScheduleClick={handleScheduleArriviedClicked}
+              />
+            ) : scheduleArrivied == 2 ? (
               <ScheduleArricalCard
                 isPicked={isPicked}
                 onSubmitClick={() => setIsScheduled(true)}
                 // onSubmitClick={() => setIsScheduled("INPROGRESS")}
                 onBack={() => setScheduling(false)}
               />
-            </Paper>
-          )}
-          {/* <Paper className="layout" h="calc(100vh - 555px)">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto
-            quod, quasi iure impedit vel error nobis praesentium officiis unde
-            est.
-          </Paper> */}
+            ) : null}
+          </Paper>
         </Flex>
-        <Flex direction={"column"} gap="sm" w={"25%"}>
+        <Flex direction={"column"} gap="sm" w={"25%"} h={"100%"}>
           <Paper className="layout" h="calc(100vh - 470px)">
             <AccessCode />
           </Paper>
-          <Box className="transparent" h="calc(100vh - 820px)">
+          <Box className="transparent" h="20%">
             <ScheduleAssessmentHelp
               icon={
                 <RiCheckboxCircleFill
@@ -148,7 +173,7 @@ export const Schedule = () => {
               description="Click to View Assessment"
             />
           </Box>
-          <Box className="transparent" h="calc(100vh - 820px)">
+          <Box className="transparent" h="20%">
             <ScheduleAssessmentHelp
               icon={
                 <RiPhoneFill color="var(--mantine-color-theme-6)" size={40} />
