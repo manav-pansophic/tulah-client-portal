@@ -5,9 +5,11 @@ export const scheduleService = APIService.injectEndpoints({
   endpoints: (builder) => ({
     // Get Access Code
     getAccessCode: builder.query({
-      query: ({ visitorId }) => {
+      query: ({ guestId }) => {
+        console.log(guestId)
         return {
-          url: `get_code/${visitorId}`,
+          url: `generate_access_code/${guestId}`,
+          method:"POST"
         };
       },
       onQueryStarted: async (arg, { queryFulfilled }) => {

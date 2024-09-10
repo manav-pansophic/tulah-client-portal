@@ -8,7 +8,7 @@ const DeliveredCard: FC<{
 }> = ({ isPicked, onScheduleClick }) => {
   return (
     <>
-      <Flex direction="column" justify="space-between" gap="lg" py="md" my="xl">
+      <Flex direction="column" justify="space-between"  py="md" my="xl" p={"lg"}  h={"90%"}> 
         <Box>
           <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
             Delivered
@@ -23,7 +23,7 @@ const DeliveredCard: FC<{
             schedule pickup at your convenience.
           </Text>
         </Box>
-        <Box>
+        <Box >
           <Button
             variant="filled"
             radius="xl"

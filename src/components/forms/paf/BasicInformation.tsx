@@ -40,10 +40,11 @@ const BasicInformation = () => {
               name="basicInformation.gender"
               label="I identify my gender as"
               data={[
-                { label: "Male", value: "male" },
-                { label: "Female", value: "female" },
+                { label: "Male", value: "Male" },
+                { label: "Female", value: "Female" },
               ]}
               props={{
+                required:true,
                 placeholder: "--Select Gender--",
                 // "data-test-id": "identify-gender",
                 labelProps: {
@@ -57,11 +58,13 @@ const BasicInformation = () => {
               label="Age"
               name="basicInformation.age"
               props={{
+                required:true,
                 placeholder: "Enter Age",
                 "data-test-id": "age",
                 labelProps: {
                   "data-test-id": "age-label",
                 },
+                
               }}
             />
           </Box>
@@ -79,6 +82,7 @@ const BasicInformation = () => {
         />
         <Textarea
           props={{
+            required:true,
             placeholder: "Leave a comment here",
             "data-test-id": "leave-comment",
             labelProps: {

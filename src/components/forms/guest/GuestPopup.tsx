@@ -60,6 +60,7 @@ const GuestPopup = ({ closeAllModal }: any) => {
                 radius="xl"
                 className="layout"
                 c="black"
+                onClick={()=>closeAllModal()}
               >
                 CANCEL
               </Button>

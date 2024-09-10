@@ -5,34 +5,34 @@ import { FC } from "react";
 const DeliveryScheduledCard: FC<{
   isPicked: boolean;
   onScheduleClick: () => void;
+  
 }> = ({ isPicked, onScheduleClick }) => {
   return (
     <>
-      <Flex direction="column" justify="space-between" gap="lg">
+      <Flex direction="column" justify="space-between"  py="md" my="xl" p={"lg"}  h={"90%"}> 
         <Box>
           <Text c="theme" fw={600} pb="sm" lts={5} tt="uppercase">
-            Delivery Scheduled
+            Delivered scheduled
           </Text>
           <Flex align="flex-end" gap="xs">
             <Text size="24px " c={"rgba(60, 60, 60, 1)"} fw="bold">
-              Your GNOME kit will be delivered within 48 hrs.
+             Your GNOME kit will be delievered with in 48 hrs.
             </Text>
           </Flex>
           <Text size="sm" pt="lg">
-            After your GNOME kit is delivered, revisit this section to mark ‘Kit
-            Received’ and enable scheduling the smaple pickup.
+            After your GNOME kit delivered,revisit this section to mark 'Kit Received' and enable scheduling the sample pickup 
           </Text>
         </Box>
-        <Box>
+        <Box >
           <Button
-            data-test-id="kit-received-button"
             variant="filled"
             radius="xl"
             size="lg"
             tt="uppercase"
             onClick={onScheduleClick}
+            data-test-id="schedule-pickup-button"
           >
-            Kit Received
+            kit received
           </Button>
         </Box>
       </Flex>
