@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { toast } from "@pansophictech/toast";
 import { APIService } from "..";
 
 export const guestService = APIService.injectEndpoints({
@@ -6,20 +6,19 @@ export const guestService = APIService.injectEndpoints({
     // Create New guest
     addNewGuest: builder.mutation({
       query: ({
-        visitor_id = "66d824947ce5e26ae9385d72",
+        visitorId = "66d824947ce5e26ae9385d72",
         firstName,
         lastName,
       }) => {
         return {
           url: `create_guest`,
-          body: { visitor_id, firstName, lastName },
+          body: { visitorId, firstName, lastName },
           method: "POST",
         };
       },
       invalidatesTags: ["GET_ALL_GUEST_LIST"],
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);
@@ -35,14 +34,13 @@ export const guestService = APIService.injectEndpoints({
         console.log("daata", data);
         return {
           url: `update_guest/${data?._id}`,
-          body: { data},
+          body: { data },
           method: "POST",
         };
       },
       invalidatesTags: ["GET_ALL_GUEST_LIST"],
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);
@@ -62,8 +60,7 @@ export const guestService = APIService.injectEndpoints({
       },
       providesTags: ["GET_ALL_GUEST_LIST"],
       onQueryStarted: async (arg, { queryFulfilled }) => {
-
-        const {data} = await queryFulfilled
+        const { data } = await queryFulfilled;
         try {
           await queryFulfilled;
           toast.success(data?.message);

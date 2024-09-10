@@ -1,8 +1,10 @@
 import {
   Box,
+  Button,
   Divider,
   Flex,
   Paper,
+  ScrollArea,
   Select,
   Stack,
   Text,
@@ -15,6 +17,8 @@ import TestStatus from "./TestStatus";
 import GnomeFileUploadForm from "./uploadFile/GnomeFileUploadForm";
 import { useGetAllGuestListQuery } from "../../services/guests/guestServices";
 import { createGuestSelectOptions } from "../../helper/functions";
+import { useGetAllReportsQuery } from "../../services/gnome-biome/gnomeBiomeServices";
+import UserCard from "../sidebar/UserCard";
 
 const Gnome = () => {
   const instructionList = [
@@ -32,33 +36,6 @@ const Gnome = () => {
     },
   ];
 
-  const gnomeList = [
-    {
-      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
-      testName: "GNOME",
-      testStatus: "To be done",
-    },
-    {
-      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
-      testName: "GNOME",
-      testStatus: "To be done",
-    },
-    {
-      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
-      testName: "GNOME",
-      testStatus: "To be done",
-    },
-    {
-      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
-      testName: "GNOME",
-      testStatus: "To be done",
-    },
-    {
-      testIcon: <RiDragMove2Line color="var(--mantine-color-theme-6)" />,
-      testName: "GNOME",
-      testStatus: "To be done",
-    },
-  ];
   const option1 = [
     {
       value: "Options 1",
@@ -92,7 +69,63 @@ const Gnome = () => {
               instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
               instructionList={instructionList}
             />
-            {/* <GnomeFileUploadForm /> */}
+            <GnomeFileUploadForm />
+          </Flex>
+        </>
+      ),
+    },
+  ];
+
+  const option3 = [
+    {
+      value: "Options 3",
+      questionList: "Request reports to be completed at Tulah",
+      description:
+        "Crisp and refreshing fruit. Apples are known for their versatility and nutritional benefits. They come in a variety of flavors and are great for snacking, baking, or adding to salads.",
+      component: (
+        <>
+          <Flex gap="sm">
+            <Instruction
+              instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
+              instructionList={instructionList}
+            />
+            <Flex align="end">
+              <Button
+                radius={"xl"}
+                size="sm"
+                data-test-id="procced-to-paument  -button"
+              >
+                REQUEST APPROVAL
+              </Button>
+            </Flex>
+          </Flex>
+        </>
+      ),
+    },
+  ];
+
+  const option4 = [
+    {
+      value: "Options 4",
+      questionList: "Prefer not to havef reports ? Request a waiver",
+      description:
+        "Crisp and refreshing fruit. Apples are known for their versatility and nutritional benefits. They come in a variety of flavors and are great for snacking, baking, or adding to salads.",
+      component: (
+        <>
+          <Flex gap="sm">
+            <Instruction
+              instructionTitle="Authorize the collection of your GNOME report on your behalf from the report provider."
+              instructionList={instructionList}
+            />
+            <Flex align="end">
+              <Button
+                radius={"xl"}
+                size="sm"
+                data-test-id="procced-to-paument  -button"
+              >
+                REQUEST WAVIER
+              </Button>
+            </Flex>
           </Flex>
         </>
       ),
@@ -105,6 +138,12 @@ const Gnome = () => {
     ? createGuestSelectOptions(guestList)
     : [];
 
+  const { currentData } = useGetAllReportsQuery();
+  const reportsList = currentData?.results;
+
+  const handleReportClick = (reportName) => {
+    console.log("Report Name", reportName);
+  };
   return (
     <Flex>
       <Box className="layout-bg-color navbar-layout" p={"sm"}>
@@ -122,29 +161,22 @@ const Gnome = () => {
           <Text data-test-id="gnome-list-title" c="theme" size="sm" fw={600}>
             Choose the tests you wish to take.
           </Text>
-          {gnomeList.map((item: any, index: any) => (
-            <TestStatus
-              testIcon={item.testIcon}
-              testName={item.testName}
-              testStatus={item.testStatus}
-              index={index}
+          {reportsList?.map((report, index) => (
+            // <TestStatus
+            //   key={index}
+            //   testIcon={
+            //     <RiDragMove2Line color="var(--mantine-color-theme-6)" />
+            //   }
+            //   testName={report.name.toUpperCase()}
+            //   testStatus={report.status}
+            // />
+            <UserCard
+              name={report.name.toUpperCase()}
+              avatar={report.image}
+              badgeName={report.status}
+              onClick={() => handleReportClick(report.name)}
             />
           ))}
-          {/* <TestStatus
-            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
-            testName="GNOME"
-            testStatus="To be done"
-          />
-          <TestStatus
-            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
-            testName="GNOME"
-            testStatus="To be done"
-          />
-          <TestStatus
-            testIcon={<RiDragMove2Line color="var(--mantine-color-theme-6)" />}
-            testName="GNOME"
-            testStatus="To be done"
-          /> */}
         </Stack>
       </Box>
       <Box h="calc(100vh - 110px)" w={"100%"}>
@@ -163,8 +195,12 @@ const Gnome = () => {
             Ac convallis dictum feugiat phasellus at eu proin.
           </Text>
         </Paper>
-        <GnomeAccordion data={option1} />
-        <GnomeAccordion data={option2} />
+        <ScrollArea h="calc(100vh - 240px)">
+          <GnomeAccordion data={option1} />
+          <GnomeAccordion data={option2} />
+          <GnomeAccordion data={option3} />
+          <GnomeAccordion data={option4} />
+        </ScrollArea>
       </Box>
     </Flex>
   );

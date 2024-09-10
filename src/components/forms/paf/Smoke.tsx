@@ -21,7 +21,7 @@ const Smoke = () => {
         <TextInput
           name="smoke.leaveComment"
           props={{
-            placeholder: "leave a comment",
+            placeholder: "Leave a comment here",
             labelProps: {
               "data-test-id": "leavecomment-label",
             },
