@@ -1,12 +1,11 @@
-import AddOrEditInstanceForm from '@/forms/entities/calendar/forms/AddOrEditInstanceForm';
-import { Box } from '@mantine/core';
-import { FC } from 'react';
-import { CalendarEventTypeT } from '@/forms/entities/calendar/schema/addEdit.schema';
+import { Box } from "@mantine/core";
+import { FC } from "react";
+import { AddOrEditInstanceForm } from "./AddOrEditInstanceForm";
 export interface AddCalendarInDrawerT {
-  eventType: CalendarEventTypeT;
+  eventType: any;
   close: () => void;
 }
-const AddCalendarInDrawer: FC<AddCalendarInDrawerT> = ({ eventType, close }) => {
+const AddCalendarInDrawer: FC<any> = ({ eventType, close }) => {
   return (
     <Box>
       <AddOrEditInstanceForm

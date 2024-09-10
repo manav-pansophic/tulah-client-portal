@@ -5,7 +5,7 @@ import { Schedule } from "../screens/Schedule";
 import { PafScreen } from "../screens/PafScreen";
 import Gnome from "../components/gnome/Gnome";
 import PaymentMainScreen from "../components/payment/PaymentMainScreen";
-import CalendarPage from "../screens/Calender";
+import { CalendarPage } from "../screens/calendar/Calender";
 
 const PrivateRoutes = () => {
   return (
