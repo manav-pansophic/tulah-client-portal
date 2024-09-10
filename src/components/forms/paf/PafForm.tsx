@@ -61,7 +61,6 @@ const PafForm = () => {
   const handleFormSubmit = async (values: any) => {
     console.log(values);
   };
-
   return (
     <Box>
       <Box
@@ -143,7 +142,7 @@ const PafForm = () => {
                       />
                     ))}
                   </Stepper>
-                  <PafStatusCard isApproved={true} />
+                  <PafStatusCard isApproved={false} />
                 </ScrollAreaAutosize>
               </Grid.Col>
               <Grid.Col
@@ -216,30 +215,3 @@ const PafForm = () => {
 };
 
 export default PafForm;
-
-{
-  /* <Box w={"100%"}>
-<Select
-  name="identify_gender"
-  data={[
-    { label: "Male", value: "male" },
-    { label: "Female", value: "female" },
-  ]}
-  props={{
-    placeholder: "--Select--",
-    leftSection: <Avatar
-// src={user?.image}
-tt="capitalize"
-color="teal"
-size={45}
-radius="xl"
-styles={{ root: { cursor: "pointer" } }}
->
-sd
-{/* {user?.first_name ? `${user?.first_name?.charAt(0)}` : `${loggedInUser?.first_name?.charAt(0)}`} */
-}
-// </Avatar>
-//   }}
-
-// />
-// </Box> */}

@@ -3,6 +3,7 @@ import {
   Divider,
   Flex,
   Paper,
+  ScrollArea,
   Select,
   Stack,
   Text,
@@ -24,6 +25,8 @@ import Completed from "../components/schedule/kitstatus/Completed";
 import { createGuestSelectOptions } from "../helper/functions";
 import { useGetAllGuestListQuery } from "../services/guests/guestServices";
 import SchedulePickup from "../components/schedule/kitstatus/SchedulePickup";
+import { useGetAllReportsQuery } from "../services/gnome-biome/gnomeBiomeServices";
+import UserCard from "../components/sidebar/UserCard";
 
 export const Schedule = () => {
   const [scheduling, setScheduling] = useState(false);
@@ -36,6 +39,13 @@ export const Schedule = () => {
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
     : [];
+
+  const { currentData } = useGetAllReportsQuery();
+  const reportsList = currentData?.results;
+
+  const handleReportClick = (reportName) => {
+    console.log("Report Name", reportName);
+  };
 
   return (
     <>
@@ -56,27 +66,17 @@ export const Schedule = () => {
                   data-test-id="user-list-select"
                 />
                 <Stack w="300px">
-                  <TestStatus
-                    testIcon={
-                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-                    }
-                    testName="GNOME"
-                    testStatus="To be done"
-                  />
-                  <TestStatus
-                    testIcon={
-                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-                    }
-                    testName="GNOME"
-                    testStatus="To be done"
-                  />
-                  <TestStatus
-                    testIcon={
-                      <RiDragMove2Line color="var(--mantine-color-theme-6)" />
-                    }
-                    testName="GNOME"
-                    testStatus="To be done"
-                  />
+                  <ScrollArea>
+                    {reportsList?.map((report, index) => (
+                      <UserCard
+                        key={index}
+                        name={report.name.toUpperCase()}
+                        avatar={report.image}
+                        badgeName={report.status}
+                        onClick={() => handleReportClick(report.name)}
+                      />
+                    ))}
+                  </ScrollArea>
                 </Stack>
               </Flex>
               <Divider orientation="vertical" color="gray" />

@@ -25,7 +25,7 @@ import { useSelector } from "react-redux";
 import { useSaveAssessmentMutation } from "../services/assessment/assessmentServices";
 import { useGetAllGuestListQuery } from "../services/guests/guestServices";
 import { createGuestSelectOptions } from "../helper/functions";
-import { toast } from "react-toastify";
+import { Toastify } from "@pansophictech/toast";
 
 const steps = [
   {
@@ -48,7 +48,7 @@ const steps = [
 
 export const PafScreen = () => {
   const [active, setActive] = useState(0);
-  const { guestId, assessment } = useSelector((state) => state.assessmentData);
+  const { guest_id, assessment } = useSelector((state) => state.assessmentData);
 
   const nextStep = () =>
     setActive((current) => (current < steps.length ? current + 1 : current));
@@ -73,14 +73,13 @@ export const PafScreen = () => {
   const handleFormSubmit = async (values: any) => {
     console.log(values);
     saveAssessment({
-      guestId: "",
+      guest_id: "",
       ...values,
     });
   };
 
   const { data } = useGetAllGuestListQuery();
   const guestList = data?.results;
-  toast.success('Guest List Fetched')
   const guestListOption = guestList?.length
     ? createGuestSelectOptions(guestList)
     : [];

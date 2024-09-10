@@ -39,7 +39,8 @@ const RegistrationForm = () => {
     reset(user, { keepDirtyValues: true });
   }, [user]);
 
-  const [updateGuestDetails, { isLoading, isSuccess, error }] = useUpdateGuestDetailsMutation();
+  const [updateGuestDetails, { isLoading, isSuccess, error }] =
+    useUpdateGuestDetailsMutation();
   const isDiffAddress = watch("diffCurrAddress");
   const handleFormSubmit = (values: any) => {
     updateGuestDetails(values);
@@ -102,7 +103,7 @@ const RegistrationForm = () => {
                     data={OPTIONS.gender}
                     label="Gender"
                     props={{
-                      placeholder: "Select",
+                      placeholder: "--Select Gender--",
                       "data-test-id": "gender",
                       labelProps: {
                         "data-test-id": "gender-label",
@@ -133,7 +134,7 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "email-address-label",
                       },
-                      type: "email"
+                      type: "email",
                     }}
                   />
                 </Grid.Col>
@@ -147,7 +148,7 @@ const RegistrationForm = () => {
                       labelProps: {
                         "data-test-id": "phone-number-label",
                       },
-                      type: "phone"
+                      type: "phone",
                     }}
                   />
                 </Grid.Col>
@@ -157,7 +158,7 @@ const RegistrationForm = () => {
                     data={OPTIONS.nationality}
                     label="Nationality"
                     props={{
-                      placeholder: "Select Nationality",
+                      placeholder: "--Select Nationality--",
                       "data-test-id": "nationality",
                       labelProps: {
                         "data-test-id": "nationality-label",
@@ -181,7 +182,7 @@ const RegistrationForm = () => {
                     data={OPTIONS.country}
                     label="Country"
                     props={{
-                      placeholder: "Select Country",
+                      placeholder: "--Select Country--",
                       "data-test-id": "country",
                       labelProps: {
                         "data-test-id": "country-label",
@@ -208,7 +209,7 @@ const RegistrationForm = () => {
                     data={OPTIONS.state}
                     label="State"
                     props={{
-                      placeholder: "Select State",
+                      placeholder: "--Select State--",
                       "data-test-id": "state",
                       labelProps: {
                         "data-test-id": "state-label",
@@ -223,7 +224,7 @@ const RegistrationForm = () => {
                     label="City"
                     data-test-id="asasas"
                     props={{
-                      placeholder: "Select City",
+                      placeholder: "--Select City--",
                       "data-test-id": "city",
                       labelProps: {
                         "data-test-id": "city-label",
@@ -422,7 +423,9 @@ const RegistrationForm = () => {
                       closeOnClickOutside: false,
                       overlayProps: { blur: 3 },
                       title: (
-                        <Text fw={600}>Apply Changes to All Reports?</Text>
+                        <Text data-test-id="reset-popup-title" fw={600}>
+                          Apply Changes to All Reports?
+                        </Text>
                       ),
                       transitionProps: { transition: "pop", duration: 200 },
                       children: <SchedulePopup />,

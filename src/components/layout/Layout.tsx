@@ -24,7 +24,7 @@ const Layout = ({ header, navbar, main, aside }: LayoutProps) => {
   return (
     <AppShell {...appShellProps}>
       {header && (
-        <AppShell.Header bg={"transparent"} withBorder={false}>
+        <AppShell.Header bg={"transparent"} withBorder={false} > 
           {header}
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
         </AppShell.Header>
@@ -38,7 +38,11 @@ const Layout = ({ header, navbar, main, aside }: LayoutProps) => {
 
       <AppShell.Main>{main}</AppShell.Main>
 
-      {aside && <AppShell.Aside bg={"transparent"} h="calc(100vh - 115px)" >{aside}</AppShell.Aside>}
+      {aside && (
+        <AppShell.Aside bg={"transparent"} h="calc(100vh - 115px)">
+          {aside}
+        </AppShell.Aside>
+      )}
     </AppShell>
   );
 };

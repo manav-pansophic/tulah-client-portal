@@ -1,5 +1,10 @@
 export const TABSDATA = [
   {
+    value: "inquiry",
+    label: "Inquiry",
+    content: "This is the content for the Gallery tab.",
+  },
+  {
     value: "guests",
     label: "Guests",
     content: "This is the content for the Gallery tab.",
@@ -98,3 +103,5 @@ export const OPTIONS = {
 export const API_CONFIG = {
   BASE_URL: "https://tulahm.pansophictech.com/",
 };
+
+export const VISITOR_ID = "66d824947ce5e26ae9385d72";

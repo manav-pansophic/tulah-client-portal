@@ -12,12 +12,18 @@ const TestStatus: FC<{
   testName?: string;
   testStatus?: string;
   testIcon?: any;
-}> = ({ testName, testStatus, testIcon }) => {
+  index?: string;
+}> = ({ testName, testStatus, testIcon, index }) => {
   return (
     <>
       <Box className="transparent" m="sm">
         <Flex align={"center"} gap="sm">
-          <ActionIcon variant="light" color="#3C3C3C" size="lg">
+          <ActionIcon
+            data-test-id={`gnomelist-icon-${index}`}
+            variant="light"
+            color="#3C3C3C"
+            size="lg"
+          >
             {testIcon}
           </ActionIcon>
           <Flex
@@ -25,9 +31,13 @@ const TestStatus: FC<{
             align={"flex-start"}
             justify={"flex-start"}
           >
-            <Text>{testName}</Text>
+            <Text data-test-id={`gnomelist-name-${index}`}>{testName}</Text>
             <Badge color="#3C3C3C" size="xs" radius="sm" variant="light">
-              <Text c="black" size={"10"}>
+              <Text
+                data-test-id={`gnomelist-status-${index}`}
+                c="black"
+                size={"10"}
+              >
                 {testStatus}
               </Text>
             </Badge>

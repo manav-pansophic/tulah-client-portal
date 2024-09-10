@@ -37,14 +37,29 @@ const UserCard: FC<IProfileInfoCard> = ({
         justify="flex-start"
       >
         <Box py={7}>
-          <Avatar size={avatarSize ?? "lg"} radius="xl" src={avatar} />
+          <Avatar
+            size={avatarSize ?? "lg"}
+            src={avatar}
+            className={profileInfoCardCSS.tulahAvatarimage}
+            data-test-id={`useravtar-${name}`}
+          />
         </Box>
         <Flex justify="space-between" w="100%" py={7}>
           <Box>
-            <Title order={5} size="sm" textWrap="nowrap" fw={500}>
+            <Title
+              data-test-id={`username-${name}`}
+              order={5}
+              size="sm"
+              textWrap="nowrap"
+              fw={500}
+            >
               {name}
             </Title>
-            {badgeName && <Badge radius="sm">{badgeName.toUpperCase()}</Badge>}
+            {badgeName && (
+              <Badge data-test-id={`userbadge-${name}`} radius="sm">
+                {badgeName.toUpperCase()}
+              </Badge>
+            )}
           </Box>
           <Box>
             {time && (

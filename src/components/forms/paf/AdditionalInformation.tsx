@@ -33,7 +33,7 @@ const AdditionalInformation = () => {
           <Box w="100%">
             <TextInput
               props={{
-                placeholder: "Value",
+                placeholder: "Enter Emergency contact name",
                 labelProps: {
                   "data-test-id": "emergency-contact-label",
                 },
@@ -62,7 +62,7 @@ const AdditionalInformation = () => {
               name="additionalInfo.date"
               props={{
                 "data-test-id": "date",
-                placeholder: "Select",
+                placeholder: "--Select Date--",
                 rightSection: <RiCalendarLine />,
                 labelProps: {
                   " data-test-id": "date-label",
