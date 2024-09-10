@@ -13,9 +13,10 @@ import { useGetAccessCodeQuery } from "../../services/schedule/scheduleServices"
 
 const AccessCode = () => {
   const visitorId = "2";
-  const { data } = useGetAccessCodeQuery({ visitorId });
+  const guestId ="66da99818c64a39aeb80b27b";
+  const { data } = useGetAccessCodeQuery({ guestId });
 
-  const accessCode = data?.results?.access_code.toString();
+  const accessCode = data?.results.toString();
 
   return (
     <Flex justify={"center"} direction={"column"} gap="md" align={"center"}>

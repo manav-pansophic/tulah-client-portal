@@ -27,14 +27,7 @@ const ArrivalCard: FC<{ isPicked: boolean; onScheduleClick: () => void }> = ({
           )}
         </Box>
         <Box>
-          {!isPicked ? (
-            <>
-              <RiLock2Fill color="var(--mantine-color-theme-0)" size={80} />
-              <Text size="sm">
-                You can schedule your arrival once your sample is picked.
-              </Text>
-            </>
-          ) : (
+          {isPicked ? (
             <>
               <Button
                 variant="filled"
@@ -46,6 +39,13 @@ const ArrivalCard: FC<{ isPicked: boolean; onScheduleClick: () => void }> = ({
               >
                 Schedule Arrival
               </Button>
+            </>
+          ) : (
+            <>
+              <RiLock2Fill color="var(--mantine-color-theme-0)" size={80} onClick={onScheduleClick}/>
+              <Text size="sm">
+                You can schedule your arrival once your sample is picked.
+              </Text>
             </>
           )}
         </Box>
