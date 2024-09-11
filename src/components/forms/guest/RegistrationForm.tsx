@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Center,
   Divider,
   Flex,
   Grid,
@@ -16,7 +17,7 @@ import {
   TextInput,
   useForm,
 } from "@pansophictech/hook-form";
-import { openModal } from "@pansophictech/modals";
+import { closeAllModals, openModal } from "@pansophictech/modals";
 import SchedulePopup from "../../gnome/SchedulePopup";
 import { OPTIONS } from "../../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +27,7 @@ import {
   useGetAllGuestListQuery,
   useUpdateGuestDetailsMutation,
 } from "../../../services/guests/guestServices";
+import GuestPopup from "./GuestPopup";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -53,18 +55,44 @@ const RegistrationForm = () => {
     updateGuestDetails(values);
     dispatch(setGuestUserData(values));
   };
-  console.log("guestList", guestList);
 
   return (
     <>
       {guestList?.length === 0 ? (
         <Flex
-          h="calc(100vh - 280px)"
+          h="calc(100vh - 150px)"
           w="calc(100vw - 370px)"
           align={"center"}
           justify={"center"}
+          direction={"column"}
         >
-          No List Found Please Add Guest
+          No guests have been added yet. Use the ‘Add Guest’ button on the left
+          <br /> <Center>or</Center> <br />
+          <Button
+            variant="outline"
+            radius={"lg"}
+            size="sm"
+            fullWidth={false}
+            data-test-id="add-new-guest-button"
+            onClick={() =>
+              openModal({
+                centered: true,
+                closeOnClickOutside: true,
+                overlayProps: { blur: 3 },
+                title: (
+                  <Text data-test-id="add-new-guest-popup-title" fw={600}>
+                    Add New Guest
+                  </Text>
+                ),
+                transitionProps: { transition: "pop", duration: 200 },
+                children: <GuestPopup closeAllModal={closeAllModals} />,
+                scrollAreaComponent: ScrollAreaAutosize,
+                size: "md",
+              })
+            }
+          >
+            + ADD NEW GUEST
+          </Button>
         </Flex>
       ) : (
         <>

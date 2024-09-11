@@ -75,7 +75,6 @@ const Sidebar = () => {
               <UserCard
                 key={index}
                 name={`${guest.firstName} ${guest.lastName}`}
-                // avatar={profile.avatar}
                 badgeName={`Guest ${index + 1}`}
                 onClick={() => handleUserCardClick(guest)}
               />
@@ -84,7 +83,7 @@ const Sidebar = () => {
         ) : (
           <>
             <Flex h="calc(100vh - 270px)" justify={"center"} align={"center"}>
-              No Guest List
+              No Guests added
             </Flex>
           </>
         )}
